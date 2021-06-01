@@ -10,6 +10,8 @@ AGVSHAINK nace en el 2020 como un micro-emprendimiento con el deseo de complemen
 - https://www.instagram.com/ (Por la éstetica en la presentación de las fotos)
 - https://askdenim.com.ar/ (Por la forma en que están armadas los wireframes en la página)
 - https://undefinedba.com/ (La éstetica en la tipografía)
+- https://www.kingofthekongo.com.ar/ (Por la exhibicion de los productos en su tienda)
+- https://www.kevingston.com/ (Por el estilo de menus y su impronta estetica)
 
 
 
