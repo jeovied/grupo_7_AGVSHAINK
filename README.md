@@ -33,4 +33,4 @@ Cuando termine el secundario, intente con un amigo ir a la UTN a comenzar la car
 
 #### Camila Aguirre
 
-- 23 años, Lomas de Zamora Buenos Aires. Estudiante de desarrollo Web Full-Stack. Amante de las series y películas.
+- 23 años, Lomas de Zamora Buenos Aires. Estudiante de desarrollo Web Full-Stack e Inglés. Amante de las series y películas.
