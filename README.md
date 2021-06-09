@@ -29,7 +29,7 @@ Cuando termine el secundario, intente con un amigo ir a la UTN a comenzar la car
 
 #### Juan Ignacio Ezequiel Antuñez
 
-- Lanús, Buenos Aires, 20 años, estudiante de programación Web Full-Stack e Ingeniería Electrónica en la UTN. Cinéfilo y apasionado por la tecnología 
+- 20 años, Lanús Buenos Aires, estudiante de programación Web Full-Stack e Ingeniería Electrónica en la UTN. Cinéfilo y apasionado por la tecnología.
 
 #### Camila Aguirre
 
