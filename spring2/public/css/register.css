@@ -1,0 +1,111 @@
+.register{
+    box-sizing: border-box;
+    background-color: var(--color-negro);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.register h2{
+    text-transform: uppercase;
+    color: #fff;
+    border-bottom: 1px solid var(--color-lila);
+    padding: 10px;
+}
+
+/* main */
+
+.register main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 30px;
+    padding: 10px;
+    background-color: var(--color-gris);
+    color: #fff;
+    border: 2px solid var(--color-lila);
+    box-shadow: 0px 0px 20px var(--color-gris);
+}
+.register main div h6{
+    color: #fff;
+    text-transform: uppercase;
+    border-top: 1px solid var(--color-lila);
+    align-items: flex-start;
+    padding-top: 5px;
+}
+.register main div p{
+    border-bottom: 1px solid var(--color-lila);
+    padding-bottom: 5px;
+    font-size: 14px;
+}
+.register main div a{
+    text-transform: uppercase;
+}
+.register main form span{
+    color: #fff;
+    border-bottom: 1px solid var(--color-lila);
+    padding-bottom: 5px;
+    font-size: 12px;
+}
+.register main form a{
+    text-transform: uppercase;
+}
+.register main button{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.register article.insta{
+    display: none;
+}
+
+@media (min-width: 480px){
+    /* section */
+
+    .register article.insta{
+        display: inline;
+        justify-content: space-between;
+    }
+    .register article.insta h3{
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        padding-bottom: 15px;
+
+    }
+    .register article.insta i{
+        display: flex;
+        justify-content: center;
+        font-size: 70px;
+        color: #fff;
+        border-top: 1px solid var(--color-lila);
+        margin-top: 70px;
+        padding: 20px;
+    }
+    .register article.insta div{
+        display: flex;
+        justify-content: center;
+    }
+    .register article.insta div img{
+        width: 45%;
+        margin-bottom: 20px;
+        padding: 5px;
+    }
+}
+
+@media (min-width: 769px){
+
+    /* main */
+
+    .register main{
+        margin: 20px 200px;
+    }
+    .register main div p{
+        font-size: 20px;
+    }
+    .register main form span{
+        font-size: 20px;
+    }
+
+    /* section */
+
+
+}
