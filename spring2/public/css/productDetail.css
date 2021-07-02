@@ -69,15 +69,15 @@
     line-height: 35px;
 }
 
-input[type=radio] + label{
+.productDetail input[type=radio] + label{
     cursor: pointer;
 }
 
-input[type=radio]{
+.productDetail input[type=radio]{
     display: none;
 }
 
-.color1:before{
+.productDetail .color1:before{
     content: "";
     background-color: red;
     border: 3px solid #000;
@@ -87,7 +87,7 @@ input[type=radio]{
     height: 35px;
 }
 
-.color2:before{
+.productDetail .color2:before{
     content: "";
     background-color: blue;
     border: 3px solid #000;
@@ -97,7 +97,7 @@ input[type=radio]{
     height: 35px;
 }
 
-.color3:before{
+.productDetail .color3:before{
     content: "";
     background-color: green;
     border: 3px solid #000;
@@ -107,14 +107,14 @@ input[type=radio]{
     height: 35px;
 }
 
-input[type=radio]:checked + .color1:before,
-input[type=radio]:checked + .color2:before,
-input[type=radio]:checked + .color3:before{
+.productDetail input[type=radio]:checked + .color1:before,
+.productDetail input[type=radio]:checked + .color2:before,
+.productDetail input[type=radio]:checked + .color3:before{
     content: "";
     border: 3px solid #fff;
 }
 
-.talle1:before{
+.productDetail .talle1:before{
     content: "38";
     text-align: center;
     vertical-align: middle;
@@ -127,7 +127,7 @@ input[type=radio]:checked + .color3:before{
     height: 35px;
 }
 
-.talle2:before{
+.productDetail .talle2:before{
     content: "39";
     text-align: center;
     vertical-align: middle;
@@ -140,7 +140,7 @@ input[type=radio]:checked + .color3:before{
     height: 35px;
 }
 
-.talle3:before{
+.productDetail .talle3:before{
     content: "40";
     text-align: center;
     vertical-align: middle;
@@ -153,17 +153,17 @@ input[type=radio]:checked + .color3:before{
     height: 35px;
 }
 
-input[type=radio]:checked + .talle1:before{
+.productDetail input[type=radio]:checked + .talle1:before{
     content: "38";
     border: 3px solid #fff;
 }
 
-input[type=radio]:checked + .talle2:before{
+.productDetail input[type=radio]:checked + .talle2:before{
     content: "39";
     border: 3px solid #fff;
 }
 
-input[type=radio]:checked + .talle3:before{
+.productDetail input[type=radio]:checked + .talle3:before{
     content: "40";
     border: 3px solid #fff;
 }
