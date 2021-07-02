@@ -1,7 +1,12 @@
-header article{
-    display: flex;
-    justify-content: space-between;
+header{
     background-color: var(--color-violeta);
+}
+
+header article{
+    box-sizing: border-box;
+    display: flex;
+    width: auto;
+    justify-content: space-between;
     color: #fff;
     padding: 10px 5px;
 }
@@ -67,13 +72,20 @@ header article .botones div{
         vertical-align: bottom;
     }
 
-    header article .botones .barra-de-busqueda {
-        display: inline-block;
-        border-left: none;
-        padding: 0;
+    header article .botones .barra-de-busqueda{
+        display: none;
     }
 
     header article .botones .barra-de-busqueda input{
         height: 20px;
     }
+}
+@media (min-width: 1279px){
+    
+    header article .botones .barra-de-busqueda{
+        display: inline-block;
+        border-left: none;
+        padding: 0;
+    }
+
 }
