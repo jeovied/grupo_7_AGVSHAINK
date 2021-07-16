@@ -138,16 +138,26 @@
 }
 
 .productCart main aside .datos-del-envio h4{
+    display: none;
     border-top: 2px solid #000;
     padding-top: 15px;
 }
 
 .productCart main aside .datos-del-envio label{
-    display: block;
+    display: none;
+}
+
+.productCart main aside .datos-del-envio input{
+    display: none;
+}
+
+.productCart main aside .datos-del-envio textarea{
+    display: none;
 }
 
 .productCart main aside .datos-del-envio button{
     display: block;
+    margin: auto;
     margin-top: 20px;
     text-transform: uppercase;
     background-color: var(--color-negro);
@@ -228,7 +238,6 @@
 
     .productCart main aside form{
         display: flex;
-        flex-direction: row-reverse;
         justify-content: center;
         justify-content: space-evenly;
     }
