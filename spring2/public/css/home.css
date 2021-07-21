@@ -27,7 +27,9 @@
     font-family: crenzo;
     text-shadow: 0px 0px 5px #fff,
                 0px 0px 15px #000;
+    color: #fff;
 }
+
 
 .home header article nav{
     display: none;
@@ -42,6 +44,9 @@
     border-left: 1px solid black;
     font-size: 22px;
     padding: 2px 5px 2px 10px;
+}
+.home header article .botones div a{
+    color: #fff;
 }
 
 /* SLIDER */
