@@ -21,7 +21,9 @@ header article .burger-menu{
 header article h1{
     display: inline;
     font-size: 22px;
+    color: #fff;
 }
+
 
 header article nav{
     display: none;
@@ -36,6 +38,10 @@ header article .botones div{
     border-left: 1px solid black;
     font-size: 22px;
     padding: 2px 5px 2px 10px;
+}
+
+header article .botones div a{
+    color: #fff;
 }
 
 @media (min-width: 769px){
