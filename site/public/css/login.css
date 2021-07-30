@@ -1,12 +1,12 @@
 .login{
     box-sizing: border-box;
-    background-color: var(--color-negro);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: var(--color-1);
+    font-family: "Poppins";
 }
 .login h2{
     text-transform: uppercase;
-    color: #fff;
-    border-bottom: 1px solid var(--color-lila);
+    color: #000;
+    border-bottom: 1px solid var(--color-4);
     padding: 10px;
 }
 
@@ -18,21 +18,21 @@
     align-items: center;
     margin: 20px 30px;
     padding: 10px;
-    background-color: var(--color-gris);
-    color: #fff;
-    border: 2px solid var(--color-lila);
-    box-shadow: 0px 0px 20px var(--color-gris);
+    background-color: var(--color-2);
+    color: #000;
+    border: 2px solid var(--color-3);
+    box-shadow: 0px 0px 20px #000;
 }
 
 .login main div h6{
-    color: #fff;
+    color: #000;
     text-transform: uppercase;
-    border-top: 1px solid var(--color-lila);
+    border-top: 1px solid var(--color-3);
     align-items: flex-start;
     padding-top: 5px;
 }
 .login main div p{
-    border-bottom: 1px solid var(--color-lila);
+    border-bottom: 1px solid var(--color-3);
     padding-bottom: 5px;
     font-size: 14px;
 }
@@ -40,8 +40,8 @@
     text-transform: uppercase;
 }
 .login main form span{
-    color: #fff;
-    border-bottom: 1px solid var(--color-lila);
+    color: #000;
+    border-bottom: 1px solid var(--color-3);
     padding-bottom: 5px;
     font-size: 12px;
 }
@@ -64,7 +64,7 @@
         justify-content: space-between;
     }
     .login article.insta h3{
-        color: #fff;
+        color: var(--color-4);
         text-align: center;
         text-transform: uppercase;
         padding-bottom: 15px;
@@ -74,8 +74,8 @@
         display: flex;
         justify-content: center;
         font-size: 70px;
-        color: #fff;
-        border-top: 1px solid var(--color-lila);
+        color: var(--color-4);
+        border-top: 1px solid var(--color-3);
         margin-top: 70px;
         padding: 20px;
     }
@@ -96,6 +96,7 @@
 
     .login main{
         margin: 20px 200px;
+        border: solid 2px var(--color-4);
     }
     .login main div p{
         font-size: 20px;

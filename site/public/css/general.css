@@ -1,9 +1,8 @@
 :root{
-    --color-negro: #1F1E24;
-    --color-gris: #4B4A57;
-    --color-azul: #3D03FF;
-    --color-violeta: #2A027A;
-    --color-lila: #6C00FA;
+    --color-1: #F4EEFF;
+    --color-2: #DCD6F7;
+    --color-3: #A6B1E1;
+    --color-4: #424874;
 }
 
 *{
@@ -11,7 +10,7 @@
     margin: 0;
 }
 
-ul, ol{
+ul, ol, a{
     text-decoration: none;
     list-style-type: none;
 }

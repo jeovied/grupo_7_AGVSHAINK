@@ -1,26 +1,29 @@
 .productCart{
     box-sizing: border-box;
-    background-color: #000;
+    background-color: var(--color-1);
+    font-family: "Poppins";
 }
 
 .productCart main{
-    margin: 25px auto;
+    margin: 100px auto;
     width: 85%;
-    background-color: var(--color-negro);
-    padding: 3px 10px;
-    margin-bottom: 45px;
-    color: #fff;
-    box-shadow: 0px 0px 20px var(--color-gris);
+    background-color: var(--color-2);
+    padding: 5px 10px;
+    margin-bottom: 100px;
+    color: rgb(0, 0, 0);
+    box-shadow: 0px 0px 20px #000;
+    border: solid 2px var(--color-4);
 }
 
 .productCart main h2{
     margin: 15px 0;
     font-size: 20px;
     padding-bottom: 5px;
-    border-bottom: 2px solid black
+    border-bottom: 2px solid var(--color-4);
+    color: #000;
 }
 
-.productCart main section{
+.productCart main div section{
     margin-bottom: 80px;
 }
 
@@ -39,7 +42,7 @@
 
 .productCart main article {
     margin-top: 25px;
-    background-color: var(--color-violeta);
+    background-color: var(--color-3);
     padding: 10px 7px; 
     margin-bottom: 15px;
     border-radius: 10px;
@@ -62,8 +65,8 @@
     justify-content: center;
     align-items: center;
     margin-left: 10px;
-    background-color: gray;
-    border: 1px solid #000;
+    background-color: var(--color-1);
+    border: 1px solid var(--color-4);
     width: 25px;
     height: 25px;
 }
@@ -84,7 +87,7 @@
 }
 
 .productCart main article i{
-    background-color: gray;
+    background-color: var(--color-1);
     border-radius: 5px;
     padding: 5px;
 }
@@ -92,7 +95,7 @@
 .productCart main section .precio-total{
     display: flex;
     justify-content: space-between;
-    border-top: 2px solid #000;
+    border-top: 2px solid var(--color-4);
     padding-top: 15px;
 }
 
@@ -107,15 +110,17 @@
 }
 
 .productCart main aside{
-    background-color: var(--color-violeta);
+    background-color: var(--color-3);
     padding: 10px 7px;
     border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .productCart main aside h3{
     text-align: center;
     font-size: 20px;
     margin: 10px 0 25px 0;
+    color: #000;
 }
 
 .productCart main aside hr{
@@ -123,23 +128,26 @@
 }
 
 .productCart main aside .metodo-de-envio{
-    border-top: 2px solid #000;
+    border-top: 2px solid rgb(0, 0, 0);
     padding-top: 15px;
+    margin: 20px;
 }
 
 .productCart main aside .metodo-de-envio label{
     font-size: 18px;
     font-weight: 700;
+    color: #000;
 }
 
 .productCart main aside .metodo-de-envio p{
-    margin: 15px 0;
+    margin: 15px 0px;
     font-size: 14px;
+    color: #000;
 }
 
 .productCart main aside .datos-del-envio h4{
     display: none;
-    border-top: 2px solid #000;
+    border-top: 2px solid rgb(0, 0, 0);
     padding-top: 15px;
 }
 
@@ -158,11 +166,11 @@
 .productCart main aside .datos-del-envio button{
     display: block;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 40px;
     text-transform: uppercase;
-    background-color: var(--color-negro);
-    color: #fff;
-    border-color: var(--color-azul);
+    background-color: var(--color-4);
+    color: var(--color-1);
+    border-color: var(--color-1);
     padding: 10px;
 }
 
@@ -177,7 +185,7 @@
     .productCart main .titulo-columna{
         display: flex;
         justify-content: space-between;
-        border-bottom: 2px solid #000;
+        border-bottom: 2px solid var(--color-4);
         padding: 10px 40px 0 0;
         
     }
@@ -279,7 +287,7 @@
     }
 
     .productCart main aside .metodo-de-envio{
-        border-top: 2px solid #000;
+        border-top: 2px solid var(--color-4);
         padding-top: 15px;
     }
 

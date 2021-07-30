@@ -1,16 +1,18 @@
 .productDetail {
     box-sizing: border-box;
-    background-color: #000;
+    background-color: var(--color-1);
+    font-family: "Poppins";
 }
 
 .productDetail main{
     margin: 25px auto;
     width: 85%;
-    background-color: var(--color-negro);
+    background-color: var(--color-2);
     padding: 3px 10px;
     margin-bottom: 45px;
-    color: #fff;
-    box-shadow: 0px 0px 20px var(--color-gris);
+    color: #000;
+    box-shadow: 0px 0px 20px #000;
+    border: solid 2px var(--color-4);
 }
 
 .productDetail main h2{
@@ -19,7 +21,7 @@
 }
 
 .productDetail main .producto{
-    border-top: 2px solid black;
+    border-top: 2px solid var(--color-4);
     padding: 15px 0;
     position: relative;
 }
@@ -37,7 +39,7 @@
     position: absolute;
     top: 20%;
     left: 5%;
-    background-color: #4b4a5733;
+    background-color: #574a5233;
     padding: 3px;
 }
 
@@ -51,18 +53,19 @@
 
 
 .productDetail main .seccion1{
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--color-4);
 }
 
 .productDetail main .seccion1 h3,
 .productDetail main .seccion1 p{
     line-height: 30px;
     font-size: 18px;
+    text-transform: capitalize;
 }
 
 .productDetail main .seccion1 p{
     font-size: 14px;
-    color: var(--color-azul);
+    color: var(--color-4);
 }
 
 .productDetail main .seccion2{
@@ -80,7 +83,7 @@
 .productDetail .color1:before{
     content: "";
     background-color: red;
-    border: 3px solid #000;
+    border: 3px solid var(--color-4);
     border-radius: 5px;
     display: inline-block;
     width: 35px;
@@ -90,7 +93,7 @@
 .productDetail .color2:before{
     content: "";
     background-color: blue;
-    border: 3px solid #000;
+    border: 3px solid var(--color-4);
     border-radius: 5px;
     display: inline-block;
     width: 35px;
@@ -100,7 +103,7 @@
 .productDetail .color3:before{
     content: "";
     background-color: green;
-    border: 3px solid #000;
+    border: 3px solid var(--color-4);
     border-radius: 5px;
     display: inline-block;
     width: 35px;
@@ -111,7 +114,7 @@
 .productDetail input[type=radio]:checked + .color2:before,
 .productDetail input[type=radio]:checked + .color3:before{
     content: "";
-    border: 3px solid #fff;
+    border: 3px solid var(--color-1);
 }
 
 .productDetail .talle1:before{
@@ -119,8 +122,8 @@
     text-align: center;
     vertical-align: middle;
     font-size: 25px;
-    background-color: var(--color-gris);
-    border: 3px solid #000;
+    background-color: var(--color-3);
+    border: 3px solid var(--color-4);
     border-radius: 5px;
     display: inline-block;
     width: 35px;
@@ -132,8 +135,8 @@
     text-align: center;
     vertical-align: middle;
     font-size: 25px;
-    background-color: var(--color-gris);
-    border: 3px solid #000;
+    background-color: var(--color-3);
+    border: 3px solid var(--color-4);
     border-radius: 5px;
     display: inline-block;
     width: 35px;
@@ -145,8 +148,8 @@
     text-align: center;
     vertical-align: middle;
     font-size: 25px;
-    background-color: var(--color-gris);
-    border: 3px solid #000;
+    background-color: var(--color-3);
+    border: 3px solid var(--color-4);
     border-radius: 5px;
     display: inline-block;
     width: 35px;
@@ -155,22 +158,22 @@
 
 .productDetail input[type=radio]:checked + .talle1:before{
     content: "38";
-    border: 3px solid #fff;
+    border: 3px solid var(--color-1);
 }
 
 .productDetail input[type=radio]:checked + .talle2:before{
     content: "39";
-    border: 3px solid #fff;
+    border: 3px solid var(--color-1);
 }
 
 .productDetail input[type=radio]:checked + .talle3:before{
     content: "40";
-    border: 3px solid #fff;
+    border: 3px solid var(--color-1);
 }
 
 .productDetail main .seccion2 select{
     width: 30%;
-    background-color: var(--color-azul);
+    background-color: var(--color-1);
     text-align: center;
     font-size: 12px;
 }
@@ -179,9 +182,9 @@
     display: block;
     margin-top: 20px;
     text-transform: uppercase;
-    background-color: var(--color-negro);
-    color: #fff;
-    border-color: var(--color-azul);
+    background-color: var(--color-4);
+    color: var(--color-1);
+    border-color: var(--color-1);
     padding: 10px;
 }
 
@@ -201,15 +204,16 @@
     width: 75%;
     height: 3px;
     margin: 0 10px;
-    background-color: var(--color-azul);
+    background-color: var(--color-4);
     border: none;
 }
 
 .productDetail main .relacionado h3{
     text-align: center;
-    border: 2px solid black;
+    text-transform: uppercase;
+    border: 2px solid var(--color-4);
     padding: 10px;
-    background-color: var(--color-azul);
+    background-color: var(--color-3);
 }
 
 .productDetail main .relacionado .producto2,
@@ -240,19 +244,22 @@
 .productDetail main .relacionado h6{
     font-size: 12px;
     text-transform: uppercase;
+    color: var(--color-4);
 }
 
 .productDetail main .relacionado .categoria{
-    color: var(--color-azul);
+    color: var(--color-4);
     font-size: 15px;
 } 
 
 .productDetail main .relacionado .precio{
     font-size: 18px;
+    color: var(--color-4);
 }
 
 .productDetail main .ig{
     display: none;
+    color: var(--color-4);
 }
 
 @media (min-width: 480px){
@@ -264,11 +271,13 @@
 
     .productDetail main .producto .modelo1{
         width: 65vw;
+        border: solid 2px var(--color-4);
     }
 
     .productDetail main .producto .imgenes-secundarias{
         display: flex;
         flex-direction: column;
+        border: solid 2px var(--color-4);
     }
 
     .productDetail main .producto .modelo2,
@@ -323,7 +332,7 @@
     .productDetail main .ig img{
         width: 100%;
         margin-bottom: 25px;
-        box-shadow: 0px 0px 7px var(--color-gris);
+        box-shadow: 0px 0px 7px var(--color-4);
     }
 }
 
