@@ -277,14 +277,14 @@
     .productDetail main .producto .imgenes-secundarias{
         display: flex;
         flex-direction: column;
-        border: solid 2px var(--color-4);
     }
 
     .productDetail main .producto .modelo2,
     .productDetail main .producto .modelo3{
         display: inline;
         width: 15vw;
-        padding: 0 0 15px 15px;
+        margin: 0 0 15px 15px;
+        border: solid 2px var(--color-4);
     }
 
     .productDetail main .producto .fa-chevron-left,
@@ -355,7 +355,7 @@
     .productDetail main .producto .modelo3{
         display: inline;
         width: 8vw;
-        padding: 0 0 15px 15px;
+        margin: 0 0 15px 15px;
     } 
 
     .productDetail main .producto .detalles-del-producto{

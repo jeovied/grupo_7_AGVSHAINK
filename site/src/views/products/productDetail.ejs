@@ -8,22 +8,22 @@
         <%- include('../partials/header') %>
     </header>
     <main>
-        <h2>Nombre del producto</h2>
+        <h2><%= product.name %> </h2>
             <article class="producto">
                 <div class="imagenes">
-                    <img class="modelo1" src="/img/producto1.JPG" alt="">
+                    <img class="modelo1" src="/img/<%= product.image1 %>" alt="">
                     <div class="imgenes-secundarias">
-                        <img class="modelo2" src="/img/producto2.JPG" alt="">
-                        <img class="modelo3" src="/img/producto3.JPG" alt="">
+                        <img class="modelo2" src="/img/<%= product.image2 %>" alt="">
+                        <img class="modelo3" src="/img/<%= product.image3 %>" alt="">
                     </div>
                 </div>
                 <i class="fas fa-chevron-left"></i>        
                 <i class="fas fa-chevron-right"></i>
                 <article class="detalles-del-producto">
                     <div class="seccion1">
-                        <h3>nombre del producto</h3>
-                        <p>cod. 9999</p>
-                        <h3>$9999,99</h3>
+                        <h3><%= product.name %></h3>
+                        <p>cod. <%= product.cod %> </p>
+                        <h3>$<%= product.price %> </h3>
                     </div>
                     <div class="seccion2">
                         <h4>color:</h4>
@@ -69,7 +69,7 @@
             </div>
             <div class="productos-relacionados">
                 <article class="producto1">
-                    <img src="/img/relacionado1.JPG" alt="">
+                    <img src="/img/producto3.jpeg" alt="">
                     <i class="fas fa-chevron-left"></i>
                     <i class="fas fa-chevron-right"></i>
                     <h6>nombre del producto</h6>
@@ -77,7 +77,7 @@
                     <p class="precio">9999.99</p>
                 </article>
                 <article class="producto2">
-                    <img src="/img/relacionado2.JPG" alt="">
+                    <img src="/img/producto3.jpeg" alt="">
                     <i class="fas fa-chevron-left"></i>
                     <i class="fas fa-chevron-right"></i>
                     <h6>nombre del producto</h6>
@@ -85,7 +85,7 @@
                     <p class="precio">9999.99</p>
                 </article>
                 <article class="producto3">
-                    <img src="/img/relacionado1.JPG" alt="">
+                    <img src="/img/producto3.jpeg" alt="">
                     <i class="fas fa-chevron-left"></i>
                     <i class="fas fa-chevron-right"></i>
                     <h6>nombre del producto</h6>
