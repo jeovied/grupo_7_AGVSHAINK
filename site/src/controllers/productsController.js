@@ -5,6 +5,10 @@ const productsPath = path.join(__dirname, "../data/products.json")
 const products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
 
 module.exports = {
+    productsList: (req,res) =>{
+        return res.render(path.join(__dirname, '..', 'views', 'products', 'products'), {products})
+    },
+
     detail : (req,res) => {
         
         let product = products.find(product => product.id === +req.params.id);

@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const {detail, cart, add, edit, destroy} = require('../controllers/productsController');
+const {productsList, detail, cart, add, edit, destroy} = require('../controllers/productsController');
 
+router.get('/', productsList)
 router.get('/detail/:id', detail);
 router.get('/cart', cart);
 router.get('/add', add);
