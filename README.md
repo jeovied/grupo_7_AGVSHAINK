@@ -23,10 +23,6 @@ AGVSHAINK nace en el 2020 como un micro-emprendimiento con el deseo de complemen
 - Desde chico siempre me gusto la tecnología y sobre todo los videojuegos. Ser creativo y construir diferentes estructuras mentales pequeñas conectando unas con otras, era parte de las cosas que me gustaba hacer cuando era pequeño.
 Cuando termine el secundario, intente con un amigo ir a la UTN a comenzar la carrera de Tecnicatura en sistemas, pero, lamentablemente, duro poco para mí y fue ahí cuando deje y me aboque al aprendizaje teatral. Pasé por diversas experiencias académicas, entre ellas; turismo, docencia, lengua extranjera y luego de varios años, volví al comienzo para retomar esta pasión por la ciencia de la informática y la computación. En este caso el desarrollo de software mediante la programación web sumado al inicio de la carrera ingeniería en informática en la UBA.
 
-#### Maximiliano Rivero
-
-- 21 años, oriundo de la Ciudad Autónoma de Buenos Aires. Soy fanático loco de la cocina, llevo dedicándole casi toda mi vida a los sabores. Con ganas de dejar de trabajar en el rubro gastronómico y hacerlo mas por hobby decidí empezar a estudiar Desarrollo Web.
-
 #### Juan Ignacio Ezequiel Antuñez
 
 - 20 años, Lanús Buenos Aires, estudiante de programación Web Full-Stack e Ingeniería Electrónica en la UTN. Cinéfilo y apasionado por la tecnología.

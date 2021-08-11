@@ -1,0 +1,24 @@
+:root{
+    --color-negro: #1F1E24;
+    --color-gris: #4B4A57;
+    --color-azul: #3D03FF;
+    --color-violeta: #2A027A;
+    --color-lila: #6C00FA;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+ul, ol{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+@font-face {
+    font-family: "Crenzo";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/CRENZO.ttf") format("truetype");
+}

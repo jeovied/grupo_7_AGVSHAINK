@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body class="productDetail">
+    <header>
+        <%- include('../partials/header') %>
+    </header>
+    <main>
+        <h2><%= product.name %> </h2>
+            <article class="producto">
+                <div class="imagenes">
+                    <img class="modelo1" src="/img/<%= product.image1 %>" alt="">
+                    <div class="imgenes-secundarias">
+                        <img class="modelo2" src="/img/<%= product.image2 %>" alt="">
+                        <img class="modelo3" src="/img/<%= product.image3 %>" alt="">
+                    </div>
+                </div>
+                <i class="fas fa-chevron-left"></i>        
+                <i class="fas fa-chevron-right"></i>
+                <article class="detalles-del-producto">
+                    <div class="seccion1">
+                        <h3><%= product.name %></h3>
+                        <p>cod. <%= product.cod %> </p>
+                        <h3>$<%= product.price %> </h3>
+                    </div>
+                    <div class="seccion2">
+                        <h4>color:</h4>
+                        <form action="resultado.html" method="POST">
+                            <input type="radio" id="color1" name="color">
+		                    <label class="color1" for="color1"></label>
+                            <input type="radio" id="color2" name="color">
+		                    <label class="color2" for="color2"></label>
+                            <input type="radio" id="color3" name="color">
+		                    <label class="color3" for="color3"></label>
+                        </form>
+                        <h4>talle:</h4>
+                        <form action="resultado.html" method="POST">
+                            <input type="radio" id="talle1" name="talle">
+		                    <label class="talle1" for="talle1"></label>
+                            <input type="radio" id="talle2" name="talle">
+		                    <label class="talle2" for="talle2"></label>
+                            <input type="radio" id="talle3" name="talle">
+		                    <label class="talle3" for="talle3"></label>
+                        </form>
+                        <h4>cantidad:</h4>
+                        <select>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                            <option value=9>9</option>
+                            <option value=10>10</option>
+                        </select>
+                        <button class="agregar">
+                            <p>agregar al carrito</p>
+                        </button>
+                    </div>
+                </article>
+            </article>
+        <section class="relacionado">
+            <div>
+                <hr><h3>relacionado</h3><hr>
+            </div>
+            <div class="productos-relacionados">
+                <article class="producto1">
+                    <img src="/img/producto3.jpeg" alt="">
+                    <i class="fas fa-chevron-left"></i>
+                    <i class="fas fa-chevron-right"></i>
+                    <h6>nombre del producto</h6>
+                    <p class="categoria">categoria</p>
+                    <p class="precio">9999.99</p>
+                </article>
+                <article class="producto2">
+                    <img src="/img/producto3.jpeg" alt="">
+                    <i class="fas fa-chevron-left"></i>
+                    <i class="fas fa-chevron-right"></i>
+                    <h6>nombre del producto</h6>
+                    <p class="categoria">categoria</p>
+                    <p class="precio">9999.99</p>
+                </article>
+                <article class="producto3">
+                    <img src="/img/producto3.jpeg" alt="">
+                    <i class="fas fa-chevron-left"></i>
+                    <i class="fas fa-chevron-right"></i>
+                    <h6>nombre del producto</h6>
+                    <p class="categoria">categoria</p>
+                    <p class="precio">9999.99</p>
+                </article>
+            </div>
+        </section>
+        <article class="ig">
+            <i class="fab fa-instagram"></i>
+            <h3>instagram</h3>
+            <section>
+                <div>
+                    <img src="/img/ig.jpg" alt="">
+                    <img src="/img/ig.jpg" alt="">
+                </div>
+                <div>
+                    <img src="/img/ig.jpg" alt="">
+                    <img src="/img/ig.jpg" alt="">
+                </div>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <%- include('../partials/footer') %>
+    </footer>
+</body>
+</html>
