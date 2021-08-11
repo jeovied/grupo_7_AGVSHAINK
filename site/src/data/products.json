@@ -1,49 +1,64 @@
 [
   {
-      "id": 1,
-      "name": "Buzo Vans",
-      "price": 7000,
-      "cod": 4563,
-      "category": "buzos",
-      "color": ["black", "gray"],
-      "talle": ["S", "M", "L"],
-      "image1": "producto1.jpg",
-      "image2": "producto1_2.jpg",
-      "image3": "producto1_3.jpg"
+    "id": 1,
+    "name": "Buzo Vans",
+    "price": 7000,
+    "cod": 4563,
+    "category": "buzos",
+    "color": [
+      "black",
+      "gray"
+    ],
+    "talle": [
+      "S",
+      "M",
+      "L"
+    ],
+    "image1": "producto1.jpg",
+    "image2": "producto1_2.jpg",
+    "image3": "producto1_3.jpg"
   },
   {
-      "id": 2,
-      "name": "Nike Air Force 1",
-      "price": 15000,
-      "cod": 2385,
-      "category": "zapatillas",
-      "color": [],
-      "talle": [38, 40, 44],
-      "image1": "producto2.jpeg",
-      "image2": "producto2_2.jpeg",
-      "image3": "producto2_3.jpeg"
+    "id": 2,
+    "name": "Nike Air Force 1",
+    "price": 15000,
+    "cod": 2385,
+    "category": "zapatillas",
+    "color": [],
+    "talle": [
+      38,
+      40,
+      44
+    ],
+    "image1": "producto2.jpeg",
+    "image2": "producto2_2.jpeg",
+    "image3": "producto2_3.jpeg"
   },
   {
-      "id": 3,
-      "name": "Remera adidas Yoda",
-      "price": 5600,
-      "cod": 8197,
-      "category": "remeras",
-      "color": [],
-      "talle": ["S", "M", "XL"],
-      "image1": "producto3.jpeg",
-      "image2": "producto3_2.jpeg"
+    "id": 3,
+    "name": "Remera adidas Yoda",
+    "price": 5600,
+    "cod": 8197,
+    "category": "remeras",
+    "color": [],
+    "talle": [
+      "S",
+      "M",
+      "XL"
+    ],
+    "image1": "producto3.jpeg",
+    "image2": "producto3_2.jpeg"
   },
   {
-      "id": 4,
-      "name": "Gorra Looney Tunes",
-      "price": 3700,
-      "cod": 6653,
-      "category": "accesorios",
-      "color": [],
-      "talle": [],
-      "image1": "producto4.jpeg",
-      "image2": "producto4_2.jpeg",
-      "image3": "producto4_3.jpeg"
+    "id": 4,
+    "name": "Gorra Looney Tunes",
+    "price": 3700,
+    "cod": 6653,
+    "category": "accesorios",
+    "color": [],
+    "talle": [],
+    "image1": "producto4.jpeg",
+    "image2": "producto4_2.jpeg",
+    "image3": "producto4_3.jpeg"
   }
 ]

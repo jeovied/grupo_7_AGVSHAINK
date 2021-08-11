@@ -11,32 +11,44 @@
     </header>
     <main>
         <h2>editar producto</h2>
-        <form action="" method="POST">
+        <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST">
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" name="title">
+                <input type="text" class="form-control" id="formGroupExampleInput" name="title" value="<%= product.name %>">
               </div>
-              <div class="mb-3">
-                <label for="floatingTextarea">Descripción</label>
-                <textarea class="form-control" id="floatingTextarea" name="description"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="formFile" class="form-label">Imagen</label>
-                <input class="form-control" type="file" id="formFile">
-              </div>
-              <label for="exampleColorInput" class="form-label">Color</label>
-<input type="color" class="form-control form-control-color" id="exampleColorInput" value="#000" title="Choose your color">
               <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="formGroupExampleInput2" name="price">
+                <input type="number" class="form-control" id="formGroupExampleInput2" name="price" value="<%= product.price %>">
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Codigo</label>
+                <input type="number" class="form-control" id="formGroupExampleInput2" name="cod" value="<%= product.cod %>">
               </div>
               <div class="mb-3">
                 <label for="category" class="form-label">Categoría</label>
 
                 <select id="category" class="form-select" name="category">
-                    <option value="" selected hidden>Seleccione la categoría</option>
+                    <% categories.forEach(category => { %>
+                        <option value="<%= category %>" <%= category == product.category ? 'selected' : null %> ><%= category %></option>
+                       <% }) %>
                   </select>
               </div>
+              <label for="exampleColorInput" class="form-label">Color</label>
+<input type="color" class="form-control form-control-color" id="exampleColorInput" value="#000" title="Choose your color">
+            <div class="mb-3">
+             <label for="formGroupExampleInput" class="form-label">Talle</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" name="talle" value="<%= product.talle %>">
+                </div>
+                <div class="mb-3">
+                <label for="floatingTextarea">Descripción</label>
+                <textarea class="form-control" id="floatingTextarea" name="description" value="<%= product.description %>"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Imagen</label value="<%= product.image1 %>">
+                <input class="form-control" type="file" id="formFile">
+              </div>
+              
+              
               <button class="btn btn-primary" type="submit" style="margin: 20px auto; display: flex; justify-content: center; flex-direction: column; align-items: center;">Guardar</button>
         </form>
             
@@ -45,16 +57,6 @@
         <article class="insta">
             <i class="fab fa-instagram"></i>
             <h3>instagram</h3>
-            <section>
-                <div>
-                    <img src="/images/pokemon.jpeg" alt="">
-                    <img src="/images/pokemon.jpeg" alt="">
-                </div>
-                <div>
-                    <img src="/images/pokemon.jpeg" alt="">
-                    <img src="/images/pokemon.jpeg" alt="">
-                </div>
-            </section>
         </article>
     </div>
     <footer>
