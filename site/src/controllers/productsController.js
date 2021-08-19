@@ -7,29 +7,29 @@ const categories = require('../data/categories_db');
 
 module.exports = {
     productsList: (req,res) =>{
-        return res.render(path.join(__dirname, '..', 'views', 'products', 'products'), {products})
+        return res.render('./products/products', {products})
     },
 
     detail : (req,res) => {
         
         let product = products.find(product => product.id === +req.params.id);
 
-        return res.render(path.join(__dirname, '..', 'views', 'products', 'productDetail'), {product});
+        return res.render('./products/productDetail', {product});
     },
 
     cart : (req,res) => {
-        return res.render(path.join(__dirname, '..', 'views', 'products', 'productCart'));
+        return res.render('./products/productCart');
     },
 
     add : (req,res) => {
-        return res.render(path.join(__dirname,'..','views','products','productAdd'), {categories});
+        return res.render('./products/productAdd', {categories});
     },
 
     edit : (req,res) => {
 
         let product = products.find(producto => producto.id === +req.params.id)
 
-        return res.render(path.join(__dirname,'..','views','products','productEdit'), {product, categories}); 
+        return res.render('./products/productEdit', {product, categories}); 
     },
 
     destroy: (req,res) => {

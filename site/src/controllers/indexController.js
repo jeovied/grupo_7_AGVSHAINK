@@ -5,10 +5,11 @@ const products = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/produc
 
 module.exports = {
     index : (req,res) => {
-        return res.render(path.join(__dirname, '..', 'views', 'index'));
+        return res.render("index", { products });
     },
 
     admin: (req,res) => {
-        return res.render("admin", {products});
+        return res.render("admin", 
+        { products : JSON.parse(fs.readFileSync(path.join(__dirname, "../data/products.json"), "utf-8"))});
     }
 }
