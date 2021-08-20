@@ -1,11 +1,12 @@
 [
-    {
-        "id" : [],
-        "firstName" : [],
-        "lastName" : [],
-        "email" : [],
-        "password" : [],
-        "category" : [],
-        "image" : []
-    }
+  {
+    "id": 1,
+    "name": "Juan",
+    "lastname": "Leonardelli",
+    "email": "antuezequiel01@gmail.com",
+    "password": "$2a$10$Y1v9A3Yf2lXm7ngJOR2X7uCa5zdZatSJVc8TIIgZmApHDZDRY.XNu",
+    "number": 1151768589,
+    "image": "default-avatar.jpg",
+    "category": "user"
+  }
 ]

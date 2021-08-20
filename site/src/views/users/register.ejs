@@ -15,32 +15,61 @@
         <h3>Crea tu cuenta</h3>
         <div>
             <h6>Datos de usuario</h6>
-            <p>Si ya estas registrado <a href="">click aca</a></p>
+            <p>Si ya estas registrado <a href="/users/login">click aca</a></p>
         </div>
-        <form>
+        <form method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="exampleInputName1" class="form-label">Nombre</label>
-                <input type="text" placeholder="Jose" class="form-control" id="exampleInputName1" aria-describedby="emailHelp">
+                <input type="text" name="name" placeholder="Jose" value="<%= locals.old && old.name ? old.name : null %>" class="form-control" id="exampleInputName1" aria-describedby="emailHelp">
+                <% if (locals.errors) { %>
+                 <% errors.forEach(error => { %>
+                    <span><%- error.param === "name" ? error.msg : null %> </span>
+                 <% }) %>
+                <% } %>
               </div>
             <div class="mb-3">
                 <label for="exampleInputLastName1" class="form-label">Apellido</label>
-                <input type="text" placeholder="Perez" class="form-control" id="exampleInputLastName1" aria-describedby="emailHelp">
+                <input type="text" name="lastname" placeholder="Perez" value="<%= locals.old && old.lastname ? old.lastname : null %>" class="form-control" id="exampleInputLastName1" aria-describedby="emailHelp">
+                <% if (locals.errors) { %>
+                    <% errors.forEach(error => { %>
+                       <span><%- error.param === "lastname" ? error.msg : null %> </span>
+                    <% }) %>
+                   <% } %>
               </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email</label>
-              <input type="email" placeholder="joseperez@gmail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" name="email" placeholder="joseperez@gmail.com" value="<%= locals.old && old.email ? old.email : null %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <% if (locals.errors) { %>
+                <% errors.forEach(error => { %>
+                   <span><%- error.param === "email" ? error.msg : null %> </span>
+                <% }) %>
+               <% } %>
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+              <% if (locals.errors) { %>
+                <% errors.forEach(error => { %>
+                   <span><%- error.param === "password" ? error.msg : null %> </span>
+                <% }) %>
+               <% } %>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPhoneNumber1" class="form-label">Número de telefono</label>
-                <input type="number" placeholder="15-12345678" class="form-control" id="exampleInputPhoneNumber1" aria-describedby="emailHelp">
+                <input type="number" name="number" placeholder="15-12345678" value="<%= locals.old && old.number ? old.number : null %>" class="form-control" id="exampleInputPhoneNumber1" aria-describedby="emailHelp">
+                <% if (locals.errors) { %>
+                    <% errors.forEach(error => { %>
+                       <span><%- error.param === "number" ? error.msg : null %> </span>
+                    <% }) %>
+                   <% } %>
+              </div>
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Avatar</label>
+                <input class="form-control" type="file" name="avatar" id="formFile">
               </div>
             <div class="d-flex justify-content-end" style="flex-direction: column; align-items: center;">
                 <div class="mb-3 form-check"> 
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input type="checkbox" name="remenber" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Recordarme</label>
                   </div>
             </div>
