@@ -5,10 +5,7 @@
     "price": 7000,
     "cod": 4563,
     "category": "buzos",
-    "color": [
-      "black",
-      "gray"
-    ],
+    "color": [],
     "talle": [
       "S",
       "M",

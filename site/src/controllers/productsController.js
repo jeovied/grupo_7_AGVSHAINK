@@ -14,7 +14,7 @@ module.exports = {
         
         let product = products.find(product => product.id === +req.params.id);
 
-        return res.render('./products/productDetail', {product});
+        return res.render('./products/productDetail', { product, products});
     },
 
     cart : (req,res) => {

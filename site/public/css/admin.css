@@ -15,16 +15,18 @@
     cursor: pointer;
     font-size: 18px;
     margin: 15px;
-    background-color: var(--color-3);
-    border: 3px solid var(--color-4);
-    padding: 10px;
+    background-color: var(--color-4);
+    color: var(--color-1);
+    border: 3px solid var(--color-3);
+    border-radius: 5px;
+    padding: 7px 10px;
     transition-property: all;
     transition-duration: 300ms;
 }
 
 .admin main .add:hover{
-    background-color: var(--color-4);
-    border: 3px solid var(--color-3);
+    border: 3px solid var(--color-1);
+    box-shadow: 0 0 5px var(--color-4);
 }
 
 .admin main .add a{
