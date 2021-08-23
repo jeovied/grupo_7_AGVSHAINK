@@ -41,24 +41,51 @@ module.exports = {
         return res.redirect("/admin")
     },
     save : (req,res) => {
-        const {id,name, price, cod, category, color, talle, image1, image2, image3} = req.body;
+        const {id,name, price, cod, category, color, talle,images} = req.body;
 
+        if(req.files){{
+            var imagenes = req.files.map(imagen => imagen.filename)
+        }
         let producto = {
             id : products[products.length - 1].id + 1, 
             name, 
             price : +price, 
-            cod, 
+            cod : +cod, 
             category, 
             color, 
             talle, 
-            image1 : 'default-image.png', 
-            image2 : 'default-image.png', 
-            image3 : 'default-image.png'
+            images : req.files.length != 0 ? imagenes : ['default-image.png']
         }
         products.push(producto)
 
         fs.writeFileSync(path.join(__dirname,'..', 'data', 'products.json'), JSON.stringify(products,null,2),'utf-8')
 
         return res.redirect('/')
+    }else{
+        return res.redirect('productAdd')
+    }
+    
+    },
+    update : (req,res) => {
+        const {id,name, price, cod, category, color, talle,image1,image2,image3} = req.body;
+
+        let producto = products.find(producto => producto.id === +req.params.id)
+        let productoEditado = {
+            id : +req.params.id,
+            name,
+            price : +price,
+            cod: +cod,
+            category,
+            color,
+            talle,
+            image : req.file ? req.file.filename : producto.image,
+            
+        }
+
+        let productosModificados = productos.map(producto => producto.id === +req.params.id ? productoEditado : producto)
+
+        guardar(productosModificados)
+        res.redirect('/')
+          
     }
 }

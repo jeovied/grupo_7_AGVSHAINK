@@ -12,7 +12,7 @@
     </header>
     <main>
         <h2>agregar producto</h2>
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="formGroupExampleInput" name="name" >
@@ -45,9 +45,14 @@
                 <label for="floatingTextarea">Descripción</label>
                 <textarea class="form-control" id="floatingTextarea" name="description" ></textarea>
               </div>
-              <div class="mb-3">
+              <!-- <div class="mb-3">
                 <label for="formFile" class="form-label">Imagen</label>
                 <input class="form-control" type="file" id="formFile">
+              </div> -->
+              <div class="mb-3">
+                <label for="productImagen" class="form-label">Imagen</label>
+                <input type="file" class="form-control" id="productImagen" name="image" accept="image/*" multiple>
+                <span class="text-danger"><%= typeof error != 'undefined' ? error : null %> </span>
               </div>
               
               

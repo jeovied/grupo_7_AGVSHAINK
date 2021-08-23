@@ -11,7 +11,7 @@
     </header>
     <main>
         <h2>editar producto</h2>
-        <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST">
+        <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="formGroupExampleInput" name="title" value="<%= product.name %>">
@@ -34,18 +34,23 @@
                   </select>
               </div>
               <label for="exampleColorInput" class="form-label">Color</label>
-<input type="color" class="form-control form-control-color" id="exampleColorInput" value="#000" title="Choose your color">
+<input type="color" class="form-control form-control-color" id="exampleColorInput" value="<%= product.color %>" title="Choose your color" name="color">
             <div class="mb-3">
              <label for="formGroupExampleInput" class="form-label">Talle</label>
                 <input type="text" class="form-control" id="formGroupExampleInput" name="talle" value="<%= product.talle %>">
                 </div>
                 <div class="mb-3">
                 <label for="floatingTextarea">Descripción</label>
-                <textarea class="form-control" id="floatingTextarea" name="description" value="<%= product.description %>"></textarea>
+                <textarea class="form-control" id="floatingTextarea" name="description" ><%= product.description %></textarea>
               </div>
-              <div class="mb-3">
-                <label for="formFile" class="form-label">Imagen</label value="<%= product.image1 %>">
+              <!-- <div class="mb-3">
+                <label for="formFile" class="form-label">Imagen</label value="
                 <input class="form-control" type="file" id="formFile">
+              </div> -->
+              <div class="mb-3">
+                <label for="productImagen" class="form-label">Imagen</label>
+                <input type="file" class="form-control" id="productImagen" name="image" accept="image/*" multiple>
+                <span class="text-danger"><%= typeof error != 'undefined' ? error : null %> </span>
               </div>
               
               
