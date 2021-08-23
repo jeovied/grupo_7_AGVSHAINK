@@ -28,6 +28,7 @@
 
 .productDetail main .producto .modelo1{
     width: 100%;
+    border: solid 2px var(--color-4);
 }
 
 .productDetail main .producto .modelo2,
@@ -54,6 +55,7 @@
 
 .productDetail main .seccion1{
     border-bottom: 2px solid var(--color-4);
+    padding: 15px 0;
 }
 
 .productDetail main .seccion1 h3,
@@ -171,21 +173,52 @@
     border: 3px solid var(--color-1);
 }
 
+.productDetail main .seccion2 form {
+    margin-top: 25px;
+}
+
 .productDetail main .seccion2 select{
-    width: 30%;
+    /* width: 30%;
     background-color: var(--color-1);
     text-align: center;
-    font-size: 12px;
+    font-size: 12px; */
+    outline: none; 
+    border: 2px solid var(--color-3);
+    width: 30%;
+    height: 30px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 5px 0;
+    font-size: 14px;
+    border-radius: 7px;
+    background-color: var(--color-1);
+    transition-property: all;
+    transition-duration: 300ms;
+}
+
+.productDetail main .seccion2 select:hover{
+    border: 2px solid var(--color-4);
+    box-shadow: 0 0 5px var(--color-4);
 }
 
 .productDetail main .seccion2 .agregar{
     display: block;
+    cursor: pointer;
+    font-family: "Poppins";
+    font-size: 18px;
     margin-top: 20px;
-    text-transform: uppercase;
     background-color: var(--color-4);
     color: var(--color-1);
-    border-color: var(--color-1);
-    padding: 10px;
+    border: 3px solid var(--color-3);
+    border-radius: 7px;
+    padding: 7px 10px;
+    transition-property: all;
+    transition-duration: 300ms;
+}
+
+.productDetail main .seccion2 .agregar:hover{
+    border: 3px solid var(--color-1);
+    box-shadow: 0 0 5px var(--color-4);
 }
 
 .productDetail main .relacionado{
@@ -193,7 +226,7 @@
     margin: 70px 0;
 }
 
-.productDetail main .relacionado div{
+.productDetail main .relacionado .title{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -205,40 +238,42 @@
     height: 3px;
     margin: 0 10px;
     background-color: var(--color-4);
+    box-shadow: 0 0 3px var(--color-4);
     border: none;
 }
 
 .productDetail main .relacionado h3{
     text-align: center;
-    text-transform: uppercase;
-    border: 2px solid var(--color-4);
+    border: 3px solid var(--color-4);
+    border-radius: 7px;
     padding: 10px;
     background-color: var(--color-3);
+    box-shadow: 0 0 5px var(--color-4);
+    color: var(--color-1);
+    font-size: 18px;
 }
 
-.productDetail main .relacionado .producto2,
-.productDetail main .relacionado .producto3{
-    display: none;
+.productDetail main .relacionado .glider-prev{
+    left: 20px;
 }
 
-.productDetail main .relacionado img{
-    width: 100%;
+.productDetail main .relacionado .glider-next{
+    right: 20px;
 }
 
-.productDetail main .relacionado .fa-chevron-left{
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    background-color: #4b4a5733;
-    padding: 3px;
+.productDetail main .relacionado .element{
+    margin: 15px;
 }
 
-.productDetail main .relacionado .fa-chevron-right{
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    background-color: #4b4a5733;
-    padding: 3px;
+.productDetail main .relacionado .element img{
+    border: 2px solid var(--color-4);
+    transition-property: all;
+    transition-duration: 300ms;
+}
+
+.productDetail main .relacionado .element img:hover{
+    border-color: var(--color-3);
+    box-shadow: 0 0 5px var(--color-4);
 }
 
 .productDetail main .relacionado h6{
@@ -290,20 +325,6 @@
     .productDetail main .producto .fa-chevron-left,
     .productDetail main .producto .fa-chevron-right{
         display: none;
-    }
-
-    .productDetail main .relacionado .productos-relacionados{
-        display: flex;
-    }
-
-    .productDetail main .relacionado .productos-relacionados article{
-        padding: 0 15px;
-    }
-
-    .productDetail main .relacionado .producto1,
-    .productDetail main .relacionado .producto2,
-    .productDetail main .relacionado .producto3{
-        display: inline;
     }
 
     .productDetail main .ig{

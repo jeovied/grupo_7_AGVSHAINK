@@ -6,10 +6,7 @@
     "cod": 4563,
     "description" : ["Lorem ipsum amet dolor"],
     "category": "buzos",
-    "color": [
-      "black",
-      "gray"
-    ],
+    "color": [],
     "talle": [
       "S",
       "M",
