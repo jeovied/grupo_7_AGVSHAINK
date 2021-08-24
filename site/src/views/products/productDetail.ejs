@@ -12,14 +12,26 @@
         <h2><%= product.name %> </h2>
             <article class="producto">
                 <div class="imagenes">
-                    <img class="modelo1" src="/img/<%= product.images[0] %>" alt="">
+                    <div class="glider-contain img-contain">
+                        <button class="glider-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="glider-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="glider">
+                            <% product.images.forEach(img => { %>
+                                <img class="img-glider" src="/img/<%= img %> " alt="">
+                            <% }) %> 
+                        </div>
+                    </div>
+                    <img class="imgPrincipal" id="image-principal" src="/img/<%= product.images[0] %>" alt="">
                     <div class="imgenes-secundarias">
-                        <img class="modelo2" src="/img/<%= product.images[1] %>" alt="">
-                        <img class="modelo3" src="/img/<%= product.images[3] %>" alt="">
+                        <% product.images.forEach(img => { %>
+                            <img class="imgSecundaria" onclick="document.getElementById('image-principal').setAttribute('src','/img/<%= img %>')" src="/img/<%= img %>" alt="">
+                        <% }) %>
                     </div>
                 </div>
-                <i class="fas fa-chevron-left"></i>        
-                <i class="fas fa-chevron-right"></i>
                 <article class="detalles-del-producto">
                     <div class="seccion1">
                         <h3><%= product.name %></h3>
@@ -47,12 +59,6 @@
                                     <% }) %>
                                 </select>
                             <% } %>
-<!--                        <input class="talle" type="radio" name="talle">
-                            <label class="talle1" for="talle1"></label>
-                            <input type="radio" id="talle2" name="talle">
-		                    <label class="talle2" for="talle2"></label>
-                            <input type="radio" id="talle3" name="talle">
-		                    <label class="talle3" for="talle3"></label> -->
                             <h4>cantidad:</h4>
                             <select>
                                 <option value=1>1</option>
@@ -73,23 +79,27 @@
                     </div>
                 </article>
             </article>
+            <div class="description">
+                <h5>Descripción</h5>
+                <p><%= product.description %> </p>
+            </div>
         <section class="relacionado">
             <div class="title">
                 <hr><h3>Relacionado</h3><hr>
             </div>
             <div class="cotainer">
                 <div class="glider-contain">
-                    <button class="glider-prev">
+                    <button class="glider-prev leftGlider">
                         <i class="fas fa-chevron-left"></i>
                     </button>
-                    <button class="glider-next">
+                    <button class="glider-next rightGlider">
                         <i class="fas fa-chevron-right"></i>
                     </button>
-                    <div class="glider">
+                    <div class="glider relacionadoGlider">
                         <% products.forEach(product => { %>
                             <a href="/products/detail/<%= product.id %> ">
                                 <div class="element">
-                                    <img src="/img/<%= product.image1 %> " alt="">
+                                    <img src="/img/<%= product.images[0] %> " alt="">
                                     <h6><%= product.name %> </h6>
                                     <p class="categoria"><%= product.category %> </p>
                                     <p class="precio">$<%= product.price %> </p>
@@ -100,20 +110,6 @@
                 </div>
             </div>
         </section>
-        <article class="ig">
-            <i class="fab fa-instagram"></i>
-            <h3>instagram</h3>
-            <section>
-                <div>
-                    <img src="/img/ig.jpg" alt="">
-                    <img src="/img/ig.jpg" alt="">
-                </div>
-                <div>
-                    <img src="/img/ig.jpg" alt="">
-                    <img src="/img/ig.jpg" alt="">
-                </div>
-            </section>
-        </article>
     </main>
     <footer>
         <%- include('../partials/footer') %>

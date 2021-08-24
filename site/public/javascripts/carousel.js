@@ -1,13 +1,13 @@
 window.addEventListener("load", () => {
-    new Glider(document.querySelector(".glider"), {
+    new Glider(document.querySelector(".relacionadoGlider"), {
         // Mobile-first defaults
         slidesToShow: 1,
         slidesToScroll: 1,
         scrollLock: true,
         dots: '#resp-dots',
         arrows: {
-            prev: '.glider-prev',
-            next: '.glider-next'
+            prev: '.leftGlider',
+            next: '.rightGlider'
         },
         responsive: [
             {
@@ -32,4 +32,18 @@ window.addEventListener("load", () => {
             }
         ]
     })
+})
+
+window.addEventListener("load", () => {
+    new Glider(document.querySelector(".glider"), {
+        // Mobile-first defaults
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        scrollLock: true,
+        dots: '#resp-dots',
+        arrows: {
+            prev: '.glider-prev',
+            next: '.glider-next'
+        }
+      });
 })

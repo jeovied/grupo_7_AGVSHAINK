@@ -5,7 +5,7 @@
     "price": 7000,
     "cod": 4563,
     "description": [
-      "Lorem ipsum amet dolor"
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ea necessitatibus vero soluta velit repellendus quae consequatur fugit doloremque sed et veritatis aut molestiae vitae accusantium. Possimus, impedit? Nisi, atque."
     ],
     "category": "buzos",
     "color": [],
@@ -26,7 +26,7 @@
     "price": 15000,
     "cod": 2385,
     "description": [
-      "Lorem ipsum amet dolor"
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ea necessitatibus vero soluta velit repellendus quae consequatur fugit doloremque sed et veritatis aut molestiae vitae accusantium. Possimus, impedit? Nisi, atque."
     ],
     "category": "zapatillas",
     "color": [],
@@ -47,7 +47,7 @@
     "price": 5600,
     "cod": 8197,
     "description": [
-      "Lorem ipsum amet dolor"
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ea necessitatibus vero soluta velit repellendus quae consequatur fugit doloremque sed et veritatis aut molestiae vitae accusantium. Possimus, impedit? Nisi, atque."
     ],
     "category": "remeras",
     "color": [],
@@ -67,7 +67,7 @@
     "price": 3700,
     "cod": 6653,
     "description": [
-      "Lorem ipsum amet dolor"
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ea necessitatibus vero soluta velit repellendus quae consequatur fugit doloremque sed et veritatis aut molestiae vitae accusantium. Possimus, impedit? Nisi, atque."
     ],
     "category": "accesorios",
     "color": [],
@@ -76,17 +76,6 @@
       "producto4.jpeg",
       "producto4_2.jpeg",
       "producto4_3.jpeg"
-    ]
-  },
-  {
-    "id": 5,
-    "name": "asdasdsa",
-    "price": 12312312,
-    "cod": 12312,
-    "category": "Zapatillas",
-    "talle": "47",
-    "images": [
-      "images-1629763112966.png"
     ]
   }
 ]

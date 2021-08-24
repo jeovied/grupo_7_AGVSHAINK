@@ -26,32 +26,22 @@
     position: relative;
 }
 
-.productDetail main .producto .modelo1{
-    width: 100%;
+.productDetail main .producto .img-glider{
     border: solid 2px var(--color-4);
 }
 
-.productDetail main .producto .modelo2,
-.productDetail main .producto .modelo3{
+.productDetail main .producto .glider-prev{
+    left: 5px;
+}
+
+.productDetail main .producto .glider-next{
+    right: 5px;
+}
+
+.productDetail main .producto .imgPrincipal,
+.productDetail main .producto .imgSecundaria{
     display: none;
 }
-
-.productDetail main .producto .fa-chevron-left{
-    position: absolute;
-    top: 20%;
-    left: 5%;
-    background-color: #574a5233;
-    padding: 3px;
-}
-
-.productDetail main .producto .fa-chevron-right{
-    position: absolute;
-    top: 20%;
-    right: 5%;
-    background-color: #4b4a5733;
-    padding: 3px;
-}
-
 
 .productDetail main .seccion1{
     border-bottom: 2px solid var(--color-4);
@@ -119,69 +109,11 @@
     border: 3px solid var(--color-1);
 }
 
-.productDetail .talle1:before{
-    content: "38";
-    text-align: center;
-    vertical-align: middle;
-    font-size: 25px;
-    background-color: var(--color-3);
-    border: 3px solid var(--color-4);
-    border-radius: 5px;
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-}
-
-.productDetail .talle2:before{
-    content: "39";
-    text-align: center;
-    vertical-align: middle;
-    font-size: 25px;
-    background-color: var(--color-3);
-    border: 3px solid var(--color-4);
-    border-radius: 5px;
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-}
-
-.productDetail .talle3:before{
-    content: "40";
-    text-align: center;
-    vertical-align: middle;
-    font-size: 25px;
-    background-color: var(--color-3);
-    border: 3px solid var(--color-4);
-    border-radius: 5px;
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-}
-
-.productDetail input[type=radio]:checked + .talle1:before{
-    content: "38";
-    border: 3px solid var(--color-1);
-}
-
-.productDetail input[type=radio]:checked + .talle2:before{
-    content: "39";
-    border: 3px solid var(--color-1);
-}
-
-.productDetail input[type=radio]:checked + .talle3:before{
-    content: "40";
-    border: 3px solid var(--color-1);
-}
-
 .productDetail main .seccion2 form {
     margin-top: 25px;
 }
 
 .productDetail main .seccion2 select{
-    /* width: 30%;
-    background-color: var(--color-1);
-    text-align: center;
-    font-size: 12px; */
     outline: none; 
     border: 2px solid var(--color-3);
     width: 30%;
@@ -221,6 +153,21 @@
     box-shadow: 0 0 5px var(--color-4);
 }
 
+.productDetail main .description{
+    margin-top: 35px;
+    padding: 35px 15px 0 15px;
+    border-top: 2px solid var(--color-4);
+}
+
+.productDetail main .description h5{
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.productDetail main .description p{
+    font-size: 14px;
+}
+
 .productDetail main .relacionado{
     position: relative;
     margin: 70px 0;
@@ -253,11 +200,11 @@
     font-size: 18px;
 }
 
-.productDetail main .relacionado .glider-prev{
+.productDetail main .relacionado .leftGlider{
     left: 20px;
 }
 
-.productDetail main .relacionado .glider-next{
+.productDetail main .relacionado .rightGlider{
     right: 20px;
 }
 
@@ -304,7 +251,12 @@
         flex-direction: row;
     }
 
-    .productDetail main .producto .modelo1{
+    .productDetail main .producto .img-contain{
+        display: none;
+    }
+
+    .productDetail main .producto .imgPrincipal{
+        display: inline-block;
         width: 65vw;
         border: solid 2px var(--color-4);
     }
@@ -314,17 +266,17 @@
         flex-direction: column;
     }
 
-    .productDetail main .producto .modelo2,
-    .productDetail main .producto .modelo3{
+    .productDetail main .producto .imgSecundaria{
         display: inline;
+        cursor: pointer;
         width: 15vw;
         margin: 0 0 15px 15px;
         border: solid 2px var(--color-4);
     }
 
-    .productDetail main .producto .fa-chevron-left,
-    .productDetail main .producto .fa-chevron-right{
-        display: none;
+    .productDetail main .producto .imgSecundaria:hover{
+        border-color: var(--color-3);
+        box-shadow: 0 0 5px var(--color-4);
     }
 
     .productDetail main .ig{
@@ -363,7 +315,7 @@
         display: flex;
     }
 
-    .productDetail main .producto .modelo1{
+    .productDetail main .producto .imgPrincipal{
         width: 40vw;
         margin: 0 35px 0 15px;
     }
@@ -372,8 +324,7 @@
         order: -1;
     }
 
-    .productDetail main .producto .modelo2,
-    .productDetail main .producto .modelo3{
+    .productDetail main .producto .imgSecundaria{
         display: inline;
         width: 8vw;
         margin: 0 0 15px 15px;
@@ -381,6 +332,14 @@
 
     .productDetail main .producto .detalles-del-producto{
         width: 100%;
+    }
+
+    .productDetail main .description{
+        display: flex;
+    }
+
+    .productDetail main .description h5{
+        margin-right: 25px;
     }
 
 }
