@@ -4,7 +4,9 @@
     "name": "Buzo Vans",
     "price": 7000,
     "cod": 4563,
-    "description" : ["Lorem ipsum amet dolor"],
+    "description": [
+      "Lorem ipsum amet dolor"
+    ],
     "category": "buzos",
     "color": [],
     "talle": [
@@ -12,14 +14,20 @@
       "M",
       "L"
     ],
-    "images": ["producto1.jpg","producto1_2.jpg","producto1_3.jpg"] 
+    "images": [
+      "producto1.jpg",
+      "producto1_2.jpg",
+      "producto1_3.jpg"
+    ]
   },
   {
     "id": 2,
     "name": "Nike Air Force 1",
     "price": 15000,
     "cod": 2385,
-    "description" : ["Lorem ipsum amet dolor"],
+    "description": [
+      "Lorem ipsum amet dolor"
+    ],
     "category": "zapatillas",
     "color": [],
     "talle": [
@@ -27,14 +35,20 @@
       40,
       44
     ],
-    "images": ["producto2.jpeg","producto2_2.jpeg","producto2_3.jpeg"]
+    "images": [
+      "producto2.jpeg",
+      "producto2_2.jpeg",
+      "producto2_3.jpeg"
+    ]
   },
   {
     "id": 3,
     "name": "Remera adidas Yoda",
     "price": 5600,
     "cod": 8197,
-    "description" : ["Lorem ipsum amet dolor"],
+    "description": [
+      "Lorem ipsum amet dolor"
+    ],
     "category": "remeras",
     "color": [],
     "talle": [
@@ -42,17 +56,37 @@
       "M",
       "XL"
     ],
-    "images": ["producto3.jpeg","producto3_2.jpeg"] 
+    "images": [
+      "producto3.jpeg",
+      "producto3_2.jpeg"
+    ]
   },
   {
     "id": 4,
     "name": "Gorra Looney Tunes",
     "price": 3700,
     "cod": 6653,
-    "description" : ["Lorem ipsum amet dolor"],
+    "description": [
+      "Lorem ipsum amet dolor"
+    ],
     "category": "accesorios",
     "color": [],
     "talle": [],
-    "images": ["producto4.jpeg","producto4_2.jpeg","producto4_3.jpeg"]
+    "images": [
+      "producto4.jpeg",
+      "producto4_2.jpeg",
+      "producto4_3.jpeg"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "asdasdsa",
+    "price": 12312312,
+    "cod": 12312,
+    "category": "Zapatillas",
+    "talle": "47",
+    "images": [
+      "images-1629763112966.png"
+    ]
   }
 ]

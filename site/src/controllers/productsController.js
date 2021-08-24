@@ -67,7 +67,7 @@ module.exports = {
     
     },
     update : (req,res) => {
-        const {id,name, price, cod, category, color, talle,image1,image2,image3} = req.body;
+        const {id,name, price, cod, category, color, talle} = req.body;
 
         let producto = products.find(producto => producto.id === +req.params.id)
         let productoEditado = {
@@ -76,15 +76,16 @@ module.exports = {
             price : +price,
             cod: +cod,
             category,
-            color,
+            color: [],
             talle,
-            image : req.file ? req.file.filename : producto.image,
+            images : req.file ? req.file.filename : producto.images,
             
         }
 
-        let productosModificados = productos.map(producto => producto.id === +req.params.id ? productoEditado : producto)
+        let productosModificados = products.map(producto => producto.id === +req.params.id ? productoEditado : producto)
 
-        guardar(productosModificados)
+        products.push(productosModificados)
+        return res.send(productosModificados)
         res.redirect('/')
           
     }
