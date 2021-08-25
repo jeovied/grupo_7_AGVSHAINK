@@ -43,6 +43,15 @@ header article .botones a{
     color: #fff;
 }
 
+header article .avatar{
+    padding: 0;
+}
+
+header article img{
+    width: 100%;
+    height: 50px;
+}
+
 .ol {
     margin: 0px;
     padding: 0px;

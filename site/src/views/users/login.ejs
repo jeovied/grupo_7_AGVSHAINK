@@ -17,14 +17,19 @@
             <h6>Datos de usuario</h6>
             <p>Si no estas registrado <a href="">click aca</a></p>
         </div>
-        <form>
+        <form method="POST">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            
+              <input type="email" name="email" value="<%= locals.old && old.email ? old.email : null %> " class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <% if (locals.errors && errors.email) { %>
+               <span class="error"><%= errors.email.msg %></span>
+              <% } %>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+              <% if (locals.errors && errors.password) { %>
+                <span class="error"><%= errors.password.msg %></span>
+               <% } %>
             </div>
             </div>
             <span>No recuerdas tu contraseña? <a href="">click aca</a></span>

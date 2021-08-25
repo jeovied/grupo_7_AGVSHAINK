@@ -3,7 +3,7 @@ var router = express.Router();
 var path = require("path");
 var multer = require("multer");
 var registerValidate = require("../validations/registerValidator");
-var { login, register , processRegister } = require('../controllers/userController');
+var { login, register , processRegister, processLogin } = require('../controllers/userController');
 
 const storage = multer.diskStorage({
     destination: (req,file,cb) =>{
@@ -19,6 +19,7 @@ const upload = multer({ storage });
 
 /* GET users listing. */
 router.get('/login', login);
+router.post("/login", processLogin);
 router.get('/register', register);
 router.post("/register", upload.single("avatar"), registerValidate, processRegister);
 

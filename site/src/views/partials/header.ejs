@@ -7,7 +7,6 @@
             <a href="/" style="text-decoration: none;">
                 <h1>Seven Store</h1>
             </a>
-            <img src="" alt="">
         </div>
         <nav>
             <ol class="ol">
@@ -27,11 +26,17 @@
                 </div>
                 <i class="fas fa-search"></i>
             </div>
+            <% if (locals.isLogged) { %>
+                <div class="avatar">
+                    <img src="/img/users/<%= locals.userLog.image %> " alt="">
+                </div>
+            <% } else { %> 
             <div>
                 <a href="/users/register">
                     <i class="fas fa-user"></i>
                 </a>
             </div>
+            <% } %> 
             <div>
                 <a href="/products/cart">
                     <i class="fas fa-shopping-bag"></i>

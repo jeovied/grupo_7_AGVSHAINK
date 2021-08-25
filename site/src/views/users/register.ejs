@@ -44,6 +44,9 @@
                    <span><%- error.param === "email" ? error.msg : null %> </span>
                 <% }) %>
                <% } %>
+               <% if (locals.errorEmail) { %>
+                <span><%= errorEmail.msg %></span>
+            <% } %>
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
