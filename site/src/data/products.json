@@ -77,5 +77,26 @@
       "producto4_2.jpeg",
       "producto4_3.jpeg"
     ]
+  },
+  {
+    "id": 5,
+    "price": null,
+    "cod": null,
+    "images": [
+      "images-1629936211328.jpeg",
+      "images-1629936211339.jpeg"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Campera navy",
+    "price": 15000,
+    "cod": 1828,
+    "category": "Indumentaria",
+    "talle": "s, m, xl",
+    "images": [
+      "images-1629948033186.jpeg",
+      "images-1629948033301.jpeg"
+    ]
   }
 ]

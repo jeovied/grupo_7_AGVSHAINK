@@ -41,7 +41,7 @@ module.exports = {
         return res.redirect("/admin")
     },
     save : (req,res) => {
-        const {id,name, price, cod, category, color, talle,images} = req.body;
+        const {name, price, cod, category, color, talle,images} = req.body;
 
         if(req.files){{
             var imagenes = req.files.map(imagen => imagen.filename)
@@ -66,27 +66,57 @@ module.exports = {
     }
     
     },
-    update : (req,res) => {
-        const {id,name, price, cod, category, color, talle} = req.body;
+     /* update : (req,res) => {
+        const {name, price, cod, category,description, color, talle, images} = req.body;
 
         let producto = products.find(producto => producto.id === +req.params.id)
+        
         let productoEditado = {
             id : +req.params.id,
             name,
             price : +price,
             cod: +cod,
             category,
-            color: [],
+            description,
             talle,
-            images : req.file ? req.file.filename : producto.images,
-            
+            images : req.file ? req.file.filename : imagenes,
         }
 
         let productosModificados = products.map(producto => producto.id === +req.params.id ? productoEditado : producto)
 
-        products.push(productosModificados)
-        return res.send(productosModificados)
+        /* products.push(productosModificados); */
+        /* return res.send(productosModificados);
+        fs.writeFileSync(path.join(__dirname,'..', 'data', 'products.json'), JSON.stringify(productosModificados,null,2),'utf-8');
+        
         res.redirect('/')
           
+    }  */
+    update : (req,res) => {
+    const {name, price, cod, category, color, talle,images} = req.body;
+
+        if(req.files){{
+            var imagenes = req.files.map(imagen => imagen.filename)
+        }
+        let producto = products.find(producto => producto.id === +req.params.id)
+
+        let productoEditado = {
+            id : +req.params.id, 
+            name, 
+            price : +price, 
+            cod : +cod, 
+            category,
+            description, 
+            color, 
+            talle, 
+            images : req.files.length != 0 ? imagenes : ['default-image.png']
+        }
+        
+        let productosModificados = products.map(producto => producto.id === +req.params.id ? productoEditado : producto)
+        fs.writeFileSync(path.join(__dirname,'..', 'data', 'products.json'), JSON.stringify(productosModificados,null,2),'utf-8')
+
+        return res.redirect('/')
+    }else{
+        return res.redirect('/product/edit/'+ req.params.id)
+    }
     }
 }

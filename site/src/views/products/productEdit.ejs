@@ -14,7 +14,7 @@
         <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" name="title" value="<%= product.name %>">
+                <input type="text" class="form-control" id="formGroupExampleInput" name="name" value="<%= product.name %>">
               </div>
               <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Precio</label>
@@ -29,7 +29,7 @@
 
                 <select id="category" class="form-select" name="category">
                     <% categories.forEach(category => { %>
-                        <option value="<%= category %>" <%= category == product.category ? 'selected' : null %> ><%= category %></option>
+                        <option value="<%= category %>" <%= category === product.category ? 'selected' : null %> ><%= category %></option>
                        <% }) %>
                   </select>
               </div>
@@ -43,13 +43,9 @@
                 <label for="floatingTextarea">Descripción</label>
                 <textarea class="form-control" id="floatingTextarea" name="description" ><%= product.description %></textarea>
               </div>
-              <!-- <div class="mb-3">
-                <label for="formFile" class="form-label">Imagen</label value="
-                <input class="form-control" type="file" id="formFile">
-              </div> -->
               <div class="mb-3">
                 <label for="productImagen" class="form-label">Imagen</label>
-                <input type="file" class="form-control" id="productImagen" name="image" accept="image/*" multiple>
+                <input type="file" class="form-control" id="productImagen" name="images" accept="image/*" multiple>
                 <span class="text-danger"><%= typeof error != 'undefined' ? error : null %> </span>
               </div>
               
