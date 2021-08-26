@@ -22,11 +22,14 @@ const upload = multer({
 router.get('/', productsList)
 router.get('/detail/:id', detail);
 router.get('/cart', cart);
+
 router.get('/add', add);
-router.get('/edit/:id', edit);
-router.put('/edit/:id',update)
-router.delete('/:id', destroy);
 router.post('/add',upload.array('images'), save);
+
+router.get('/edit/:id', edit);
+router.put('/edit/:id', update)
+
+router.delete('/:id', destroy);
 
 
 module.exports = router;

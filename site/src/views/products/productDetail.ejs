@@ -35,21 +35,19 @@
                 <article class="detalles-del-producto">
                     <div class="seccion1">
                         <h3><%= product.name %></h3>
-                        <p>cod. <%= product.cod %> </p>
+                        <p>cod. <%= product.id %> </p>
                         <h3>$<%= product.price %> </h3>
                     </div>
                     <div class="seccion2">
-                        <% if (product.color.length !== 0) { %>
-                            <h4>color:</h4>
+<!--                             <h4>color:</h4>
                             <form action="resultado.html" method="POST">
                                 <input type="radio" id="color1" name="color">
                                 <label class="color1" for="color1"></label>
                                 <input type="radio" id="color2" name="color">
                                 <label class="color2" for="color2"></label>
                                 <input type="radio" id="color3" name="color">
-                                <label class="color3" for="color3"></label> -->
-                            </form>
-                        <% } %>
+                                <label class="color3" for="color3"></label>
+                            </form> -->
                         <form action="resultado.html" method="POST">
                             <% if (product.talle.length !== 0) { %>
                                 <h4>talle:</h4> 

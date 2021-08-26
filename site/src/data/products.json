@@ -3,12 +3,10 @@
     "id": 1,
     "name": "Buzo Vans",
     "price": 7000,
-    "cod": 4563,
     "description": [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ea necessitatibus vero soluta velit repellendus quae consequatur fugit doloremque sed et veritatis aut molestiae vitae accusantium. Possimus, impedit? Nisi, atque."
     ],
     "category": "buzos",
-    "color": [],
     "talle": [
       "S",
       "M",
@@ -24,12 +22,10 @@
     "id": 2,
     "name": "Nike Air Force 1",
     "price": 15000,
-    "cod": 2385,
     "description": [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ea necessitatibus vero soluta velit repellendus quae consequatur fugit doloremque sed et veritatis aut molestiae vitae accusantium. Possimus, impedit? Nisi, atque."
     ],
     "category": "zapatillas",
-    "color": [],
     "talle": [
       38,
       40,
@@ -45,12 +41,10 @@
     "id": 3,
     "name": "Remera adidas Yoda",
     "price": 5600,
-    "cod": 8197,
     "description": [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ea necessitatibus vero soluta velit repellendus quae consequatur fugit doloremque sed et veritatis aut molestiae vitae accusantium. Possimus, impedit? Nisi, atque."
     ],
     "category": "remeras",
-    "color": [],
     "talle": [
       "S",
       "M",
@@ -65,12 +59,10 @@
     "id": 4,
     "name": "Gorra Looney Tunes",
     "price": 3700,
-    "cod": 6653,
     "description": [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ea necessitatibus vero soluta velit repellendus quae consequatur fugit doloremque sed et veritatis aut molestiae vitae accusantium. Possimus, impedit? Nisi, atque."
     ],
     "category": "accesorios",
-    "color": [],
     "talle": [],
     "images": [
       "producto4.jpeg",
@@ -80,23 +72,16 @@
   },
   {
     "id": 5,
-    "price": null,
-    "cod": null,
+    "name": "cami",
+    "price": 2500,
+    "category": "Zapatillas",
+    "talle": [
+      "39",
+      "40"
+    ],
+    "description": "aaaaaaaaaaaaaaaaaaaaaaaaa",
     "images": [
-      "images-1629936211328.jpeg",
-      "images-1629936211339.jpeg"
-    ]
-  },
-  {
-    "id": 6,
-    "name": "Campera navy",
-    "price": 15000,
-    "cod": 1828,
-    "category": "Indumentaria",
-    "talle": "s, m, xl",
-    "images": [
-      "images-1629948033186.jpeg",
-      "images-1629948033301.jpeg"
+      "images-1630020461539.jpg"
     ]
   }
 ]
