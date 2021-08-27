@@ -25,6 +25,8 @@
 }
 
 .login main div h6{
+    display: flex;
+    justify-content: center;
     color: #000;
     text-transform: uppercase;
     border-top: 1px solid var(--color-3);

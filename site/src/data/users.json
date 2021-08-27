@@ -8,5 +8,15 @@
     "number": 1151768589,
     "image": "default-avatar.jpg",
     "category": "user"
+  },
+  {
+    "id": 2,
+    "name": "Jona",
+    "lastname": "Oviedo",
+    "email": "jona19_92@hotmail.com",
+    "password": "$2a$10$IofTuTMqdeJy0wW5omXvCu2AhXyRQIxVSHGy1aOxh1BdFdYdr3a4W",
+    "number": 1140893426,
+    "image": "default-avatar.jpg",
+    "category": "user"
   }
 ]
