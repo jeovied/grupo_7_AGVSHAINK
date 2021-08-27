@@ -54,6 +54,8 @@ module.exports = {
 
                 req.session.userLog = user
 
+                req.body.remenber != undefined ? res.cookie("remenber", user, { maxAge: 60000 }) : null
+
                 return res.redirect("/")
             }else{
                 return res.render("./users/login", { errors : {
@@ -69,5 +71,11 @@ module.exports = {
                 msg: "El email no se encuentra registrado"
             }
         }, old: req.body })
+    },
+    logout : (req,res) => {
+        req.session.destroy()
+        res.clearCookie("remenber")
+
+        return res.redirect("/")
     }
 }

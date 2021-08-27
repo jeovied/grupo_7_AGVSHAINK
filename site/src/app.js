@@ -7,6 +7,7 @@ var methodOverride = require('method-override');
 var session = require("express-session");
 var userLog = require("./middlewares/userLog");
 var localUserCheck = require("./middlewares/localUserCheck");
+var remenber = require("./middlewares/remenber");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -27,6 +28,7 @@ app.use(methodOverride('_method'));
 app.use(session({ secret: "secret"}));
 app.use(userLog);
 app.use(localUserCheck);
+app.use(remenber);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

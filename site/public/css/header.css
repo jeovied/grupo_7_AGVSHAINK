@@ -56,6 +56,18 @@ header article img{
     bottom: -5px;
 }
 
+header .avatar li{
+    list-style-type: none;
+    position: absolute;
+    padding: 5px 10px;
+    background-color: var(--color-4);
+    font-size: 18px;
+    top: 10px;
+    right: -35px;
+    z-index: 10;
+    display: none;
+}
+
 .ol {
     margin: 0px;
     padding: 0px;
