@@ -15,11 +15,13 @@
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" name="name" >
+                <input type="text" class="form-control" id="formGroupExampleInput" name="name" value="<%= locals.old && old.name ? old.name : null %>">
+                <span class="text-danger" style="font-size: small;"><%= locals.errores && errores.name ? errores.name.msg : null %> </span> 
               </div>
               <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="formGroupExampleInput2" name="price" >
+                <input type="number" class="form-control" id="formGroupExampleInput2" name="price" value="<%= locals.old && old.price ? old.price : null %>">
+                <span class="text-danger"style="font-size: small;"><%= locals.errores && errores.price ? errores.price.msg : null %> </span>
               </div>
 <!--               <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Codigo</label>
@@ -31,9 +33,10 @@
                 <select id="category" class="form-select" name="category">
                     <option value="" selected hidden>Seleccione la categoría</option>
             <% categories.forEach(category => { %>
-             <option value="<%= category %>"><%= category %></option>
+             <option value="<%= category %>" <%= locals.old && old.category === category ? 'selected' : null%> ><%= category %></option>
             <% }) %>
                 </select>
+                <span class="text-danger" style="font-size: small;"><%= locals.errores && errores.category ? errores.category.msg : null %> </span>
               </div>
 <!--               <label for="exampleColorInput" class="form-label">Color</label>
 <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#000" title="Choose your color"> -->
@@ -56,7 +59,8 @@
                 </div>
                 <div class="mb-3">
                 <label for="floatingTextarea">Descripción</label>
-                <textarea class="form-control" id="floatingTextarea" name="description" ></textarea>
+                <textarea class="form-control" id="floatingTextarea" name="description" ><%= locals.old && old.description ? old.description : null %></textarea>
+                <span class="text-danger" style="font-size: small;"><%= locals.errores && errores.description ? errores.description.msg : null %> </span>
               </div>
               <!-- <div class="mb-3">
                 <label for="formFile" class="form-label">Imagen</label>
@@ -65,7 +69,7 @@
               <div class="mb-3">
                 <label for="productImagen" class="form-label">Imagen</label>
                 <input type="file" class="form-control" id="productImagen" name="images" accept="image/*" multiple>
-                <span class="text-danger"><%= typeof error != 'undefined' ? error : null %> </span>
+                <span class="text-danger" style="font-size: small;"><%= typeof error != 'undefined' ? errores : null %> </span>
               </div>
               
               

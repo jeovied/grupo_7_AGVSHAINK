@@ -4,6 +4,7 @@ const fs = require("fs");
 const productsPath = path.join(__dirname, "../data/products.json")
 const products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
 const categories = require('../data/categories_db');
+const {validationResult} = require('express-validator');
 
 module.exports = {
     productsList: (req,res) =>{
@@ -41,11 +42,14 @@ module.exports = {
         return res.redirect("/admin")
     },
     save : (req,res) => {
-        const {name, price, category, talle, description, images } = req.body;
 
-        var imagenes = req.files.map(imagen => imagen.filename)
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+            const {name, price, category, talle, description, images } = req.body;
+
+            var imagenes = req.files.map(imagen => imagen.filename)
         
-        let producto = {
+            let producto = {
             id: products[products.length - 1].id + 1, 
             name, 
             price: +price, 
@@ -53,12 +57,18 @@ module.exports = {
             talle: typeof talle === "string" ? [talle] : talle,
             description: [description], 
             images: req.files.length != 0 ? imagenes : ['default-image.png']
+            }
+            products.push(producto)
+
+            fs.writeFileSync(productsPath, JSON.stringify(products,null,2),'utf-8')
+
+            return res.redirect('/admin')
+        } else{
+            return res.render('./products/productAdd', 
+            {   categories, 
+                errores : errors.mapped(),
+                old : req.body});
         }
-        products.push(producto)
-
-        fs.writeFileSync(productsPath, JSON.stringify(products,null,2),'utf-8')
-
-        return res.redirect('/admin')
     },
      update : (req,res) => {
         const {name, price, category, description, talle, images} = req.body;
