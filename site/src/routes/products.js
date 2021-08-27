@@ -24,10 +24,10 @@ router.get('/detail/:id', detail);
 router.get('/cart', cart);
 
 router.get('/add', add);
-router.post('/add',upload.array('images'), save);
+router.post('/add', upload.array('images'), save);
 
 router.get('/edit/:id', edit);
-router.put('/edit/:id', update)
+router.put('/edit/:id', upload.array('images'), update)
 
 router.delete('/:id', destroy);
 

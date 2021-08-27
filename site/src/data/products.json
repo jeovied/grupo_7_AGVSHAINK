@@ -72,16 +72,20 @@
   },
   {
     "id": 5,
-    "name": "cami",
+    "name": "buzo ",
     "price": 2500,
     "category": "Zapatillas",
     "talle": [
+      "38",
       "39",
       "40"
     ],
-    "description": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+    "description": [
+      "aaaaaaaaaaaaaaaaaaaaaaa"
+    ],
     "images": [
-      "images-1630020461539.jpg"
+      "images-1630035269330.jpg",
+      "images-1630035269363.jpg"
     ]
   }
 ]

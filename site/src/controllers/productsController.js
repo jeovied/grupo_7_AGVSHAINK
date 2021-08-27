@@ -29,7 +29,7 @@ module.exports = {
 
         let product = products.find(producto => producto.id === +req.params.id)
 
-        return res.render('./products/productEdit', { product, categories }); 
+        return res.render('./products/productEdit', { product, categories, talles: ["38", "39", "40", "41"] }); 
     },
 
     destroy: (req,res) => {
@@ -46,13 +46,13 @@ module.exports = {
         var imagenes = req.files.map(imagen => imagen.filename)
         
         let producto = {
-            id : products[products.length - 1].id + 1, 
+            id: products[products.length - 1].id + 1, 
             name, 
-            price : +price, 
+            price: +price, 
             category, 
-            talle,
+            talle: typeof talle === "string" ? [talle] : talle,
             description: [description], 
-            images : req.files.length != 0 ? imagenes : ['default-image.png']
+            images: req.files.length != 0 ? imagenes : ['default-image.png']
         }
         products.push(producto)
 
@@ -62,18 +62,22 @@ module.exports = {
     },
      update : (req,res) => {
         const {name, price, category, description, talle, images} = req.body;
+
+        var imagenes = req.files.map(imagen => imagen.filename)
         
         products.forEach(product => {
 			if (product.id === +req.params.id) {
 				product.name = name
 				product.price = +price
 				product.category = category
-				product.description = description
+                product.talle = typeof talle === "string" ? [talle] : talle
+				product.description = [description]
+                req.files.length != 0 ? product.images = imagenes : null
 			}
 		})
 
         fs.writeFileSync(productsPath, JSON.stringify(products,null,2),'utf-8');
         
-        res.redirect('/')
+        res.redirect('/admin')
     } 
 }
