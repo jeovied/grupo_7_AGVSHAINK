@@ -6,6 +6,7 @@ const {productsList, detail, cart, add, edit, destroy,save, update} = require('.
 
 const addProductsValidator = require('../validations/addProductValidator')
 const adminCheck = require("../middlewares/adminCheck");
+const userCheck = require("../middlewares/userCheck");
 
 
 /* subida de archivos */
@@ -25,7 +26,7 @@ const upload = multer({
 
 router.get('/', productsList)
 router.get('/detail/:id', detail);
-router.get('/cart', cart);
+router.get('/cart', userCheck, cart);
 
 router.get('/add', adminCheck, add);
 router.post('/add', upload.array('images'),addProductsValidator, save);
