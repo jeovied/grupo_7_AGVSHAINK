@@ -4,6 +4,7 @@ var path = require("path");
 var multer = require("multer");
 var registerValidate = require("../validations/registerValidator");
 var { login, register , processRegister, processLogin, logout } = require('../controllers/userController');
+var viewCheck = require('../middlewares/viewCheck');
 
 const storage = multer.diskStorage({
     destination: (req,file,cb) =>{
@@ -18,9 +19,9 @@ const upload = multer({ storage });
 
 
 /* GET users listing. */
-router.get('/login', login);
+router.get('/login', viewCheck, login);
 router.post("/login", processLogin);
-router.get('/register', register);
+router.get('/register', viewCheck, register);
 router.post("/register", upload.single("avatar"), registerValidate, processRegister);
 router.get("/logout", logout);
 
