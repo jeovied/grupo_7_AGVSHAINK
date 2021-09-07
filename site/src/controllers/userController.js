@@ -45,32 +45,23 @@ module.exports = {
     },
     processLogin : (req,res) => {
         let user = users.find(user => user.email === req.body.email)
-
+        console.log(user)
         if (user) {
             let check = bcrypt.compareSync(req.body.password , user.password)
             
             if (check) {
-                delete user.password
 
                 req.session.userLog = user
 
-                req.body.remenber != undefined ? res.cookie("remenber", user, { maxAge: 60000 }) : null
+                req.body.remenber != undefined ? res.cookie("remenber", user, { maxAge: 600000 }) : null
 
                 return res.redirect("/")
             }else{
-                return res.render("./users/login", { errors : {
-                    password: {
-                        msg: "contraseña incorrecta"
-                    }
-                }, old: req.body})
+                return res.render("./users/login", { errors : "Los datos ingresados son incorrectos" , old: req.body})
             }
         }
 
-        return res.render("./users/login", { errors : {
-            email: {
-                msg: "El email no se encuentra registrado"
-            }
-        }, old: req.body })
+        return res.render("./users/login", { errors : "Los datos ingresados son incorrectos", old: req.body })
     },
     logout : (req,res) => {
         req.session.destroy()

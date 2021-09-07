@@ -30,7 +30,7 @@
                 </div>
                 <i class="fas fa-search"></i>
             </div>
-            <% if (locals.isLogged) { %>
+            <% if (locals.userLog) { %>
                 <div class="avatar" onclick="document.getElementById('logout').style.display = 'block'">
                     <img src="/img/users/<%= locals.userLog.image %> " alt="">
                     <li id="logout"><a href="/users/logout">Cerrar sesion</a></li>

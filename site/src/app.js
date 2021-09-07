@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override');
 var session = require("express-session");
-var userLog = require("./middlewares/userLog");
 var localUserCheck = require("./middlewares/localUserCheck");
 var remenber = require("./middlewares/remenber");
 
@@ -25,8 +24,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(methodOverride('_method'));
-app.use(session({ secret: "secret"}));
-app.use(userLog);
+app.use(session({ 
+  secret: "secret",
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(localUserCheck);
 app.use(remenber);
 

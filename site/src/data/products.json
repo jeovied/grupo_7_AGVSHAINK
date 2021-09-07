@@ -1,21 +1,20 @@
 [
   {
     "id": 1,
-    "name": "Buzo Vans",
-    "price": 7000,
+    "name": "buzo vans",
+    "price": 22,
     "description": [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ea necessitatibus vero soluta velit repellendus quae consequatur fugit doloremque sed et veritatis aut molestiae vitae accusantium. Possimus, impedit? Nisi, atque."
     ],
-    "category": "buzos",
-    "talle": [
-      "S",
-      "M",
-      "L"
-    ],
+    "category": "Accesorios",
     "images": [
       "producto1.jpg",
       "producto1_2.jpg",
       "producto1_3.jpg"
+    ],
+    "talle": [
+      "38",
+      "39"
     ]
   },
   {
@@ -72,13 +71,12 @@
   },
   {
     "id": 5,
-    "name": "buzo ",
-    "price": 2500,
-    "category": "Zapatillas",
+    "name": "buzo vans",
+    "price": 21111,
+    "category": "Indumentaria",
     "talle": [
-      "38",
-      "39",
-      "40"
+      "40",
+      "41"
     ],
     "description": [
       "aaaaaaaaaaaaaaaaaaaaaaa"
