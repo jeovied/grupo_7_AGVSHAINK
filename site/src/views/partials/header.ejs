@@ -12,13 +12,15 @@
             <ol class="ol">
                 <li><a href="/products">Productos</a></li>
                 <li><a href="/products">Categorias</a></li>
-                <!-- <li><a href="/users/login">Ofertas</a></li> -->
                 <li><a href="#footer">Contacto</a></li>
                 <% if (locals.userLog) { %>
                     <% if (locals.userLog.category === "admin") { %>
                         <li><a href="/admin">Administracion</a></li>
                     <% } %>
                 <% } %>
+                <% if (locals.userLog) { %>
+                    <li><a href="/users/profile/<%= locals.userLog.id %>">Perfil</a></li>
+            <% } %>
             </ol>
         </nav>
         <div class="botones">

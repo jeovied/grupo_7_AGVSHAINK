@@ -68,5 +68,59 @@ module.exports = {
         res.clearCookie("remenber")
 
         return res.redirect("/")
+    },
+    profile : (req,res) => {
+        if(req.session.userLog){
+            let usuario = users.find(usuario => usuario.id === +req.params.id)
+            return res.render('./users/edit',{usuario})
+        }
+    },
+    profileEdit : (req,res) => {
+        if(req.session.userLog){
+            let usuario = users.find(usuario => usuario.id === +req.params.id)
+            return res.render('./users/edit',{usuario})
+        }        
+    },
+    update : (req,res) => {
+        const {name, lastname, email, password, number} = req.body;
+        
+         if(req.session.userLog){
+            users.forEach(usuario => {
+			if (usuario.id === +req.params.id) {
+				usuario.name = name
+				usuario.lastname = lastname
+				usuario.email = email
+                usuario.password = password != " " && bcrypt.hashSync(password,10)
+				usuario.number = +number
+                req.file ? usuario.image = req.filename : null
+			}
+		})
+
+        fs.writeFileSync(usersPath, JSON.stringify(users,null,2),'utf-8');
+
+        res.cookie("remenber", req.session.userLog, { maxAge: 60000 })
+        
+         return res.render('./users/profile',{usuario})
+        }
+        
+    },
+    destroy: (req,res) => {
+
+        if(req.session.userLog){
+            let destroy = users.filter(usuario => usuario.id !== +req.params.id)
+
+           res.cookie("remenber", req.session.userLog, { maxAge: 60000 })
+
+        fs.writeFileSync(usersPath, JSON.stringify(destroy, null, 2), "utf-8")
+
+        return res.redirect("/admin") 
+        }
+        
     }
 }
+    
+    
+    
+    
+    
+    

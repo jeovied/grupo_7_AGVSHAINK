@@ -18,5 +18,15 @@
     "number": 1140893426,
     "image": "avatar-1630109007299.jpg",
     "category": "user"
+  },
+  {
+    "id": 3,
+    "name": "Camila",
+    "lastname": "Aguirre",
+    "email": "camila@aguirre.com",
+    "password": "$2a$10$spjYTEUEde91gnNz4DEJkOjF5T4GMAiD61B087EXUzyd7DPJuU0xy",
+    "number": 1155117894,
+    "image": "default-avatar.jpg",
+    "category": "user"
   }
 ]

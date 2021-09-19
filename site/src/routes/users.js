@@ -3,8 +3,9 @@ var router = express.Router();
 var path = require("path");
 var multer = require("multer");
 var registerValidate = require("../validations/registerValidator");
-var { login, register , processRegister, processLogin, logout } = require('../controllers/userController');
+var { login, register , processRegister, processLogin, logout, profile, profileEdit, update, destroy } = require('../controllers/userController');
 var viewCheck = require('../middlewares/viewCheck');
+const userCheck = require("../middlewares/userCheck");
 
 const storage = multer.diskStorage({
     destination: (req,file,cb) =>{
@@ -24,5 +25,12 @@ router.post("/login", processLogin);
 router.get('/register', viewCheck, register);
 router.post("/register", upload.single("avatar"), registerValidate, processRegister);
 router.get("/logout", logout);
+router.get('/profile/:id',userCheck, profile);
+router.get('/edit/:id',userCheck, profileEdit);
+router.put('/edit/:id', upload.single('avatar'), update);
+router.delete('/:id', destroy);
+
+
+
 
 module.exports = router;
