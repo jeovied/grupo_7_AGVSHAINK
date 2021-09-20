@@ -2,15 +2,15 @@
   {
     "id": 1,
     "name": "Buzo Vans",
-    "price": 7000,
+    "price": 8000,
     "description": [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ea necessitatibus vero soluta velit repellendus quae consequatur fugit doloremque sed et veritatis aut molestiae vitae accusantium. Possimus, impedit? Nisi, atque."
     ],
-    "category": "buzos",
+    "category": "Accesorios",
     "talle": [
-      "S",
-      "M",
-      "L"
+      38,
+      39,
+      40
     ],
     "images": [
       "producto1.jpg",
