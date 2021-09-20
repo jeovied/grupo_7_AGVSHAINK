@@ -28,30 +28,15 @@
     </section>
     <script src="/javascripts/slider.js"></script>
     <section class="products">
-    <article class="products1">
-    <div class="image">
-        <a href="/products/detail/<%= products[0].id %> ">
-             <img src="/img/<%= products[0].images[0] %> " alt="">
-        </a>
-    </div>
-    <div>
-        <a href="/products/detail/<%= products[1].id %> ">
-            <img src="/img/<%= products[1].images[0] %> " alt="">
-       </a>
-    </div>
-    </article>
-    <article class="products2">
-    <div>
-        <a href="/products/detail/<%= products[2].id %> ">
-            <img src="/img/<%= products[2].images[0] %> " alt="">
-       </a>
-    </div>
-    <div>
-        <a href="/products/detail/<%= products[3].id %> ">
-            <img src="/img/<%= products[3].images[0] %> " alt="">
-       </a>
-    </div>
-    </article>
+        <article class="product">
+            <% for( let index = 0; index < products.length; index++ ) { %>
+            <div>
+                <a href="/products/detail/<%= products[index].id %> ">
+                    <img src="/img/<%= products[index].images[0] %> " alt="">
+               </a>
+            </div>
+            <% } %>
+        </article>
     </section>
     </main>
     <section class="bigPost">
@@ -75,32 +60,13 @@
     </article>
     <section class="catalogo-productos">
         <article class="producto1">
+            <% for( let index = 0; index < products.length; index++ ) { %>
             <div>
-                <a href="/products/detail/<%= products[0].id %> ">
-                    <img src="/img/<%= products[0].images[0] %> " alt="">
+                <a href="/products/detail/<%= products[index].id %> ">
+                    <img src="/img/<%= products[index].images[0] %> " alt="">
                </a>
             </div>
-        </article>
-        <article class="producto2">
-            <div>
-                <a href="/products/detail/<%= products[1].id %> ">
-                    <img src="/img/<%= products[1].images[0] %> " alt="">
-               </a>
-            </div>
-        </article>
-        <article class="producto3">
-            <div>
-                <a href="/products/detail/<%= products[2].id %> ">
-                    <img src="/img/<%= products[2].images[0] %> " alt="">
-               </a>
-            </div>
-        </article>
-        <article class="producto4">
-            <div>
-                <a href="/products/detail/<%= products[3].id %> ">
-                    <img src="/img/<%= products[3].images[0] %> " alt="">
-               </a>
-            </div>
+            <% } %>
         </article>
     </section>
     <footer>

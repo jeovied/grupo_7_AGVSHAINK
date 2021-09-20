@@ -24,41 +24,26 @@
     justify-self: center;
     align-items: center;
     flex-direction: column;
-    margin: 40px auto;
-    padding: 25px 0px;
+    margin: 0px auto;
+    padding: 0px;
+    background-color: var(--color-2);
 }
 
-.home .products1 img{
+.home .product img{
+    display: flex;
     width: 300px;
     height: 200px;
     object-fit: cover;
     padding: 0px;
     border-radius: 30px;
-    margin: 10px auto;
+    margin: 50px auto;
     filter: brightness(70%);
     cursor: pointer;
     box-shadow: 0 0 5px 5px var(--color-4),
                 0 15px 50px;
 }
 
-.home .products1 img:hover {
-    filter: brightness(100%);
-}
-
-.home .products2 img{
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    padding: 0px;
-    border-radius: 30px;
-    margin: 10px auto;
-    filter: brightness(70%);
-    cursor: pointer;
-    box-shadow: 0 0 5px 5px var(--color-4),
-                0 15px 50px;
-}
-
-.home .products2 img:hover {
+.home .product img:hover {
     filter: brightness(100%);
 }
 
@@ -70,7 +55,7 @@
     width: auto;
     max-width: 250px;
     justify-content: center;
-    margin: 0px auto;
+    margin: 30px auto;
     border: 5px solid var(--color-3);
     box-shadow: 0px 0px 15px var(--color-4),
     0px 0px 15px var(--color-4);
@@ -161,66 +146,19 @@
 }
 
 .home .producto1 img {
+    display: flex;
     width: 300px;
     height: 200px;
     object-fit: cover;
     padding: 0px;
     border-radius: 30px;
     filter: brightness(70%);
-    margin: 10px auto;
+    margin: 50px auto;
     cursor: pointer;
     box-shadow: 0 0 5px 5px var(--color-4), 0 15px 50px;
 }
 
 .home .producto1 img:hover {
-    filter: brightness(100%);
-}
-
-.home .producto2 img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    padding: 0px;
-    border-radius: 30px;
-    filter: brightness(70%);
-    margin: 10px auto;
-    cursor: pointer;
-    box-shadow: 0 0 5px 5px var(--color-4), 0 15px 50px;
-}
-
-.home .producto2 img:hover {
-    filter: brightness(100%);
-}
-
-.home .producto3 img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    padding: 0px;
-    border-radius: 30px;
-    filter: brightness(70%);
-    margin: 10px auto;
-    cursor: pointer;
-    box-shadow: 0 0 5px 5px var(--color-4), 0 15px 50px;
-}
-
-.home .producto3 img:hover {
-    filter: brightness(100%);
-}
-
-.home .producto4 img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    padding: 0px;
-    border-radius: 30px;
-    filter: brightness(70%);
-    margin: 10px auto;
-    cursor: pointer;
-    box-shadow: 0 0 5px 5px var(--color-4), 0 15px 50px;
-}
-
-.home .producto4 img:hover {
     filter: brightness(100%);
 }
 
@@ -234,7 +172,7 @@
         display: inline-block;
         position: relative;
         width: 100%;
-        margin: 30px auto 0px;
+        margin: 60px auto 0px;
         overflow: hidden;
         box-shadow: 0 0 5px 5px var(--color-4),
                     0 15px 50px;
@@ -285,14 +223,14 @@
         right: 10px;
     }
 
-    .home .products {
+    .home .products .image{
         display: flex;
         width: 100%;
         box-sizing: border-box;
         justify-content: center;
         align-content: center;
-        flex-wrap: wrap;
-        padding: 25px 0px;
+        flex-direction: column;
+        padding: 0px;
     }
 
     .home .mid-banner img {
@@ -349,42 +287,30 @@
         margin-left: -100%;
     }
 
-    .home .products {
-        display: flex;
-        width: 100%;
+    .home .products .product{
         box-sizing: border-box;
+        background-color: var(--color-2);
+        width: 100%;
+        display: flex;
         justify-content: center;
-        align-content: center;
-        flex-wrap: wrap;
+        align-items: center;
         flex-direction: row;
+        flex-wrap: wrap;
+        padding: 25px 0px;
     }
     
-    .home .products1 img{
-        width: 300px;
-        height: 200px;
-        object-fit: cover;
-        padding: 0px;
-        border-radius: 30px;
-        border: solid 2px var(--color-4);
-        margin: 20px 40px;
-        filter: brightness(70%);
-        cursor: pointer;
-        box-shadow: 0 0 5px 5px var(--color-3),
-                    0 15px 50px;
-    }
-    
-    .home .products2 img{
-        width: 300px;
-        height: 200px;
-        object-fit: cover;
-        padding: 0px;
-        border-radius: 30px;
-        border: solid 2px var(--color-4);
-        margin: 20px 40px;
-        filter: brightness(70%);
-        cursor: pointer;
-        box-shadow: 0 0 5px 5px var(--color-3),
-                    0 15px 50px;
+    .home .product img{
+        display: flex;
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            padding: 0px;
+            border-radius: 30px;
+            border: solid 2px var(--color-4);
+            filter: brightness(70%);
+            margin: 40px 40px;
+            cursor: pointer;
+            box-shadow: 0 0 5px 5px var(--color-3), 0 15px 50px;
     }
     
     .home .mid-banner img {
@@ -414,7 +340,7 @@
         text-shadow: 3px 1px 2px var(--color-3), 3px 1px 2px var(--color-3)
     }
 
-    .home .catalogo-productos{
+    .home .catalogo-productos .producto1{
     box-sizing: border-box;
     background-color: var(--color-2);
     width: 100%;
@@ -427,6 +353,7 @@
     }
 
     .home .producto1 img {
+        display: flex;
         width: 300px;
         height: 200px;
         object-fit: cover;
@@ -434,46 +361,7 @@
         border-radius: 30px;
         border: solid 2px var(--color-4);
         filter: brightness(70%);
-        margin: 20px 40px;
-        cursor: pointer;
-        box-shadow: 0 0 5px 5px var(--color-3), 0 15px 50px;
-    }
-
-    .home .producto2 img {
-        width: 300px;
-        height: 200px;
-        object-fit: cover;
-        padding: 0px;
-        border-radius: 30px;
-        border: solid 2px var(--color-4);
-        filter: brightness(70%);
-        margin: 20px 40px;
-        cursor: pointer;
-        box-shadow: 0 0 5px 5px var(--color-3), 0 15px 50px;
-    }
-
-    .home .producto3 img {
-        width: 300px;
-        height: 200px;
-        object-fit: cover;
-        padding: 0px;
-        border-radius: 30px;
-        border: solid 2px var(--color-4);
-        filter: brightness(70%);
-        margin: 20px 40px;
-        cursor: pointer;
-        box-shadow: 0 0 5px 5px var(--color-3), 0 15px 50px;
-    }
-
-    .home .producto4 img {
-        width: 300px;
-        height: 200px;
-        object-fit: cover;
-        padding: 0px;
-        border-radius: 30px;
-        border: solid 2px var(--color-4);
-        filter: brightness(70%);
-        margin: 20px 40px;
+        margin: 40px 40px;
         cursor: pointer;
         box-shadow: 0 0 5px 5px var(--color-3), 0 15px 50px;
     }
