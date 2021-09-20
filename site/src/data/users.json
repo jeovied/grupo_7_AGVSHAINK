@@ -17,10 +17,8 @@
     "password": "$2a$10$ar2waZmItAj4dF79jfNbKOKFxAdkpdQZJdeOr7be08pn.bqUlxLmi",
     "number": 1140893426,
     "image": "avatar-1630109007299.jpg",
-<<<<<<< HEAD
     "category": "admin"
-=======
-    "category": "user"
+
   },
   {
     "id": 3,
@@ -31,6 +29,5 @@
     "number": 1155117894,
     "image": "default-avatar.jpg",
     "category": "user"
->>>>>>> 5be23ceed187860193eece1395f737a6a4c8ea66
   }
 ]
