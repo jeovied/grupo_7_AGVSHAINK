@@ -37,8 +37,6 @@ module.exports = {
 
         let destroy = products.filter(product => product.id !== +req.params.id)
 
-        res.cookie("remenber", req.session.userLog, { maxAge: 60000 })
-
         fs.writeFileSync(productsPath, JSON.stringify(destroy, null, 2), "utf-8")
 
         return res.redirect("/admin")
@@ -63,8 +61,6 @@ module.exports = {
             products.push(producto)
 
             fs.writeFileSync(productsPath, JSON.stringify(products,null,2),'utf-8')
-            
-            res.cookie("remenber", req.session.userLog, { maxAge: 60000 })
             
             return res.redirect('/admin')
         } else{
@@ -96,8 +92,6 @@ module.exports = {
 
         fs.writeFileSync(productsPath, JSON.stringify(products,null,2),'utf-8');
 
-        res.cookie("remenber", req.session.userLog, { maxAge: 60000 })
-        
          return res.render('./products/products', {products})
     } 
 }

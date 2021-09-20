@@ -25,9 +25,9 @@ router.post("/login", processLogin);
 router.get('/register', viewCheck, register);
 router.post("/register", upload.single("avatar"), registerValidate, processRegister);
 router.get("/logout", logout);
-router.get('/profile/:id',userCheck, profile);
-router.get('/edit/:id',userCheck, profileEdit);
-router.put('/edit/:id', upload.single('avatar'), update);
+router.get('/profile', userCheck, profile);
+router.get('/edit',userCheck, profileEdit);
+router.put('/edit', upload.single('avatar'), update);
 router.delete('/:id', destroy);
 
 

@@ -1,7 +1,7 @@
 const path = require('path');
-const fs = require("fs")
+const fs = require("fs");
 const bcrypt = require("bcryptjs");
-const { validationResult } = require("express-validator")
+const { validationResult } = require("express-validator");
 
 const usersPath = path.join(__dirname, "../data/users.json")
 const users = JSON.parse(fs.readFileSync(usersPath, "utf-8"))
@@ -45,7 +45,7 @@ module.exports = {
     },
     processLogin : (req,res) => {
         let user = users.find(user => user.email === req.body.email)
-        console.log(user)
+
         if (user) {
             let check = bcrypt.compareSync(req.body.password , user.password)
             
@@ -70,51 +70,50 @@ module.exports = {
         return res.redirect("/")
     },
     profile : (req,res) => {
-        if(req.session.userLog){
-            let usuario = users.find(usuario => usuario.id === +req.params.id)
-            return res.render('./users/edit',{usuario})
-        }
+        return res.render("./users/profile", { usuario : req.session.userLog })
     },
     profileEdit : (req,res) => {
-        if(req.session.userLog){
-            let usuario = users.find(usuario => usuario.id === +req.params.id)
-            return res.render('./users/edit',{usuario})
-        }        
+        return res.render('./users/edit',{ usuario: req.session.userLog })     
     },
     update : (req,res) => {
-        const {name, lastname, email, password, number} = req.body;
-        
-         if(req.session.userLog){
+
+        let user = req.session.userLog
+
+        const {name, lastname, email, password, newPassword, number} = req.body;
+
+        if (bcrypt.compareSync(password , user.password)) {
             users.forEach(usuario => {
-			if (usuario.id === +req.params.id) {
-				usuario.name = name
-				usuario.lastname = lastname
-				usuario.email = email
-                usuario.password = password != " " && bcrypt.hashSync(password,10)
-				usuario.number = +number
-                req.file ? usuario.image = req.filename : null
-			}
-		})
+                if (usuario.id === user.id) {
+                    usuario.name = name
+                    usuario.lastname = lastname
+                    usuario.email = email
+                    usuario.password = bcrypt.hashSync(newPassword, 10)
+                    usuario.number = +number
+                }
+            })
+            
+            fs.writeFileSync(usersPath, JSON.stringify(users,null,2),'utf-8');
 
-        fs.writeFileSync(usersPath, JSON.stringify(users,null,2),'utf-8');
+            req.session.destroy()
+            res.clearCookie("remenber")
 
-        res.cookie("remenber", req.session.userLog, { maxAge: 60000 })
-        
-         return res.render('./users/profile',{usuario})
+            return res.redirect('/users/login')
+
+        }else{
+            return res.render("./users/edit", { errors : "Contraseña incorrecta", usuario: req.session.userLog })
         }
-        
+
     },
     destroy: (req,res) => {
 
-        if(req.session.userLog){
-            let destroy = users.filter(usuario => usuario.id !== +req.params.id)
+        let destroy = users.filter(usuario => usuario.id !== +req.params.id)
 
-           res.cookie("remenber", req.session.userLog, { maxAge: 60000 })
+        req.session.destroy()
+        res.clearCookie("remenber")
 
         fs.writeFileSync(usersPath, JSON.stringify(destroy, null, 2), "utf-8")
 
-        return res.redirect("/admin") 
-        }
+        return res.redirect("/") 
         
     }
 }
