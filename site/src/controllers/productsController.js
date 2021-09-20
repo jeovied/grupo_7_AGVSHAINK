@@ -37,6 +37,8 @@ module.exports = {
 
         let destroy = products.filter(product => product.id !== +req.params.id)
 
+        res.cookie("remenber", req.session.userLog, { maxAge: 60000 })
+
         fs.writeFileSync(productsPath, JSON.stringify(destroy, null, 2), "utf-8")
 
         return res.redirect("/admin")
@@ -61,7 +63,9 @@ module.exports = {
             products.push(producto)
 
             fs.writeFileSync(productsPath, JSON.stringify(products,null,2),'utf-8')
-
+            
+            res.cookie("remenber", req.session.userLog, { maxAge: 60000 })
+            
             return res.redirect('/admin')
         } else{
             return res.render('./products/productAdd', 
@@ -80,14 +84,20 @@ module.exports = {
 				product.name = name
 				product.price = +price
 				product.category = category
-                product.talle = typeof talle === "string" ? [talle] : talle
+                if (talle) {
+                   product.talle = typeof talle === "string" ? [talle] : talle
+                } else {
+                    product.talle = []
+                }
 				product.description = [description]
                 req.files.length != 0 ? product.images = imagenes : null
 			}
 		})
 
         fs.writeFileSync(productsPath, JSON.stringify(products,null,2),'utf-8');
+
+        res.cookie("remenber", req.session.userLog, { maxAge: 60000 })
         
-        res.redirect('/admin')
+         return res.render('./products/products', {products})
     } 
 }

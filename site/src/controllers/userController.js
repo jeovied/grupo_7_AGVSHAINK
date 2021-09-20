@@ -45,37 +45,82 @@ module.exports = {
     },
     processLogin : (req,res) => {
         let user = users.find(user => user.email === req.body.email)
-
+        console.log(user)
         if (user) {
             let check = bcrypt.compareSync(req.body.password , user.password)
             
             if (check) {
-                delete user.password
 
                 req.session.userLog = user
 
-                req.body.remenber != undefined ? res.cookie("remenber", user, { maxAge: 60000 }) : null
+                req.body.remenber != undefined ? res.cookie("remenber", user, { maxAge: 600000 }) : null
 
                 return res.redirect("/")
             }else{
-                return res.render("./users/login", { errors : {
-                    password: {
-                        msg: "contraseña incorrecta"
-                    }
-                }, old: req.body})
+                return res.render("./users/login", { errors : "Los datos ingresados son incorrectos" , old: req.body})
             }
         }
 
-        return res.render("./users/login", { errors : {
-            email: {
-                msg: "El email no se encuentra registrado"
-            }
-        }, old: req.body })
+        return res.render("./users/login", { errors : "Los datos ingresados son incorrectos", old: req.body })
     },
     logout : (req,res) => {
         req.session.destroy()
         res.clearCookie("remenber")
 
         return res.redirect("/")
+    },
+    profile : (req,res) => {
+        if(req.session.userLog){
+            let usuario = users.find(usuario => usuario.id === +req.params.id)
+            return res.render('./users/edit',{usuario})
+        }
+    },
+    profileEdit : (req,res) => {
+        if(req.session.userLog){
+            let usuario = users.find(usuario => usuario.id === +req.params.id)
+            return res.render('./users/edit',{usuario})
+        }        
+    },
+    update : (req,res) => {
+        const {name, lastname, email, password, number} = req.body;
+        
+         if(req.session.userLog){
+            users.forEach(usuario => {
+			if (usuario.id === +req.params.id) {
+				usuario.name = name
+				usuario.lastname = lastname
+				usuario.email = email
+                usuario.password = password != " " && bcrypt.hashSync(password,10)
+				usuario.number = +number
+                req.file ? usuario.image = req.filename : null
+			}
+		})
+
+        fs.writeFileSync(usersPath, JSON.stringify(users,null,2),'utf-8');
+
+        res.cookie("remenber", req.session.userLog, { maxAge: 60000 })
+        
+         return res.render('./users/profile',{usuario})
+        }
+        
+    },
+    destroy: (req,res) => {
+
+        if(req.session.userLog){
+            let destroy = users.filter(usuario => usuario.id !== +req.params.id)
+
+           res.cookie("remenber", req.session.userLog, { maxAge: 60000 })
+
+        fs.writeFileSync(usersPath, JSON.stringify(destroy, null, 2), "utf-8")
+
+        return res.redirect("/admin") 
+        }
+        
     }
 }
+    
+    
+    
+    
+    
+    
