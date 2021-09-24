@@ -14,18 +14,18 @@
         <div>
             <h6>Datos de usuario</h6>
         </div>
-        <form action="/users/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/users/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="exampleInputName1" class="form-label">Nombre</label>
-                <input type="text" name="name" value="<%= usuario.name %>" class="form-control" id="exampleInputName1" aria-describedby="emailHelp">
+                <input type="text" name="name" value="<%= user.name %>" class="form-control" id="exampleInputName1" aria-describedby="emailHelp">
               </div>
             <div class="mb-3">
                 <label for="exampleInputLastName1" class="form-label">Apellido</label>
-                <input type="text" name="lastname" value="<%= usuario.lastname %>" class="form-control" id="exampleInputLastName1" aria-describedby="emailHelp">
+                <input type="text" name="last_name" value="<%= user.last_name %>" class="form-control" id="exampleInputLastName1" aria-describedby="emailHelp">
               </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email</label>
-              <input type="email" name="email" value="<%= usuario.email %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" name="email" value="<%= user.email %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
@@ -40,7 +40,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputPhoneNumber1" class="form-label">Número de telefono</label>
-                <input type="number" name="number"  value="<%= usuario.number %>" class="form-control" id="exampleInputPhoneNumber1" aria-describedby="emailHelp">
+                <input type="number" name="number"  value="<%= user.number %>" class="form-control" id="exampleInputPhoneNumber1" aria-describedby="emailHelp">
               </div>
               <div class="mb-3">
                 <label for="formFile" class="form-label">Avatar</label>

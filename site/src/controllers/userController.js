@@ -3,6 +3,9 @@ const fs = require("fs");
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 
+const db = require('../database/models');
+const { response } = require('express');
+
 const usersPath = path.join(__dirname, "../data/users.json")
 const users = JSON.parse(fs.readFileSync(usersPath, "utf-8"))
 
@@ -14,54 +17,58 @@ module.exports = {
         return res.render('./users/register');
     },
     processRegister : (req,res) => {
-        let errors = validationResult(req)
-
-        checkEmail = users.find(user => user.email === req.body.email)
+        let errors = validationResult(req);
+        const {name,last_name,email,password,number} = req.body;
 
         if (!errors.isEmpty()) {
             return res.render("./users/register", { errors: errors.array(), old: req.body})
-        } else if (checkEmail){
-            return res.render("./users/register", { errorEmail: {
-                msg: "El email ya esta registrado"
-            }, old: req.body
-            })
         } else {
-            let user = {
-                id: +users.length + 1,
-                name: req.body.name,
-                lastname: req.body.lastname,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
-                number: +req.body.number,
-                image: req.file ? req.file.filename : "default-avatar.jpg",
-                category: "user",
-            }
-            users.push(user)
-
-            fs.writeFileSync(path.join(__dirname, "../data/users.json"), JSON.stringify(users, null, 2), "utf-8")
-
-            return res.redirect("/users/login")
+            db.Users.create({
+                name : name,
+                last_name : last_name,
+                email : email,
+                password : bcrypt.hashSync(password,10),
+                number : number,
+                image : 'default-avatar.png',
+                rol : "user"
+            }).then(user => {
+                req.session.userLogin = {
+                    id : user.id,
+                    name : user.name,
+                    last_name : user.last_name,
+                    email : user.email,
+                    number : user.number,
+                    image : user.image,
+                    rol : user.rol
+                }
+                return res.redirect('/')
+            }).catch(error => console.log(error))
+            
         }
     },
     processLogin : (req,res) => {
-        let user = users.find(user => user.email === req.body.email)
+        let errors = validationResult(req);
+        const {email,remenber} = req.body;
 
-        if (user) {
-            let check = bcrypt.compareSync(req.body.password , user.password)
-            
-            if (check) {
+        if (errors.isEmpty()) {
+            db.Users.findOne({
+                where : {
+                    email
+                }
+            }).then( user => {
+                req.session.userLogin = {
+                    id : user.id,
+                    name : user.name,
+                    rol : user.rol,
+                    image : user.image
+                }
+                remenber && res.cookie("remenber", user, { maxAge: 600000 })
+                return res.redirect('/')
+            })
 
-                req.session.userLog = user
-
-                req.body.remenber != undefined ? res.cookie("remenber", user, { maxAge: 600000 }) : null
-
-                return res.redirect("/")
             }else{
-                return res.render("./users/login", { errors : "Los datos ingresados son incorrectos" , old: req.body})
+                return res.render("./users/login", { errores : errors.mapped()})
             }
-        }
-
-        return res.render("./users/login", { errors : "Los datos ingresados son incorrectos", old: req.body })
     },
     logout : (req,res) => {
         req.session.destroy()
@@ -70,51 +77,54 @@ module.exports = {
         return res.redirect("/")
     },
     profile : (req,res) => {
-        return res.render("./users/profile", { usuario : req.session.userLog })
+
+        db.Users.findByPk(req.session.userLog.id)
+        .then(user => res.render('./users/profile',{
+            user
+        })).catch(error => console.log(error))
+
     },
-    profileEdit : (req,res) => {
-        return res.render('./users/edit',{ usuario: req.session.userLog })     
+    profileEdit : (req,res) => {     
+        db.Users.findByPk(req.session.userLog.id)
+        .then(user => res.render('./users/edit',{
+            user
+        })).catch(error => console.log(error))
     },
     update : (req,res) => {
 
-        let user = req.session.userLog
+        const {name, last_name, email, password, newPassword, number} = req.body;
 
-        const {name, lastname, email, password, newPassword, number} = req.body;
-
-        if (bcrypt.compareSync(password , user.password)) {
-            users.forEach(usuario => {
-                if (usuario.id === user.id) {
-                    usuario.name = name
-                    usuario.lastname = lastname
-                    usuario.email = email
-                    usuario.password = bcrypt.hashSync(newPassword, 10)
-                    usuario.number = +number
+        db.Users.update(
+            {
+                name : name,
+                last_name : last_name,
+                email : email,
+                password : bcrypt.hashSync(newPassword, 10),
+                number : number,
+                image : req.file && req.file.filename,
+            },
+            {
+                where : {
+                    id : req.params.id
                 }
-            })
-            
-            fs.writeFileSync(usersPath, JSON.stringify(users,null,2),'utf-8');
-
-            req.session.destroy()
-            res.clearCookie("remenber")
-
-            return res.redirect('/users/login')
-
-        }else{
-            return res.render("./users/edit", { errors : "Contraseña incorrecta", usuario: req.session.userLog })
-        }
+            }).then( response => {
+                console.log(response)
+                return res.redirect('/users/profile')
+            }).catch(error => console.log(error))
 
     },
     destroy: (req,res) => {
 
-        let destroy = users.filter(usuario => usuario.id !== +req.params.id)
-
-        req.session.destroy()
+        db.Users.destroy({
+            where : {
+                id : req.params.id
+            }
+        }).then( response => {
+            console.log(response)
+            req.session.destroy()
         res.clearCookie("remenber")
-
-        fs.writeFileSync(usersPath, JSON.stringify(destroy, null, 2), "utf-8")
-
-        return res.redirect("/") 
-        
+        return res.redirect('/')
+        }).catch(error => console.log(error))
     }
 }
     

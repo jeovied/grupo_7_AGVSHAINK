@@ -29,7 +29,7 @@
               </div>
             <div class="mb-3">
                 <label for="exampleInputLastName1" class="form-label">Apellido</label>
-                <input type="text" name="lastname" placeholder="Perez" value="<%= locals.old && old.lastname ? old.lastname : null %>" class="form-control" id="exampleInputLastName1" aria-describedby="emailHelp">
+                <input type="text" name="last_name" placeholder="Perez" value="<%= locals.old && old.lastname ? old.lastname : null %>" class="form-control" id="exampleInputLastName1" aria-describedby="emailHelp">
                 <% if (locals.errors) { %>
                     <% errors.forEach(error => { %>
                        <span><%- error.param === "lastname" ? error.msg : null %> </span>
@@ -68,7 +68,7 @@
               </div>
               <div class="mb-3">
                 <label for="formFile" class="form-label">Avatar</label>
-                <input class="form-control" type="file" name="avatar" id="formFile">
+                <input class="form-control" type="file" name="image" id="formFile">
               </div>
             <div style="justify-content: center; flex-direction: column; align-items: center;"><button type="submit" class="btn btn-primary" style="margin: 0px auto; display: flex; justify-content: center; flex-direction: column; align-items: center;">Registrate</button></div>
           </form>

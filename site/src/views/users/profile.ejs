@@ -16,15 +16,15 @@
             <h4>Datos de usuario</h4>
         </div>
         <h6>Avatar</h6>
-        <div><img src="/img/users/<%= usuario.image %>" alt=""></div>
+        <div><img src="/img/users/<%= user.image %>" alt="Avatar..."></div>
         <h6>Nombre</h6>
-            <div> <%= usuario.name%> </div>
+            <div> <%= user.name%> </div>
         <h6>Apellido</h6>
-            <div><%= usuario.lastname %></div>
+            <div><%= user.last_name %></div>
         <h6>email</h6>
-            <div style="text-transform: lowercase"><%=usuario.email %></div>
+            <div style="text-transform: lowercase"><%=user.email %></div>
         <h6>Número de teléfono</h6>
-            <div><%= usuario.number %></div>
+            <div><%= user.number %></div>
         <section>
         <div class="edit">
             <form action="/users/edit" method="GET">
@@ -34,7 +34,7 @@
             </form>    
         </div>
         <div class="delete">
-            <form action="/users/<%= usuario.id %>?_method=DELETE" method="POST">
+            <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
                 <button type="submit">
                     <i class="fas fa-trash-alt"></i>
                 </button>
