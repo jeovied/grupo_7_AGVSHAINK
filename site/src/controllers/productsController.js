@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require("fs");
+const db = require('../database/models');
 
 const productsPath = path.join(__dirname, "../data/products.json")
 const products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
@@ -8,14 +9,22 @@ const {validationResult} = require('express-validator');
 
 module.exports = {
     productsList: (req,res) =>{
-        return res.render('./products/products', {products})
+
+        db.Products.findAll({include:[{association:'images'}]})
+        .then(products => res.render('./products/products', { products }))
+        .catch(error => res.send(error))
     },
 
     detail : (req,res) => {
         
-        let product = products.find(product => product.id === +req.params.id);
+        let productPromise = db.Products.findByPk(req.params.id, {include:[{association: 'images'}, {association: 'sizes'}]})
+        
+        let allProductsPromise = db.Products.findAll({include:[{association: 'images'}]})
+        
+        Promise.all([productPromise, allProductsPromise])
+        .then(([product, products]) => res.render('./products/productDetail', {product, products}))
+        .catch(error => res.send(error))
 
-        return res.render('./products/productDetail', { product, products});
     },
 
     cart : (req,res) => {

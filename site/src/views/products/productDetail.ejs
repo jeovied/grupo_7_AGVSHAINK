@@ -25,10 +25,10 @@
                             <% }) %> 
                         </div>
                     </div>
-                    <img class="imgPrincipal" id="image-principal" src="/img/<%= product.images[0] %>" alt="">
+                    <img class="imgPrincipal" id="image-principal" src="/img/<%= product.images[0].file %>" alt="">
                     <div class="imgenes-secundarias">
                         <% product.images.forEach(img => { %>
-                            <img class="imgSecundaria" onclick="document.getElementById('image-principal').setAttribute('src','/img/<%= img %>')" src="/img/<%= img %>" alt="">
+                            <img class="imgSecundaria" onclick="document.getElementById('image-principal').setAttribute('src','/img/<%= img.file %>')" src="/img/<%= img.file %>" alt="">
                         <% }) %>
                     </div>
                 </div>
@@ -49,11 +49,11 @@
                                 <label class="color3" for="color3"></label>
                             </form> -->
                         <form action="resultado.html" method="POST">
-                            <% if (product.talle.length !== 0) { %>
+                            <% if (product.sizes.length !== 0) { %>
                                 <h4>talle:</h4> 
                                 <select>
-                                    <% product.talle.forEach(size => { %>
-                                    <option value="<%= size %>"><%= size %> </option>
+                                    <% product.sizes.forEach(size => { %>
+                                    <option value="<%= size.size %>"><%= size.size %> </option>
                                     <% }) %>
                                 </select>
                             <% } %>
@@ -97,7 +97,7 @@
                         <% products.forEach(product => { %>
                             <a href="/products/detail/<%= product.id %> ">
                                 <div class="element">
-                                    <img src="/img/<%= product.images[0] %> " alt="">
+                                    <img src="/img/<%= product.images[0].file %> " alt="">
                                     <h6><%= product.name %> </h6>
                                     <p class="categoria"><%= product.category %> </p>
                                     <p class="precio">$<%= product.price %> </p>
