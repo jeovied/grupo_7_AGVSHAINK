@@ -17,7 +17,6 @@
 #### Hacer menos
 
 - Reuniones largas.
-- Divagar en las reuniones.
 - Prolongación al realizar las actividades.
 
 #### Dejar de hacer
