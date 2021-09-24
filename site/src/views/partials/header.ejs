@@ -14,7 +14,7 @@
                 <li><a href="/products">Categorias</a></li>
                 <li><a href="#footer">Contacto</a></li>
                 <% if (locals.userLog) { %>
-                    <% if (locals.userLog.category === "admin") { %>
+                    <% if (locals.userLog.rol === "admin") { %>
                         <li><a href="/admin">Administracion</a></li>
                     <% } %>
                 <% } %>

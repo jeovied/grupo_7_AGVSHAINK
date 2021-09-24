@@ -32,7 +32,7 @@ module.exports = {
                 image : 'default-avatar.png',
                 rol : "user"
             }).then(user => {
-                req.session.userLogin = {
+                req.session.userLog = {
                     id : user.id,
                     name : user.name,
                     last_name : user.last_name,
@@ -56,7 +56,7 @@ module.exports = {
                     email
                 }
             }).then( user => {
-                req.session.userLogin = {
+                req.session.userLog = {
                     id : user.id,
                     name : user.name,
                     rol : user.rol,
