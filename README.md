@@ -1,4 +1,4 @@
-# grupo_7_AGVSHAINK
+# grupo_7_SevenStore
 
 
 AGVSHAINK nace en el 2020 como un micro-emprendimiento con el deseo de complementar el amor por el diseño y la ropa para así sacar prendas únicas de edición limitada.  No obstante nos abrimos a seguir experimentando en el mundo del diseño y así entrar al mundo del arte digital, de esta manera diseñar y elaborar accesorios increíbles en impresión 3D para el uso en la vida cotidiana.
