@@ -32,14 +32,32 @@ module.exports = {
     },
 
     add : (req,res) => {
-        return res.render('./products/productAdd', {categories});
+
+        let categories = db.Categories.findAll()
+        let sizes = db.Sizes.findAll()
+        let brands = db.Brands.findAll()
+
+        Promise.all([categories, sizes, brands])
+            .then(([categories, sizes, brands]) => res.render('./products/productAdd', { categories, sizes, brands }))
+            .catch(error => res.send(error))
     },
 
     edit : (req,res) => {
 
-        let product = products.find(producto => producto.id === +req.params.id)
+        let categories = db.Categories.findAll()
+        let sizes = db.Sizes.findAll()
+        let brands = db.Brands.findAll()
+        let product = db.Products.findByPk(req.params.id, {
+            include:[
+                {association: 'brands'}, 
+                {association: 'sizes'},
+                {association: 'categories'}
+            ]
+        })
 
-        return res.render('./products/productEdit', { product, categories, talles: ["38", "39", "40", "41"] }); 
+        Promise.all([product, categories, sizes, brands])
+            .then(([product, categories, sizes, brands]) => res.render("./products/productEdit", {product, categories, sizes, brands}))
+            .catch(error => res.send(error))
     },
 
     destroy: (req,res) => {
@@ -52,7 +70,37 @@ module.exports = {
     },
     save : (req,res) => {
 
-        let errors = validationResult(req);
+        db.Products.create({
+            name: req.body.name,
+            price: req.body.price,
+            description: req.body.description,
+            genre: req.body.genre,
+            category_id: req.body.category,
+            brand_id: req.body.brand
+        })
+            .then(product => {
+                let imagenes = req.files.map(imagen => imagen.filename)
+                imagenes.forEach(image => {
+                    db.Images.create({
+                        file: image,
+                        product_id: product.id
+                    })
+                })
+
+                if (req.body.size) {
+                    (req.body.size).forEach(size => {
+                        db.Product_size.create({
+                            product_id: product.id,
+                            size_id: size
+                        })
+                    })
+                }
+                
+                return res.redirect("/admin")
+            })
+            .catch(error => res.send(error))
+
+        /* let errors = validationResult(req);
         if(errors.isEmpty()){
             const {name, price, category, talle, description, images } = req.body;
 
@@ -77,10 +125,58 @@ module.exports = {
             {   categories, 
                 errores : errors.mapped(),
                 old : req.body});
-        }
+        } */
     },
      update : (req,res) => {
-        const {name, price, category, description, talle, images} = req.body;
+
+        db.Products.update({
+            name: req.body.name,
+            price: req.body.price,
+            description: req.body.description,
+            genre: req.body.genre,
+            category_id: req.body.category,
+            brand_id: req.body.brand
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(() => {
+                if (req.files.length != 0) {
+                    
+                    db.Images.destroy({
+                        where: {product_id: req.params.id}
+                    })
+                        .then(() => {
+                            let imagenes = req.files.map(imagen => imagen.filename)
+                            imagenes.forEach(image => {
+                                db.Images.create({
+                                    file: image,
+                                    product_id: req.params.id
+                                })
+                            })
+                        })
+                }
+
+                db.Product_size.destroy({
+                    where: {product_id : req.params.id}
+                })
+                    .then(() => {
+                        if (req.body.size) {
+                            (req.body.size).forEach(size => {
+                                db.Product_size.create({
+                                    product_id: req.params.id,
+                                    size_id: size
+                                })
+                            })
+                        }
+                        return res.redirect("/admin")
+                    })
+            })
+            .catch(error => res.send(error))
+
+        /* const {name, price, category, description, talle, images} = req.body;
 
         var imagenes = req.files.map(imagen => imagen.filename)
         
@@ -101,6 +197,6 @@ module.exports = {
 
         fs.writeFileSync(productsPath, JSON.stringify(products,null,2),'utf-8');
 
-         return res.render('./products/products', {products})
+         return res.render('./products/products', {products}) */
     } 
 }

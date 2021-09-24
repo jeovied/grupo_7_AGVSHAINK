@@ -17,7 +17,7 @@
             <article>
                 <div class="image">
                     <a href="/products/detail/<%= product.id %> ">
-                        <img src="/img/<%= product.images[0] %> " alt="">
+                        <img src="/img/<%= product.images[0].file %> " alt="">
                     </a>
                 </div>
                 <div class="name">
@@ -27,7 +27,7 @@
                     <span>$<%= product.price %></span>
                 </div>
                 <div class="category">
-                    <h5><%= product.category %></h5>
+                    <h5><%= product.categories.name %></h5>
                 </div>
                 <div class="edit">
                     <form action="/products/edit/<%= product.id %>" method="GET">
