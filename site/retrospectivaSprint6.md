@@ -1,4 +1,4 @@
-# grupo_7_AGVSHAINK
+# grupo_7_SevenStore
 ## Retrospectiva
 
 #### Seguir haciendo

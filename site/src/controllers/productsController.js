@@ -62,11 +62,19 @@ module.exports = {
 
     destroy: (req,res) => {
 
-        let destroy = products.filter(product => product.id !== +req.params.id)
+            db.Products.destroy({
+                where : {
+                    id : req.params.id
+                }
+            })
+            .then( () => res.redirect('/admin'))
+            .catch(error => res.send(error))
+
+        /* let destroy = products.filter(product => product.id !== +req.params.id)
 
         fs.writeFileSync(productsPath, JSON.stringify(destroy, null, 2), "utf-8")
 
-        return res.redirect("/admin")
+        return res.redirect("/admin") */
     },
     save : (req,res) => {
 

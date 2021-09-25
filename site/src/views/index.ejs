@@ -32,7 +32,7 @@
             <% for( let index = 0; index < products.length; index++ ) { %>
             <div>
                 <a href="/products/detail/<%= products[index].id %> ">
-                    <img src="/img/<%= products[index].images[0] %> " alt="">
+                    <img src="/img/<%= products[index].images[0].file %> " alt="">
                </a>
             </div>
             <% } %>
@@ -63,7 +63,7 @@
             <% for( let index = 0; index < products.length; index++ ) { %>
             <div>
                 <a href="/products/detail/<%= products[index].id %> ">
-                    <img src="/img/<%= products[index].images[0] %> " alt="">
+                    <img src="/img/<%= products[index].images[0].file %> " alt="">
                </a>
             </div>
             <% } %>

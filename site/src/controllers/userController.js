@@ -29,10 +29,10 @@ module.exports = {
                 email : email,
                 password : bcrypt.hashSync(password,10),
                 number : number,
-                image : 'default-avatar.png',
+                image : 'default-avatar.jpg',
                 rol : "user"
             }).then(user => {
-                req.session.userLogin = {
+                req.session.userLog = {
                     id : user.id,
                     name : user.name,
                     last_name : user.last_name,
@@ -56,7 +56,7 @@ module.exports = {
                     email
                 }
             }).then( user => {
-                req.session.userLogin = {
+                req.session.userLog = {
                     id : user.id,
                     name : user.name,
                     rol : user.rol,

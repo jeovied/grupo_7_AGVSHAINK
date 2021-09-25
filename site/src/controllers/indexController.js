@@ -6,7 +6,10 @@ const products = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/produc
 
 module.exports = {
     index : (req,res) => {
-        return res.render("index", { products });
+        /* return res.render("index", { products }); */
+        db.Products.findAll({include: [{association: "images"}]})
+        .then(products => res.render('./index', {products}))
+        .catch(error => res.send(error))
     },
 
     admin: (req,res) => {
