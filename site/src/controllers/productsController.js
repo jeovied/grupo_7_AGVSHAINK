@@ -6,6 +6,7 @@ const productsPath = path.join(__dirname, "../data/products.json")
 const products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
 const categories = require('../data/categories_db');
 const {validationResult} = require('express-validator');
+const {Op} = require('sequelize');
 
 module.exports = {
     productsList: (req,res) =>{
@@ -206,5 +207,29 @@ module.exports = {
         fs.writeFileSync(productsPath, JSON.stringify(products,null,2),'utf-8');
 
          return res.render('./products/products', {products}) */
-    } 
+    },
+    search : (req,res) => {
+
+        db.Products.findAll({
+            where : {
+                [Op.or] : [
+                    {
+                        name :  {
+                            [Op.substring] : req.query.keywords
+                        }
+                    },
+                    {
+                        description : {
+                            [Op.substring] : req.query.keywords
+                        }
+                    }
+                ]
+            }
+        }).then(result => res.render('./products/productSearch',{
+            result,
+            busqueda : req.query.keywords
+        })).catch(error => console.log(error))
+
+    }
+
 }
