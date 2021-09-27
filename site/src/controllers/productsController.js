@@ -78,35 +78,48 @@ module.exports = {
     },
     save : (req,res) => {
 
-        db.Products.create({
-            name: req.body.name,
-            price: req.body.price,
-            description: req.body.description,
-            genre: req.body.genre,
-            category_id: req.body.category,
-            brand_id: req.body.brand
-        })
-            .then(product => {
-                let imagenes = req.files.map(imagen => imagen.filename)
-                imagenes.forEach(image => {
-                    db.Images.create({
-                        file: image,
-                        product_id: product.id
-                    })
-                })
-
-                if (req.body.size) {
-                    (req.body.size).forEach(size => {
-                        db.Product_size.create({
-                            product_id: product.id,
-                            size_id: size
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+        
+            db.Products.create({
+                name: req.body.name,
+                price: req.body.price,
+                description: req.body.description,
+                genre: req.body.genre,
+                category_id: req.body.category,
+                brand_id: req.body.brand
+            })
+                .then(product => {
+                    let imagenes = req.files.map(imagen => imagen.filename)
+                    imagenes.forEach(image => {
+                        db.Images.create({
+                            file: image,
+                            product_id: product.id
                         })
                     })
-                }
-                
-                return res.redirect("/admin")
-            })
-            .catch(error => res.send(error))
+    
+                    if (req.body.size) {
+                        (req.body.size).forEach(size => {
+                            db.Product_size.create({
+                                product_id: product.id,
+                                size_id: size
+                            })
+                        })
+                    }
+                    
+                    return res.redirect("/admin")
+                })
+                .catch(error => res.send(error))
+        }else{
+
+            let categories = db.Categories.findAll()
+            let sizes = db.Sizes.findAll()
+            let brands = db.Brands.findAll()
+
+        Promise.all([categories, sizes, brands])
+            .then(([categories, sizes, brands]) => res.render('./products/productAdd', { categories, sizes, brands, errores : errors.mapped(),
+                old : req.body }))
+            .catch(error => res.send(error))}
 
         /* let errors = validationResult(req);
         if(errors.isEmpty()){
@@ -206,5 +219,14 @@ module.exports = {
         fs.writeFileSync(productsPath, JSON.stringify(products,null,2),'utf-8');
 
          return res.render('./products/products', {products}) */
-    } 
+    },
+    find : (req, res) => {
+
+        db.Products.findByPk(req.params.id, {include:[{association:'images'}]})
+
+        .then(products => res.render('./products/products', { products }))
+
+        .catch(error => res.send(error))
+
+    }
 }
