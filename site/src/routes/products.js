@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const {productsList, detail, cart, add, edit, destroy,save, update} = require('../controllers/productsController');
+const {productsList, detail, cart, add, edit, destroy,save, update, search} = require('../controllers/productsController');
 
 const addProductsValidator = require('../validations/addProductValidator')
 const adminCheck = require("../middlewares/adminCheck");
@@ -35,6 +35,7 @@ router.get('/edit/:id', adminCheck, edit);
 router.put('/edit/:id', upload.array('images'), update)
 
 router.delete('/:id', destroy);
+router.get('/search',search);
 
 
 module.exports = router;
