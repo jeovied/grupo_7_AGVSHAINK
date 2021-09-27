@@ -71,11 +71,6 @@ module.exports = {
             .then( () => res.redirect('/admin'))
             .catch(error => res.send(error))
 
-        /* let destroy = products.filter(product => product.id !== +req.params.id)
-
-        fs.writeFileSync(productsPath, JSON.stringify(destroy, null, 2), "utf-8")
-
-        return res.redirect("/admin") */
     },
     save : (req,res) => {
 
@@ -122,32 +117,6 @@ module.exports = {
                 old : req.body }))
             .catch(error => res.send(error))}
 
-        /* let errors = validationResult(req);
-        if(errors.isEmpty()){
-            const {name, price, category, talle, description, images } = req.body;
-
-            var imagenes = req.files.map(imagen => imagen.filename)
-        
-            let producto = {
-            id: products[products.length - 1].id + 1, 
-            name, 
-            price: +price, 
-            category, 
-            talle: typeof talle === "string" ? [talle] : talle,
-            description: [description], 
-            images: req.files.length != 0 ? imagenes : ['default-image.png']
-            }
-            products.push(producto)
-
-            fs.writeFileSync(productsPath, JSON.stringify(products,null,2),'utf-8')
-            
-            return res.redirect('/admin')
-        } else{
-            return res.render('./products/productAdd', 
-            {   categories, 
-                errores : errors.mapped(),
-                old : req.body});
-        } */
     },
      update : (req,res) => {
 
@@ -198,40 +167,7 @@ module.exports = {
             })
             .catch(error => res.send(error))
 
-        /* const {name, price, category, description, talle, images} = req.body;
-
-        var imagenes = req.files.map(imagen => imagen.filename)
-        
-        products.forEach(product => {
-			if (product.id === +req.params.id) {
-				product.name = name
-				product.price = +price
-				product.category = category
-                if (talle) {
-                   product.talle = typeof talle === "string" ? [talle] : talle
-                } else {
-                    product.talle = []
-                }
-				product.description = [description]
-                req.files.length != 0 ? product.images = imagenes : null
-			}
-		})
-
-        fs.writeFileSync(productsPath, JSON.stringify(products,null,2),'utf-8');
-
-         return res.render('./products/products', {products}) */
     },
-<<<<<<< HEAD
-    find : (req, res) => {
-
-        db.Products.findByPk(req.params.id, {include:[{association:'images'}]})
-
-        .then(products => res.render('./products/products', { products }))
-
-        .catch(error => res.send(error))
-
-    }
-=======
     search : (req,res) => {
 
         db.Products.findAll({
@@ -256,5 +192,4 @@ module.exports = {
 
     }
 
->>>>>>> e19793f630aefa88957bf1ab61ad005ad6f57348
 }

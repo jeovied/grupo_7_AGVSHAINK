@@ -1,4 +1,4 @@
-const { check } = require('express-validator');
+const { check, body } = require('express-validator');
 
 module.exports = [
     check('name')
@@ -7,15 +7,25 @@ module.exports = [
     check('price')
     .notEmpty().withMessage('Debes indicar el precio'),
 
-    check('description')
-    .notEmpty().withMessage('Es preferible que incluyas una descripción del producto'),
-
     check('category')
     .notEmpty().withMessage('Debes Indicar una categoría'),
 
-    check('talle')
-    .notEmpty().withMessage('Indica los talles del producto'),
+    check('genre')
+    .notEmpty().withMessage('Debes Indicar un genero'),
 
-    check('images')
-    .notEmpty().withMessage('Debes cargar imagenes del producto')
+    check('brand')
+    .notEmpty().withMessage('Debes Indicar una marca'),
+
+    check('description')
+    .notEmpty().withMessage('Es preferible que incluyas una descripción del producto'),
+
+    body("images")
+    .custom((value, {req}) => {
+        console.log(req.files.length)
+        if (req.files.length != 0) {
+            return true
+        } else {
+            return false
+        }
+    }).withMessage('Debes cargar imagenes del producto')
 ]

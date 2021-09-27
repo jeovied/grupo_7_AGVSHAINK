@@ -33,7 +33,7 @@
                 <select id="category" class="form-select" name="category">
                     <option value="" selected hidden>Seleccione la categoría</option>
             <% categories.forEach(category => { %>
-             <option value="<%= category.id %>" <%= locals.old && old.category === category.name ? 'selected' : null%> ><%= category.name %></option>
+             <option value="<%= category.id %>" <%= locals.old && old.category == category.id ? 'selected' : null%> ><%= category.name %></option>
             <% }) %>
                 </select>
                 <span class="text-danger" style="font-size: small;"><%= locals.errores && errores.category ? errores.category.msg : null %> </span>
@@ -44,9 +44,10 @@
 
                 <select id="genre" class="form-select" name="genre">
                     <option value="" selected hidden>Seleccione el genero</option>
-                    <option value="masculino">Hombre</option>
-                    <option value="femenino">Mujer</option>
+                    <option value="masculino" <%= locals.old && old.genre == "masculino" ? 'selected' : null%> >Hombre</option>
+                    <option value="femenino" <%= locals.old && old.genre == "femenino" ? 'selected' : null%> >Mujer</option>
                 </select>
+                <span class="text-danger" style="font-size: small;"><%= locals.errores && errores.genre ? errores.genre.msg : null %> </span>
               </div>
 
               <div class="mb-3">
@@ -55,9 +56,10 @@
                 <select id="brand" class="form-select" name="brand">
                     <option value="" selected hidden>Seleccione la marca</option>
                     <% brands.forEach(brand => { %>
-                      <option value="<%= brand.id %>"><%= brand.name %></option>
+                      <option value="<%= brand.id %>" <%= locals.old && old.brand == brand.id ? 'selected' : null%> ><%= brand.name %></option>
                     <% }) %>
                 </select>
+                <span class="text-danger" style="font-size: small;"><%= locals.errores && errores.brand ? errores.brand.msg : null %> </span>
               </div>
 <!--               <label for="exampleColorInput" class="form-label">Color</label>
 <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#000" title="Choose your color"> -->
@@ -80,7 +82,7 @@
               <div class="mb-3">
                 <label for="productImagen" class="form-label">Imagen</label>
                 <input type="file" class="form-control" id="productImagen" name="images" accept="image/*" multiple>
-                <span class="text-danger" style="font-size: small;"><%= typeof error != 'undefined' ? errores : null %> </span>
+                <span class="text-danger" style="font-size: small;"><%= locals.errores && errores.images ? errores.images.msg : null %><%= typeof error != 'undefined' ? errores : null %> </span>
               </div>
               
               
