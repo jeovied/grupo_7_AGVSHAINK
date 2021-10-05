@@ -1,131 +1,277 @@
-header{
+.header {
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+header li{
+    list-style-type: none;
+}
+
+header a{
+    text-decoration: none;
+}
+
+header .nav-bar{
+    display: grid;
+    height: 50px;
+    grid-template-columns: 10% 15% auto;
     background-color: var(--color-4);
 }
 
-header article{
-    box-sizing: border-box;
+header .burger-menu{
     display: flex;
-    width: auto;
-    justify-content: space-between;
-    color: #fff;
-    padding: 10px 5px;
-}
-
-header article .burger-menu{
-    font-size: 22px;
-    display: inline-block;
-    margin: auto;
-    padding: 2px 5px;
-}
-
-header article h1{
-    display: inline;
-    font-size: 22px;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
     color: #fff;
 }
 
-header article nav{
+header .burger-menu:active{
+    color: var(--color-2);
+}
+
+header .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1:active{
+    color: var(--color-2);
+}
+
+header h1:hover{
+    color: var(--color-2);
+}
+
+header .title a{
+    color: #fff;
+}
+
+header .desktop{
     display: none;
 }
 
-header article .botones .barra-de-busqueda {
+header .menu{
+    position: absolute;
+    top: 50px;
+    width: 100%;
     display: none;
+    z-index: 10;
 }
 
-header article .botones div{
-    display: inline-block;
-    font-size: 22px;
-    padding: 2px 5px 2px 10px;
+header .menu a{
+    color: #000;
 }
 
-header article .botones a{
-    color: #fff;
+header .menu div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--color-3);
+    padding: 20px 0;
+    background-color: var(--color-2);
+    font-size: 14px;
 }
 
-header article .avatar{
+header .search-bar{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 10px;
     position: relative;
 }
 
-header article img{
-    width: 30px;
+header input{
+    outline: none;
+    border: 2px solid var(--color-3);
+    border-radius: 10px;
     height: 30px;
-    border-radius: 50%;
-    border: 1px solid var(--color-1);
-    position: absolute;
-    right: -10px;
-    bottom: -5px;
+    width: 200px;
+    padding-left: 5px;
+    background-color: var(--color-2);
 }
 
-header .avatar li{
-    list-style-type: none;
+header input:focus{
+    border-color: var(--color-1);
+    box-shadow: 0 0 5px #000;
+}
+
+header input:hover{
+    border-color: var(--color-1);
+}
+
+header button{
+    background: none;
+    border: none;
     position: absolute;
-    padding: 5px 10px;
-    background-color: var(--color-4);
-    font-size: 18px;
-    top: 10px;
-    right: -35px;
-    z-index: 10;
+    cursor: pointer;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 16px;
+    color: var(--color-4);
+}
+
+header .icons{
     display: none;
 }
 
-.ol {
-    margin: 0px;
-    padding: 0px;
+header .on{
+ display: block;
 }
 
-@media (min-width: 769px){
-    
-    header article .burger-menu{
+header ul{
+    display: none;
+    margin-top: 10px;
+}
+
+header li{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+@media (min-width: 425px){
+
+    header .mobile{
         display: none;
     }
 
-    header article .titulo{
+    header .desktop{
+        display: block;
+        font-size: 25px;
+    }
+
+    header .nav-bar{
+        grid-template-columns: 10% 40% auto;
+    }
+
+    header .title{
+        justify-content: start;
+    }
+
+    header .menu{
+        width: 60%;
+    }
+}
+
+@media (min-width: 1024px){
+
+    header .icons{
         display: flex;
         align-items: center;
-        padding-left: 10px;
+        justify-content: space-around;
     }
 
-    header article nav{
-        display: flex;
-        align-items: center;
-    }
-
-    header article nav ol li{
-        display: inline;
-        text-align: center;
-        font-size: 20px;
-        margin: 0 15px;
-    }
-
-    header article nav ol li a{
-        text-decoration: none;
+    header .icons i{
         color: #fff;
+        font-size: 30px;
+    }
+
+    header .icons i:hover{
+        color: var(--color-2);
+    }
+
+    header .burger-menu{
+        display: none;
+    }
+
+    header .title{
+        justify-content: center;
+    }
+
+    header .menu{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: static;
+        width: 100%;
+    }
+
+    header .menu div{
+        border: none;
+        padding: 10px;
+        background: none;
+        position: relative;
+        color: #fff;
+    }
+
+    header .menu div h2{
+        cursor: pointer;
+    }
+
+    header .menu div h2:hover{
+        color: var(--color-2);
+    }
+
+    header .menu div a{
+        color: #fff;
+    }
+
+    header ul{
+        position: absolute;
+        margin-top: 0px;
+        top: 59.5px;
+        background-color: var(--color-4);
+        padding: 11px 25px;
+    }
+    
+    header li{
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
         font-size: 18px;
     }
 
-    header article .botones div{
-        vertical-align: bottom;
+    header li a:hover{
+        color: var(--color-2);
     }
 
-    header article .botones .barra-de-busqueda{
+    header .menu .user,
+    header .menu .cart{
         display: none;
     }
 
-    header article .botones .barra-de-busqueda input{
-        height: 20px;
+    header .search-bar{
+        grid-column-end: initial;
     }
 
-    header article img{
-        bottom: 0;
+    header input{
+        height: 40px;
+        width: 240px;
     }
 
-}
-@media (min-width: 1279px){
-    
-    header article .botones .barra-de-busqueda{
-        display: inline-block;
-        border-left: none;
-        padding: 0;
+    header button{
+        font-size: 22px;
     }
 
+    header .nav-bar{
+        grid-template-columns: 15% 50% 25% 10%;
+        justify-content: space-around;
+        height: 70px;
+    }
+
+    header .avatar{
+        position: relative;
+    }
+
+    header .avatar img{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        border: 2px solid var(--color-1);
+        border-radius: 50%;
+    }
+
+    header .avatar ul {
+        position: absolute;
+        z-index: 10;
+        left: -90px;
+        top: 60px;
+    }
+
+    header .avatar a{
+        color: #fff;
+    }
 }

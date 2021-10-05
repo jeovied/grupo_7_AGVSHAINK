@@ -1,54 +1,113 @@
 <header>
-    <article>
-        <div class="titulo">
-            <div class="burger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <a href="/" style="text-decoration: none;">
-                <h1>Seven Store</h1>
+    <div class="nav-bar">
+        <div class="burger-menu" id="burger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="title">
+            <a href="/">
+                <h1 class="mobile">7</h1>
+                <h1 class="desktop">Seven store</h1>
             </a>
         </div>
-        <nav>
-            <ol class="ol">
-                <li><a href="/products">Productos</a></li>
-                <li><a href="/products">Categorias</a></li>
-                <li><a href="#footer">Contacto</a></li>
-                <% if (locals.userLog) { %>
+        <div class="menu" id="menu">
+            <a href="/products">
+                <div>
+                    <h2>Productos</h2>
+                </div>
+            </a>
+            <div id="men">
+                <h2>Hombre</h2>
+                <ul id="ul-men">
+                    <li><a href="/products/masculino/category/1">zapatillas</a></li>
+                    <li><a href="/products/masculino/category/2">Deportivo</a></li>
+                    <li><a href="/products/masculino/category/3">Ojotas</a></li>
+                    <li><a href="/products/masculino/all">Todas las categorias</a></li>
+                </ul>
+            </div>
+            <div id="women">
+                <h2>Mujer</h2>
+                <ul id="ul-women">
+                    <li><a href="/products/femenino/category/1">zapatillas</a></li>
+                    <li><a href="/products/femenino/category/2">Deportivo</a></li>
+                    <li><a href="/products/femenino/category/3">Ojotas</a></li>
+                    <li><a href="/products/femenino/all">Todas las categorias</a></li>
+                </ul>
+            </div>
+            <div id="brand">
+                <h2>Marcas</h2>
+                <ul id="ul-brand">
+                    <li><a href="/products/brand/1">Nike</a></li>
+                    <li><a href="/products/brand/2">Puma</a></li>
+                    <li><a href="/products/brand/3">Adidas</a></li>
+                    <li><a href="/products/brand/4">Umbro</a></li>
+                    <li><a href="/products/brand/5">Fila</a></li>
+                    <li><a href="/products/brand/6">Rebook</a></li>
+                    <li><a href="/products/brand/7">Topper</a></li>
+                    <li><a href="/products/brand/8">Converse</a></li>
+                    <li><a href="/products/brand/9">Pony</a></li>
+                    <li><a href="/products/brand/10">Crocs</a></li>
+                </ul>
+            </div>
+            <% if (locals.userLog) { %>
+            <div id="user" class="user">
+                <h2>Usuario</h2>
+                <ul id="ul-user">
+                    <li><a href="/users/profile">Ver perfil</a></li>
                     <% if (locals.userLog.rol === "admin") { %>
                         <li><a href="/admin">Administracion</a></li>
                     <% } %>
-                <% } %>
-                <% if (locals.userLog) { %>
-                    <li><a href="/users/profile">Perfil</a></li>
-            <% } %>
-            </ol>
-        </nav>
-        <div class="botones">
-            <div>
-                <div class="barra-de-busqueda">
-                    <form action="/products/search" class="d-flex" method="GET">
-                        <input name="keywords" type="text" placeholder="Buscar productos">
-                    </form>
-                </div>
-                <i class="fas fa-search"></i>
+                    <li><a href="/users/logout">Cerrar sesion</a></li>
+                </ul>
             </div>
-            <% if (locals.userLog) { %>
-                <div class="avatar" onclick="document.getElementById('logout').style.display = 'block'">
-                    <img src="/img/users/<%= locals.userLog.image %> " alt="">
-                    <li id="logout"><a href="/users/logout">Cerrar sesion</a></li>
+            <% } else { %>
+            <a href="/users/login">
+                <div id="user" class="user">
+                    <h2>Iniciar sesion</h2>
                 </div>
-            <% } else { %> 
-            <div>
-                <a href="/users/login">
-                    <i class="fas fa-user"></i>
-                </a>
-            </div>
+            </a>
             <% } %> 
+            <% if (locals.userLog) { %>
+                <a href="/products/cart">
+                    <div class="cart">
+                        <h2>Carrito</h2>
+                    </div>
+                </a>
+            <% } %>
+        </div>
+        <div class="search-bar">
+            <form action="/products/search" class="d-flex" method="GET">
+                <input name="keywords" type="text" id="search" placeholder="Buscar productos">
+                <button type="submit" id="seach-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <div class="icons">
+            <div>
+                <% if (locals.userLog) { %>
+                    <div class="avatar" >
+                        <img id="avatar" src="/img/users/<%= locals.userLog.image %> " alt="">
+                        <ul id="ul-avatar">
+                            <li><a href="/users/profile">Perfil</a></li>
+                            <li id="logout"><a href="/users/logout">Cerrar sesion</a></li>
+                            <% if (locals.userLog.rol === "admin") { %>
+                                <li><a href="/admin">Administracion</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                <% } else { %> 
+                <div>
+                    <a href="/users/login">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+                <% } %> 
+            </div>
             <div>
                 <a href="/products/cart">
                     <i class="fas fa-shopping-bag"></i>
                 </a>
             </div>
         </div>
-    </article>
+    </div>
 </header>

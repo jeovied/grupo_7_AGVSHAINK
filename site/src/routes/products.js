@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const {productsList, detail, cart, add, edit, destroy,save, update, search} = require('../controllers/productsController');
+const {productsList, genreAll, genreCategory, brands, detail, cart, add, edit, destroy,save, update, search} = require('../controllers/productsController');
 
 const addProductsValidator = require('../validations/addProductValidator')
 const adminCheck = require("../middlewares/adminCheck");
@@ -24,7 +24,10 @@ const upload = multer({
 })
 
 
-router.get('/', productsList)
+router.get('/', productsList);
+router.get("/:genre/all", genreAll);
+router.get("/:genre/category/:id", genreCategory);
+router.get("/brand/:id", brands);
 router.get('/detail/:id', detail);
 router.get('/cart', userCheck, cart);
 

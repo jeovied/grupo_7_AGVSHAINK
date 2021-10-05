@@ -16,6 +16,36 @@ module.exports = {
         .catch(error => res.send(error))
     },
 
+    genreAll: (req,res) => {
+        db.Products.findAll({
+            where: {genre: req.params.genre},
+            include:[{association:'images'}]
+        })
+            .then(products => res.render("./products/products", { products }))
+            .catch(error => res.send(error))
+    },
+
+    genreCategory: (req,res) => {
+        db.Products.findAll({
+            where: {
+                genre: req.params.genre,
+                category_id: req.params.id
+            },
+            include:[{association:'images'}]
+        })
+            .then(products => res.render("./products/products", { products }))
+            .catch(error => res.send(error))
+    },
+
+    brands: (req,res) => {
+        db.Products.findAll({
+            where: {brand_id: req.params.id},
+            include:[{association:'images'}]
+        })
+            .then(products => res.render("./products/products", { products }))
+            .catch(error => res.send(error))
+    },
+
     detail : (req,res) => {
         
         let productPromise = db.Products.findByPk(req.params.id, {include:[{association: 'images'}, {association: 'sizes'}]})
