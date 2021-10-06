@@ -15,11 +15,13 @@
         <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" name="name" value="<%= product.name %>">
+                <input type="text" class="form-control" id="formGroupExampleInput" name="name" value="<%= locals.old && old.name ? old.name : product.name %>">
+                <span class="text-danger" style="font-size: small;"><%= locals.errores && errores.name ? errores.name.msg : null %> </span> 
               </div>
               <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="formGroupExampleInput2" name="price" value="<%= product.price %>">
+                <input type="number" class="form-control" id="formGroupExampleInput2" name="price" value="<%= locals.old && old.price ? old.price : product.price %>">
+                <span class="text-danger"style="font-size: small;"><%= locals.errores && errores.price ? errores.price.msg : null %> </span>
               </div>
     <!--               <div class="mb-3">
                 <label for="formGroupExampleInput2" class="form-label">Codigo</label>
@@ -69,12 +71,13 @@
                     <% }) %>
                 <div class="mb-3">
                 <label for="floatingTextarea">Descripción</label>
-                <textarea class="form-control" id="floatingTextarea" name="description" ><%= product.description %></textarea>
+                <textarea class="form-control" id="floatingTextarea" name="description" ><%= locals.old && old.description ? old.description : product.description %></textarea>
+                <span class="text-danger" style="font-size: small;"><%= locals.errores && errores.description ? errores.description.msg : null %> </span>
               </div>
               <div class="mb-3">
                 <label for="productImagen" class="form-label">Imagen</label>
                 <input type="file" class="form-control" id="productImagen" name="images" accept="image/*" multiple>
-                <span class="text-danger"><%= typeof error != 'undefined' ? error : null %> </span>
+                <span class="text-danger" style="font-size: small;"><%= locals.errores && errores.images ? errores.images.msg : null %><%= typeof error != 'undefined' ? errores : null %> </span>
               </div>
               
               

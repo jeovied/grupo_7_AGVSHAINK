@@ -149,54 +149,73 @@ module.exports = {
 
     },
      update : (req,res) => {
+        
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
 
-        db.Products.update({
-            name: req.body.name,
-            price: req.body.price,
-            description: req.body.description,
-            genre: req.body.genre,
-            category_id: req.body.category,
-            brand_id: req.body.brand
-        },
-        {
-            where: {
-                id: req.params.id
-            }
-        })
-            .then(() => {
-                if (req.files.length != 0) {
-                    
-                    db.Images.destroy({
-                        where: {product_id: req.params.id}
+            db.Products.update({
+                name: req.body.name,
+                price: req.body.price,
+                description: req.body.description,
+                genre: req.body.genre,
+                category_id: req.body.category,
+                brand_id: req.body.brand
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            })
+                .then(() => {
+                    if (req.files.length != 0) {
+                        
+                        db.Images.destroy({
+                            where: {product_id: req.params.id}
+                        })
+                            .then(() => {
+                                let imagenes = req.files.map(imagen => imagen.filename)
+                                imagenes.forEach(image => {
+                                    db.Images.create({
+                                        file: image,
+                                        product_id: req.params.id
+                                    })
+                                })
+                            })
+                    }
+    
+                    db.Product_size.destroy({
+                        where: {product_id : req.params.id}
                     })
                         .then(() => {
-                            let imagenes = req.files.map(imagen => imagen.filename)
-                            imagenes.forEach(image => {
-                                db.Images.create({
-                                    file: image,
-                                    product_id: req.params.id
+                            if (req.body.size) {
+                                (req.body.size).forEach(size => {
+                                    db.Product_size.create({
+                                        product_id: req.params.id,
+                                        size_id: size
+                                    })
                                 })
-                            })
+                            }
+                            return res.redirect("/admin")
                         })
-                }
-
-                db.Product_size.destroy({
-                    where: {product_id : req.params.id}
                 })
-                    .then(() => {
-                        if (req.body.size) {
-                            (req.body.size).forEach(size => {
-                                db.Product_size.create({
-                                    product_id: req.params.id,
-                                    size_id: size
-                                })
-                            })
-                        }
-                        return res.redirect("/admin")
-                    })
+                .catch(error => res.send(error))
+        }else{
+            
+            let categories = db.Categories.findAll()
+            let sizes = db.Sizes.findAll()
+            let brands = db.Brands.findAll()
+            let product = db.Products.findByPk(req.params.id, {
+                include:[
+                    {association: 'brands'}, 
+                    {association: 'sizes'},
+                    {association: 'categories'}
+                ]
             })
-            .catch(error => res.send(error))
-
+    
+            Promise.all([product, categories, sizes, brands])
+                .then(([product, categories, sizes, brands]) => res.render("./products/productEdit", { product, categories, sizes, brands, errores : errors.mapped(), old : req.body }))
+                .catch(error => res.send(error))
+        }
     },
     search : (req,res) => {
 
