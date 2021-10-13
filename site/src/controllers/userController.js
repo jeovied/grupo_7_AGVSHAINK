@@ -29,7 +29,7 @@ module.exports = {
                 email : email,
                 password : bcrypt.hashSync(password,10),
                 number : number,
-                image : 'default-avatar.jpg',
+                image : req.file ? req.file.filename : 'default-avatar.jpg',
                 rol : "user"
             }).then(user => {
                 req.session.userLog = {
