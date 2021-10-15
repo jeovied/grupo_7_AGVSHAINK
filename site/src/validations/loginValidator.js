@@ -6,7 +6,7 @@ const db = require('../database/models');
 module.exports = [
     body('email')
     .custom((value,{req}) => {
-        console.log(req.body)
+        
         return db.Users.findOne({
             where :{
                 email : value

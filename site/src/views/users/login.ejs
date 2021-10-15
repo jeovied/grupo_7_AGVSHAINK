@@ -27,7 +27,7 @@
                 </div>
                 <div class="d-flex justify-content-end" style="flex-direction: column; align-items: center;">
                     <% if (locals.errors && errors ) { %>
-                      <span class="error"><%= errors %></span>
+                      <span class="error"><%= errors.email.msg %></span>
                      <% } %>
                     <div class="mb-3 form-check"> 
                         <input type="checkbox" name="remenber" class="form-check-input" id="exampleCheck1">

@@ -67,7 +67,7 @@ module.exports = {
             })
 
             }else{
-                return res.render("./users/login", { errores : errors.mapped()})
+                return res.render("./users/login", { errors : errors.mapped(), old: req.body })
             }
     },
     logout : (req,res) => {
