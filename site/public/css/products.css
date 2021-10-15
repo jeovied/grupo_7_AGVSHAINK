@@ -11,6 +11,12 @@
     border-bottom: 2px solid var(--color-4);
 }
 
+.products main h4{
+    color: red;
+    font-size: 32px;
+    margin: 30px 0 30px 15px
+}
+
 .products main .caja{
     margin: 30px auto;
     padding: 20px 15px;
@@ -22,6 +28,8 @@
     box-shadow: 0 0 10px var(--color-4);
     transition-property: all;
     transition-duration: 300ms;
+    max-width: 290px;
+    max-height: 405px;
 }
 
 .products main .caja:hover{

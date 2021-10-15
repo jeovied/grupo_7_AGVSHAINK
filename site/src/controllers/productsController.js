@@ -12,7 +12,7 @@ module.exports = {
     productsList: (req,res) =>{
 
         db.Products.findAll({include:[{association:'images'}]})
-        .then(products => res.render('./products/products', { products }))
+        .then(products => res.render('./products/products', { products, title: "Todos Los Productos" }))
         .catch(error => res.send(error))
     },
 
@@ -21,40 +21,42 @@ module.exports = {
             where: {genre: req.params.genre},
             include:[{association:'images'}]
         })
-            .then(products => res.render("./products/products", { products }))
+            .then(products => res.render("./products/products", { products, title: `Todos Los Productos de ${req.params.genre  == "femenino" ? "Mujer" : "Hombre"}` }))
             .catch(error => res.send(error))
     },
 
     genreCategory: (req,res) => {
-        db.Products.findAll({
-            where: {
-                genre: req.params.genre,
-                category_id: req.params.id
-            },
-            include:[{association:'images'}]
-        })
-            .then(products => res.render("./products/products", { products }))
+        
+        let products = db.Products.findAll({where: { genre: req.params.genre, category_id: req.params.id }, include:[{association:'images'}]})
+
+        let category = db.Categories.findByPk(req.params.id)
+
+        Promise.all([products, category])
+            .then(([products, category]) => res.render("./products/products", { products, title: `${category.name} de ${req.params.genre  == "femenino" ? "Mujer" : "Hombre"}` }))
             .catch(error => res.send(error))
     },
 
     brands: (req,res) => {
-        db.Products.findAll({
-            where: {brand_id: req.params.id},
-            include:[{association:'images'}]
-        })
-            .then(products => res.render("./products/products", { products }))
+         
+        let products = db.Products.findAll({ where: {brand_id: req.params.id}, include:[{association:'images'}]})
+
+        let brand = db.Brands.findByPk(req.params.id)
+        
+        Promise.all([products, brand])
+            .then(([products, brand]) => res.render("./products/products", { products, title: `Todos Los Productos de ${brand.name}` }))
             .catch(error => res.send(error))
     },
 
     detail : (req,res) => {
         
-        let productPromise = db.Products.findByPk(req.params.id, {include:[{association: 'images'}, {association: 'sizes'}]})
-        
-        let allProductsPromise = db.Products.findAll({include:[{association: 'images'}]})
-        
-        Promise.all([productPromise, allProductsPromise])
-        .then(([product, products]) => res.render('./products/productDetail', {product, products}))
-        .catch(error => res.send(error))
+        db.Products.findByPk(req.params.id, {include:[{association: 'images'}, {association: 'sizes'}]})        
+            .then(product => {
+                
+                db.Products.findAll({ where: { genre: product.genre }, include:[{association: 'images'}]})
+                    .then(products => res.render('./products/productDetail', {product, products}))
+                                
+            })
+            .catch(error => res.send(error))
 
     },
 
@@ -224,20 +226,32 @@ module.exports = {
                 [Op.or] : [
                     {
                         name :  {
-                            [Op.substring] : req.query.keywords
+                            [Op.substring] : req.query.keywords.trim()
                         }
                     },
                     {
                         description : {
-                            [Op.substring] : req.query.keywords
+                            [Op.substring] : req.query.keywords.trim()
                         }
                     }
                 ]
+            },
+            include:[{association: 'images'}]
+        })
+        .then(products => {
+            if (req.query.keywords != "") {
+                res.render('./products/products',{
+                    products,
+                    title : `Resultado de ${req.query.keywords.toLowerCase().trim()}`
+                })
+            } else {
+                res.render('./products/products',{
+                    products: [],
+                    title : `Resultado de ${req.query.keywords.toLowerCase().trim()}`
+                })
             }
-        }).then(result => res.render('./products/productSearch',{
-            result,
-            busqueda : req.query.keywords
-        })).catch(error => console.log(error))
+        })
+        .catch(error => console.log(error))
 
     }
 

@@ -8,8 +8,11 @@
         <%- include('../partials/header') %>
     </header>
     <main>
-        <h2>Todos Los Productos</h2>
+        <h2><%= title %> </h2>
         <section>
+            <% if (products.length == 0) { %>
+             <h4>No se encontraron productos</h4>
+            <% } %>
             <% products.forEach(product => { %>
                 <div>
                     <a href="/products/detail/<%= product.id %>">
