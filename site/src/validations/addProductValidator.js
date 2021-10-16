@@ -20,7 +20,7 @@ module.exports = [
 
     check('description')
     .notEmpty().withMessage('Es preferible que incluyas una descripción del producto').bail()
-    .isLength({ min:20 }).withMessage("El nombre debe tener minimo 20 caracteres"),
+    .isLength({ min:20 }).withMessage("La descripcion debe tener minimo 20 caracteres"),
 
     body("images")
     .custom((value, {req}) => {
@@ -34,7 +34,7 @@ module.exports = [
         let files = req.files.map(file => path.extname(file.filename).toUpperCase())
         let error = true
         files.forEach(file => {
-            if (file == ".JPG" || file == ".JPEG" || file == ".PNG" || file == ".GIF"){
+            if (file == ".JPG" ||file == ".JPEG" || file == ".PNG" || file == ".GIF"){
                 null
             }else{
                 error = false
