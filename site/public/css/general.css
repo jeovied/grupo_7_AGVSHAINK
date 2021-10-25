@@ -15,9 +15,16 @@ ul, ol, a{
     list-style-type: none;
 }
 
-@font-face {
+/* @font-face {
     font-family: "Poppins";
     font-style: normal;
     font-weight: normal;
     src: url("/fonts/Poppins") format("truetype");
+} */
+
+@font-face {
+    font-family: "Crenzo";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/CRENZO.ttf") format("truetype");
 }
