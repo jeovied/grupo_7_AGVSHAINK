@@ -19,12 +19,12 @@
         </div>
         <form method="POST" id="form-login">
             <div class="mb-3">
-                <label for="error-email" class="form-label">Correo Electronico</label>
-                <input type="email" name="email" value="<%= locals.old && old.email ? old.email : null %> " class="form-control" id="error-email" aria-describedby="emailHelp">
+                <label for="email-input" class="form-label">Correo Electronico</label>
+                <input type="email" name="email" value="<%= locals.old && old.email ? old.email : null %> " class="form-control" id="email-input" aria-describedby="emailHelp">
                 <span id="error-email"></span>
                 <div class="mb-3">
-                    <label for="error-password" class="form-label">Contraseña</label>
-                    <input type="password" name="password" class="form-control" id="error-password">
+                    <label for="password-input" class="form-label">Contraseña</label>
+                    <input type="password" name="password" class="form-control" id="password-input">
                     <span id="error-password"></span>
                 </div>
                 <div class="d-flex justify-content-end" style="flex-direction: column; align-items: center;">
@@ -37,7 +37,6 @@
                   </div>
             </div>
             </div>
-            <!-- <span>No recuerdas tu contraseña? <a href="">click aca</a></span> -->
             <div><button type="submit" class="btn btn-primary" style="margin: 20px auto; display: flex; justify-content: center; flex-direction: column; align-items: center;">Ingresar</button></div>
           </form>
             
@@ -48,23 +47,13 @@
         <article class="insta">
             <i class="fab fa-instagram"></i>
             <h3>instagram</h3>
-            <!-- <section>
-                <div>
-                    <img src="/images/pokemon.jpeg" alt="">
-                    <img src="/images/pokemon.jpeg" alt="">
-                </div>
-                <div>
-                    <img src="/images/pokemon.jpeg" alt="">
-                    <img src="/images/pokemon.jpeg" alt="">
-                </div>
-            </section> -->
         </article>
     </div>
     <footer>
         <%- include('../partials/footer') %>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="/javascripts/registerValidator.js"></script>
+    <script src="/javascripts/loginValidator.js"></script>
 </body>
 
 </html>
