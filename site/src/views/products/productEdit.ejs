@@ -11,7 +11,7 @@
         <%- include('../partials/header') %>
     </header>
     <main>
-        <h2>editar producto</h2>
+        <h2 class="title">editar producto</h2>
         <span id="error-empty" class="text-danger"></span>
                   <hr>
         <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="form-productEdit">

@@ -35,6 +35,12 @@ header .title{
     align-items: center;
 }
 
+header h1{
+    font-size: 25px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
 header h1:active{
     color: var(--color-2);
 }
@@ -199,6 +205,10 @@ header li{
 
     header .menu div h2{
         cursor: pointer;
+        font-size: 21px;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: bold;
     }
 
     header .menu div h2:hover{
@@ -212,7 +222,7 @@ header li{
     header ul{
         position: absolute;
         margin-top: 0px;
-        top: 59.5px;
+        top: 57.5px;
         background-color: var(--color-4);
         padding: 11px 25px;
     }
