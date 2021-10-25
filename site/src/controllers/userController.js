@@ -6,9 +6,6 @@ const { validationResult } = require("express-validator");
 const db = require('../database/models');
 const { response } = require('express');
 
-const usersPath = path.join(__dirname, "../data/users.json")
-const users = JSON.parse(fs.readFileSync(usersPath, "utf-8"))
-
 module.exports = {
     login : (req,res) => {
         return res.render('./users/login');
