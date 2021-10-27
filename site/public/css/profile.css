@@ -28,20 +28,18 @@
 .profile main div h4{
     border-bottom: 1px solid var(--color-4);
 }
-.profile main h6{
+.profile main h5{
     margin-top: 10px;
-    padding: 10px ;
+    padding: 5px ;
+    border-bottom: 1px solid var(--color-4);
 } 
-.profile main div img{
+
+.profile main img{
     width: 75%;
-    justify-content: center;
     border-radius: 30px;
-    margin: 10px;
-    margin-left: 35px;
-}
+} 
 .profile main div{
-    margin-top: 10px;
-    padding: 10px ;
+    padding: 5px ;
     text-transform: capitalize;
 }
 .profile main section{
