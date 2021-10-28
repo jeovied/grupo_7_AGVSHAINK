@@ -4,7 +4,7 @@
     font-family: "Poppins";
 }
 
-.profileEdit h2{
+.profileEdit h2.title{
     text-transform: uppercase;
     color: #000;
     border-bottom: 1px solid var(--color-4);
