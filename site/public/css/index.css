@@ -1,6 +1,8 @@
 .home {
     box-sizing: border-box;
     background-color: var(--color-1);
+    background-image: url("/img/fondo.png");
+    background-size: 100px;
     margin: 0px;
     font-family: "Poppins";
 }
@@ -28,6 +30,11 @@
     padding: 0px;
     background-color: var(--color-2);
 }
+
+/* .home .products .product {
+    background-image: url("/img/fondo-oscuro.png");
+    background-size: 10%;
+} */
 
 .home .product img{
     display: flex;

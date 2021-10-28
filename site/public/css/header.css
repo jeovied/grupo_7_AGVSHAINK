@@ -222,6 +222,7 @@ header li{
     header ul{
         position: absolute;
         margin-top: 0px;
+        margin-left: 39px;
         top: 57.5px;
         background-color: var(--color-4);
         padding: 11px 25px;
@@ -230,7 +231,7 @@ header li{
     header li{
         display: flex;
         justify-content: center;
-        margin: 20px 0;
+        margin: 20px;
         font-size: 18px;
     }
 
