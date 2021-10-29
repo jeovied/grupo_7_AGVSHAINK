@@ -89,9 +89,9 @@
                         <img id="avatar" src="/img/users/<%= locals.userLog.image %> " alt="">
                         <ul id="ul-avatar">
                             <li><a href="/users/profile">Perfil</a></li>
-                            <li id="logout"><a href="/users/logout">Cerrar sesion</a></li>
+                            <li id="logout"><a href="/users/logout" style="white-space: nowrap;" >Cerrar sesion</a></li>
                             <% if (locals.userLog.rol === "admin") { %>
-                                <li><a href="/admin">Administracion</a></li>
+                                <li><a href="/admin">Administración</a></li>
                             <% } %>
                         </ul>
                     </div>
