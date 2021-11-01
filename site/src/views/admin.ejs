@@ -37,7 +37,7 @@
                     </form>    
                 </div>
                 <div class="delate">
-                    <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                    <form action="/products/<%= product.id %>?_method=DELETE" method="POST" id="delete" >
                         <button type="submit">
                             <i class="fas fa-trash-alt"></i>
                         </button>
@@ -49,5 +49,7 @@
     <footer>
         <%- include('./partials/footer') %> 
     </footer>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/javascripts/admin.js"></script>
 </body>
 </html>

@@ -52,4 +52,21 @@ window.addEventListener("load", () => {
         $("ul-brand").classList.remove("on");
         $("avatar") ? $("ul-avatar").classList.remove("on") : null;
     })
+
+    $("searchBar").addEventListener("submit", (e) => {
+        let search = $("search")
+
+
+        search.value == "" && e.preventDefault() 
+    })
+
+    $("buttton").addEventListener("mouseover", () => {
+        let search = $("search")
+
+        if(search.value == ""){
+            $("buttton").style.cursor = "not-allowed"
+        }else{
+            $("buttton").style.cursor = "pointer"
+        }
+    })
 })
