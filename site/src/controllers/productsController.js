@@ -58,7 +58,88 @@ module.exports = {
     },
 
     cart : (req,res) => {
-        return res.render('./products/productCart');
+
+        let carts = db.Carts.findAll({where: {user_id: req.session.userLog.id }})
+
+        let Allproducts = db.Products.findAll({ include:[{association:'images'}]})
+
+        Promise.all([carts, Allproducts])
+            .then(([carts, Allproducts]) => {
+                let products = []
+
+                carts.forEach(cart => {
+                    Allproducts.forEach(product => {
+                        product.id == cart.product_id && products.push(Object.assign({product},{amount: cart.amount})) 
+                    });
+                });
+
+                return res.render("./products/productCart", {products, total: products.map(product => product.product.price * product.amount)})
+            })
+            .catch(e => console.log(e))
+    },
+
+    cartAdd: (req,res) => {
+
+        db.Carts.findAll({where: {user_id: req.session.userLog.id}})
+            .then(carts => {
+                
+                return carts.filter(cart => cart.product_id == req.params.id)
+                
+            }) 
+            .then(cart => {
+                if (cart.length != 0) {
+                    let amount = parseInt(cart[0].amount) + parseInt(req.body.amount)
+                    let duplicado = cart[0].id
+                    
+                    db.Carts.destroy({where: {id: duplicado}})
+                            .then(() => {
+                                db.Carts.create(
+                                    {
+                                        amount: amount,
+                                        user_id: req.session.userLog.id,
+                                        product_id: req.params.id
+                                    }
+                                )
+                                    .then(() => res.redirect('/products/cart'))
+                                    .catch(e => console.log(e))
+                            })
+                            .catch(e => console.log(e))
+                } else {
+                    db.Carts.create(
+                        {
+                            amount: req.body.amount,
+                            user_id: req.session.userLog.id,
+                            product_id: req.params.id
+                        }
+                    )
+                        .then(() => res.redirect('/products/cart'))
+                        .catch(e => console.log(e))
+                }
+            })
+            .catch(e => console.log(e))
+    },
+
+    cartDelete: (req,res) => {
+        db.Carts.destroy(
+            {
+                where: {
+                    user_id: req.session.userLog.id,
+                    product_id: req.params.id
+                }
+            }
+        )
+            .then(() => res.redirect('/products/cart'))
+            .catch(e => console.log(e))
+    },
+
+    cartEnd: (req,res) => {
+        db.Carts.destroy(
+            {
+                where: {user_id: req.session.userLog.id}
+            }
+        )
+            .then(() => res.redirect("/"))
+            .catch(e => console.log(e))
     },
 
     add : (req,res) => {
