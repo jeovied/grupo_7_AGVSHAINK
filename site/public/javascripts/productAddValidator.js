@@ -1,6 +1,4 @@
-
-let allowedFile = /(.JPG |.JPEG | .PNG | .GIF)$/i;
-let filePath = $('images').value
+let allowedFile = /(.JPG|.JPEG|.PNG|.GIF)$/i;
 
 
 window.addEventListener("load", () =>{
@@ -73,6 +71,8 @@ window.addEventListener("load", () =>{
     })
 
      $('images').addEventListener('blur', ()=>{
+        let filePath = $('images').value.toUpperCase()
+        
         if(!allowedFile.exec(filePath)){
             $('images').classList.add('is-invalid')
             $('error-images').innerHTML = "Solo se pueden cargar archivos JPG, JPEG, PNG, GIF"
@@ -82,6 +82,34 @@ window.addEventListener("load", () =>{
             $('error-images').innerHTML = null
         }
     }) 
+
+    let inputImage = document.getElementById('images');
+
+          inputImage.addEventListener('change', function () {
+            var preview = document.querySelector('#preview');
+
+            if (this.files) {
+              [].forEach.call(this.files, readAndPreview);
+            }
+
+            function readAndPreview(file) {
+
+
+              var reader = new FileReader();
+              preview.innerHTML = null;
+
+              reader.addEventListener("load", function () {
+                var image = new Image();
+                image.height = 150;
+                image.title = file.name;
+                image.src = this.result;
+                preview.appendChild(image);
+              });
+
+              reader.readAsDataURL(file);
+
+            }
+          })
 
 
      $('form-productAdd').addEventListener('submit', e => {

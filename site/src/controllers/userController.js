@@ -106,6 +106,7 @@ module.exports = {
                 }
             }).then( response => {
                 console.log(response)
+                req.session.userLog.image = req.file.filename
                 return res.redirect('/users/profile')
             }).catch(error => console.log(error))
 
