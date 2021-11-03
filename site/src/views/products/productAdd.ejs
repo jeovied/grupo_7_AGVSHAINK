@@ -74,6 +74,9 @@
               <div class="mb-3">
                 <label for="images" class="form-label">Imagen</label>
                 <input type="file" class="form-control <%= locals.errores && locals.errores.images ? 'is-invalid' : null %>" id="images" name="images" accept="image/*" multiple>
+                <div id="preview">
+
+                </div>
                 <span id="error-images" class="text-danger" style="font-size: small;"><%= locals.errores && errores.images ? errores.images.msg : null %><%= typeof error != 'undefined' ? errores : null %> </span>
               </div>
               <button class="btn btn-primary" type="submit" style="margin: 20px auto; display: flex; justify-content: center; flex-direction: column; align-items: center;">Guardar</button>
