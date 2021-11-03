@@ -20,16 +20,16 @@ window.addEventListener('load', () => {
         }
     })
 
-    $('password-input').addEventListener('focus', () => {
-        $('error-password').innerHTML = "6-12 caracteres, un número, una mayúscula y un caracter especial"
-    })
+    /* $('password-input').addEventListener('focus', () => {
+        $('error-password').innerHTML = null
+    }) */
 
     $('password-input').addEventListener('blur', () => {
         /* Validación Clave */
 
         if (!regExPass.test($('password-input').value)) {
             $('password-input').classList.add('is-invalid')
-            $('error-password').innerHTML = "Debes ingresar una contraseña acorde a los parámetros"
+            $('error-password').innerHTML = "Debes ingresar una contraseña"
         } else {
             $('password-input').classList.remove('is-invalid')
             $('password-input').classList.add('is-valid')

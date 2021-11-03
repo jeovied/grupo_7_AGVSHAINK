@@ -21,11 +21,11 @@
             <div class="mb-3">
                 <label for="email-input" class="form-label">Correo Electronico</label>
                 <input type="email" name="email" value="<%= locals.old && old.email ? old.email : null %> " class="form-control" id="email-input" aria-describedby="emailHelp">
-                <span id="error-email"></span>
+                <span id="error-email" class="text-danger" style="font-size: small;"></span>
                 <div class="mb-3">
                     <label for="password-input" class="form-label">Contraseña</label>
                     <input type="password" name="password" class="form-control" id="password-input">
-                    <span id="error-password"></span>
+                    <span id="error-password" class="text-danger" style="font-size: small;"></span>
                 </div>
                 <div class="d-flex justify-content-end" style="flex-direction: column; align-items: center;">
                     <% if (locals.errors && errors ) { %>
