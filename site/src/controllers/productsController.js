@@ -267,8 +267,10 @@ module.exports = {
                         where: {product_id : req.params.id}
                     })
                         .then(() => {
+                            let sizes = typeof req.body.size === "string" ? [req.body.size] : req.body.size
+
                             if (req.body.size) {
-                                (req.body.size).forEach(size => {
+                                (sizes).forEach(size => {
                                     db.Product_size.create({
                                         product_id: req.params.id,
                                         size_id: size

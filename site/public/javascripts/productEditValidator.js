@@ -1,6 +1,4 @@
-let allowedFile = /(.JPG |.JPEG | .PNG | .GIF)$/i;
-let filePath = $('images').value
-
+let allowedFile = /(.JPG|.JPEG|.PNG|.GIF)$/i;
 
 window.addEventListener("load", () =>{
     
@@ -73,7 +71,8 @@ window.addEventListener("load", () =>{
 
 
         
-        $('images').addEventListener('click',() => {
+        $('images').addEventListener('blur',() => {
+        let filePath = $('images').value.toUpperCase()
 
         if(!allowedFile.exec(filePath)){
             $('images').classList.add('is-invalid')
@@ -125,7 +124,7 @@ window.addEventListener("load", () =>{
         let elementosForm = $('form-productEdit').elements;
         let error = false;
     
-        for (let i = 0; i < elementosForm.length - 1; i++) {
+        for (let i = 0; i < elementosForm.length - 2; i++) {
             
             if(!elementosForm[i].value){
                 elementosForm[i].classList.add('is-invalid')

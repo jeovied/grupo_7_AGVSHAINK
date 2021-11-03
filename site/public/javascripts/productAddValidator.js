@@ -1,6 +1,4 @@
-
-let allowedFile = /(.JPG |.JPEG | .PNG | .GIF)$/i;
-let filePath = $('images').value
+let allowedFile = /(.JPG|.JPEG|.PNG|.GIF)$/i;
 
 
 window.addEventListener("load", () =>{
@@ -73,6 +71,8 @@ window.addEventListener("load", () =>{
     })
 
      $('images').addEventListener('blur', ()=>{
+        let filePath = $('images').value.toUpperCase()
+        
         if(!allowedFile.exec(filePath)){
             $('images').classList.add('is-invalid')
             $('error-images').innerHTML = "Solo se pueden cargar archivos JPG, JPEG, PNG, GIF"
