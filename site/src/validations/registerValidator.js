@@ -46,6 +46,8 @@ module.exports = [
             }else{
                 return false
             }
+        }else{
+            return true
         }
     }).withMessage('Solo se pueden cargar archivos JPG, JPEG, PNG, GIF')
 ];
