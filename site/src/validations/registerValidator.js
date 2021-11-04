@@ -30,7 +30,7 @@ module.exports = [
 
     check("password")
     .notEmpty().withMessage("Debes ingresar una contraseña").bail()
-    .isLength({ min: 8 }).withMessage("La contraseña debe tener minimo 8 caracteres"),
+    .isLength({ min: 8 }).withMessage("La contraseña debe tener de 6-12 caracteres"),
 
     check("number")
     .isMobilePhone().withMessage("Debe ingresar un telefono valido"),

@@ -4,6 +4,8 @@ let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]+)*)|(\�
 
 let regExPass = /^[a-zA-Z0-9!@#$%^&*]{6,12}$/;
 
+let regExExt = /(.jpg|.jpeg|.png|.gif)$/i;
+
 window.addEventListener('load', () => {
     console.log('registerValidator connected success');
 
@@ -76,19 +78,34 @@ window.addEventListener('load', () => {
         }
     })
 
-    $('file-input').addEventListener('blur', () => {
+    $('file-input').addEventListener('change', e => {
         /* Validación Archivos */
 
-        if (!allowedFile.exec(filePath)) {
-            $('error-file').classList.add('is-invalid')
-            $('error-file').innerHTML = "Solo se pueden cargar archivos JPG, JPEG, PNG, GIF"
-        } else {
-            $('error-file').classList.remove('is-invalid')
-            $('error-file').classList.add('is-valid')
-            $('error-file').innerHTML = null
+        switch (true) {
+            case !regExExt.exec($('file-input').value):
+                $('error-file').innerHTML = "Solo imágenes con extensión jpg, jpeg, png, gif"
+                $('file-input').classList.add('is-invalid')
+                vistaPrevia.src = ""
+                break;
+            case $('file-input').files[0].size > oneMB * 2:
+                $('error-file').innerHTML = "El archivo debe pesar menos de 2Mb"
+                $('file-input').classList.add('is-invalid')
+                vistaPrevia.src = ""
+                break
+            default:
+                $('file-input').classList.remove('is-invalid');
+                $('file-input').classList.add('is-valid');
+                $('error-file').innerHTML = "";
+                $('btn btn-primary').innerHTML = "Cambiar imagen"
+                let reader = new FileReader();
+                reader.readAsDataURL(e.target.files[0])
+                reader.onload = () => {
+                    sessionStorage.setItem('file-input', reader.result)
+                    vistaPrevia.src = reader.result
+                }
+                break;
         }
     })
-
 
     $('form-register').addEventListener('submit', e => {
         e.preventDefault();
