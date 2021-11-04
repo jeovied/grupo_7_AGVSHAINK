@@ -71,7 +71,7 @@ window.addEventListener("load", () =>{
 
 
         
-        $('images').addEventListener('blur',() => {
+        $('images').addEventListener('change',() => {
         let filePath = $('images').value.toUpperCase()
 
         if(!allowedFile.exec(filePath)){
