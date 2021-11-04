@@ -89,14 +89,14 @@ module.exports = {
     },
     update : (req,res) => {
 
-        const {name, last_name, email, password, newPassword, number} = req.body;
+        const {name, last_name, email, newPassword, number} = req.body;
 
         db.Users.update(
             {
                 name : name,
                 last_name : last_name,
                 email : email,
-                password : bcrypt.hashSync(newPassword, 10),
+                password : newPassword == "" ? req.session.userLog.password : bcrypt.hashSync(newPassword, 10),
                 number : number,
                 image : req.file && req.file.filename,
             },
@@ -104,10 +104,19 @@ module.exports = {
                 where : {
                     id : req.params.id
                 }
-            }).then( response => {
-                console.log(response)
-                req.session.userLog.image = req.file.filename
-                return res.redirect('/users/profile')
+            }).then( () => {
+
+                if (newPassword != "") {
+                    req.session.destroy()
+                    res.clearCookie("remenber")
+
+                    return res.redirect("/users/login")
+                } else {
+                    req.file ? req.session.userLog.image = req.file.filename : null
+                    
+                    return res.redirect('/users/profile')
+                }
+
             }).catch(error => console.log(error))
 
     },

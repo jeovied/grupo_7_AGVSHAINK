@@ -24,13 +24,6 @@
                 <input type="text" name="last_name" value="<%= user.last_name %>" class="form-control" id="exampleInputLastName1" aria-describedby="emailHelp">
               </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-              <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-              <% if (locals.errors && errors ) { %>
-                <span class="error"><%= errors %></span>
-               <% } %>
-            </div>
-            <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Nueva contraseña</label>
               <input type="password" name="newPassword" class="form-control" id="exampleInputPassword1">
             </div>
