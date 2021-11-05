@@ -42,20 +42,13 @@ window.addEventListener('load', () => {
     $('newPassword').addEventListener('blur', () => {
         /* Validación Clave */
 
-
-        switch(true){
-            case !regExPass($('newPassword').value) :
-                $('newPassword').classList.add('is-invalid')
-                $('error-newPassword').innerHTML = "Debes ingresar una contraseña acorde a los parámetros"
-            break;
-            case $('newPassword').value == " ":
-                $('number').classList.remove('is-invalid')
-                $('number').classList.add('is-valid')
-                $('error-number').innerHTML = null
-            default:
-                $('number').classList.remove('is-invalid')
-                $('number').classList.add('is-valid')
-                $('error-number').innerHTML = null
+        if (!regExPass.test($('newPassword').value)) {
+            $('newPassword').classList.add('is-invalid')
+            $('error-newPassword').innerHTML = "Debes ingresar una contraseña acorde a los parámetros"
+        } else {
+            $('newPassword').classList.remove('is-invalid')
+            $('newPassword').classList.add('is-valid')
+            $('error-newPassword').innerHTML = null
         }
 
     })
@@ -78,7 +71,7 @@ window.addEventListener('load', () => {
         /* Validación Archivos */
 
         switch (true) {
-            case !regExExt.exec($('image').value):
+            case !regExExt.exec($('image').value.toLowerCase()):
                 $('error-image').innerHTML = "Solo imágenes con extensión jpg, jpeg, png, gif"
                 $('image').classList.add('is-invalid')
                 vistaPrevia.src = ""
@@ -134,10 +127,10 @@ window.addEventListener('load', () => {
     $('profile-edit').addEventListener('submit', e => {
         e.preventDefault();
 
-        let elementosForm = $('profile-edit').elements;
+        let elementosForm = [$('name'), $('last_name'), $('number')];
         let error = false;
 
-        for (let i = 0; i < elementosForm.length - 1; i++) {
+        for (let i = 0; i < elementosForm.length; i++) {
 
             if (!elementosForm[i].value) {
                 elementosForm[i].classList.add('is-invalid')
