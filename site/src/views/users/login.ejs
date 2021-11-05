@@ -24,8 +24,12 @@
                 <span id="error-email" class="text-danger" style="font-size: small;"></span>
                 <div class="mb-3">
                     <label for="password-input" class="form-label">Contraseña</label>
-                    <input type="password" name="password" class="form-control" id="password-input">
-                    <span id="error-password" class="text-danger" style="font-size: small;"></span>
+                    <div class="input-group"><input type="password" name="password" class="form-control" id="password-input">
+                    <div class="input-group-append">
+                        <label for id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()" style="margin: 2px;"> <span class="fa fa-eye-slash icon"></span> </label>
+                      </div> 
+                      </div>
+                      <span id="error-password" class="text-danger" style="font-size: small;"></span>
                 </div>
                 <div class="d-flex justify-content-end" style="flex-direction: column; align-items: center;">
                     <% if (locals.errors && errors ) { %>
@@ -39,7 +43,7 @@
             </div>
             <div><button type="submit" class="btn btn-primary" style="margin: 20px auto; display: flex; justify-content: center; flex-direction: column; align-items: center;">Ingresar</button></div>
           </form>
-            
+         
     
         </section>
     </main>

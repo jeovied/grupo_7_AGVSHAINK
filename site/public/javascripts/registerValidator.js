@@ -6,6 +6,8 @@ let regExPass = /^[a-zA-Z0-9!@#$%^&*]{6,12}$/;
 
 let regExExt = /(.jpg|.jpeg|.png|.gif)$/i;
 
+let regExPhone = /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/;
+
 window.addEventListener('load', () => {
     console.log('registerValidator connected success');
 
@@ -68,14 +70,15 @@ window.addEventListener('load', () => {
     $('phone-input').addEventListener('blur', () => {
         /* Validación Teléfono */
 
-        if (!$('phone-input').value.trim()) {
+         if (!regExPhone.exec($('phone-input').value)) {
             $('phone-input').classList.add('is-invalid')
-            $('error-phone').innerHTML = "El número de teléfono es obligatorio"
+            $('error-phone').innerHTML = "Debes ingresar un numero de telefono acorde a los parámetros"
         } else {
             $('phone-input').classList.remove('is-invalid')
             $('phone-input').classList.add('is-valid')
             $('error-phone').innerHTML = null
-        }
+        } 
+
     })
 
     $('file-input').addEventListener('change', e => {
@@ -106,6 +109,36 @@ window.addEventListener('load', () => {
                 break;
         }
     })
+
+
+    let inputImage = document.getElementById('file-input');
+
+          inputImage.addEventListener('change', function () {
+            var preview = document.querySelector('#preview');
+
+            if (this.files) {
+              [].forEach.call(this.files, readAndPreview);
+            }
+
+            function readAndPreview(file) {
+
+
+              var reader = new FileReader();
+              preview.innerHTML = null;
+
+              reader.addEventListener("load", function () {
+                var image = new Image();
+                image.height = 150;
+                image.title = file.name;
+                image.src = this.result;
+                preview.appendChild(image);
+              });
+
+              reader.readAsDataURL(file);
+
+            }
+          })
+
 
     $('form-register').addEventListener('submit', e => {
         e.preventDefault();

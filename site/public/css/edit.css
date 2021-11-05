@@ -57,6 +57,15 @@
     color: red;
     font-size: 14px;
 }
+.profileEdit #preview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
 
 
 @media (min-width: 769px){

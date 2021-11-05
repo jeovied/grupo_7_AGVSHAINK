@@ -4,8 +4,25 @@ let regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]+)*)|(\�
 
 let regExPass = /^[a-zA-Z0-9!@#$%^&*]{6,12}$/;
 
+function mostrarPassword(){
+    var cambio = document.getElementById("password-input");
+    if(cambio.type == "password"){
+        cambio.type = "text";
+        $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+    }else{
+        cambio.type = "password";
+        $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+    }
+}
+
+
+
+
+
 window.addEventListener('load', () => {
     console.log('loginValidator connected success');
+
+    
 
     $('email-input').addEventListener('blur', () => {
         /* Validación Email */
