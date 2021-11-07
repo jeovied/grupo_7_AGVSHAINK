@@ -186,7 +186,7 @@ module.exports = {
 
         let errors = validationResult(req);
         if(errors.isEmpty()){
-        
+
             db.Products.create({
                 name: req.body.name,
                 price: req.body.price,
@@ -196,27 +196,44 @@ module.exports = {
                 brand_id: req.body.brand
             })
                 .then(product => {
+                    let images = []
                     let imagenes = req.files.map(imagen => imagen.filename)
+
                     imagenes.forEach(image => {
-                        db.Images.create({
+                        var img = {
                             file: image,
                             product_id: product.id
-                        })
+                        }
+                        images.push(img)
                     })
-                    let sizes = typeof req.body.size === "string" ? [req.body.size] : req.body.size
-    
-                    if (req.body.size) {
-                        (sizes).forEach(size => {
-                            db.Product_size.create({
-                                product_id: product.id,
-                                size_id: size
-                            })
+
+                    db.Images.bulkCreate(images, {validate: true})
+                        .then( response => {
+                            
+                            let talles = []
+                            let sizes = typeof req.body.size === "string" ? [req.body.size] : req.body.size
+                            
+                            if (req.body.size) {
+                                (sizes).forEach(size => {
+                                    var talle = {
+                                        product_id: response[0].product_id,
+                                        size_id: size
+                                    }
+                                    talles.push(talle)
+                                })
+
+                                db.Product_size.bulkCreate(talles, {validate: true})
+                                    .then(() => res.redirect("/admin"))
+                                    .catch(error => res.send(error))
+                            }else{
+                                return res.redirect("/admin")
+                            }
+
                         })
-                    }
-                    
-                    return res.redirect("/admin")
+                        .catch(error => res.send(error))
                 })
                 .catch(error => res.send(error))
+
         }else{
 
             let categories = db.Categories.findAll()

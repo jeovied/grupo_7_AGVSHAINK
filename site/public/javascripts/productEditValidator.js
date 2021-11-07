@@ -47,13 +47,13 @@ window.addEventListener("load", () =>{
      }
      })
     
-     $('brand').addEventListener('blur', () => {
-        if(!$('brand').value){
-         $('brand').classList.add('is-invalid')
+     $('brands').addEventListener('blur', () => {
+        if(!$('brands').value){
+         $('brands').classList.add('is-invalid')
          $('error-brand').innerHTML = "Debes indicar la marca del producto"
      }else{
-         $('brand').classList.remove('is-invalid')
-         $('brand').classList.add('is-valid')
+         $('brands').classList.remove('is-invalid')
+         $('brands').classList.add('is-valid')
          $('error-brand').innerHTML = null
      }
      })

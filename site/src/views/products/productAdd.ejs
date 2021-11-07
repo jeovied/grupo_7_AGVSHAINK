@@ -51,7 +51,7 @@
               <div class="mb-3">
                 <label for="brand" class="form-label">Marca</label>
 
-                <select id="brand" class="form-select <%= locals.errores && locals.errores.brand ? 'is-invalid' : null %>" name="brand">
+                <select id="brands" class="form-select <%= locals.errores && locals.errores.brand ? 'is-invalid' : null %>" name="brand">
                     <option value="" selected hidden>Seleccione la marca</option>
                     <% brands.forEach(brand => { %>
                       <option value="<%= brand.id %>" <%= locals.old && old.brand == brand.id ? 'selected' : null%> ><%= brand.name %></option>

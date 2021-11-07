@@ -49,7 +49,7 @@
               <div class="mb-3">
                 <label for="brand" class="form-label">Marca</label>
 
-                <select id="brand" class="form-select" name="brand">
+                <select id="brands" class="form-select" name="brand">
                     <% brands.forEach(brand => { %>
                       <option value="<%= brand.id %>" <%= brand.id === product.brands.id ? 'selected' : null %> ><%= brand.name %></option>
                     <% }) %>

@@ -59,7 +59,7 @@ module.exports = {
                     rol : user.rol,
                     image : user.image
                 }
-                remenber && res.cookie("remenber", user, { maxAge: 600000 })
+                remenber && res.cookie("remenber", user, { maxAge: 99999999999999999999999 })
                 return res.redirect('/')
             })
 
